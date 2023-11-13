@@ -1,0 +1,702 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Writing Proposals</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a47554b6-7afd-4b04-a886-1f3d5456d4d8" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📝</span></div><h1 class="page-title">Writing Proposals</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="a33e7256-fb22-42aa-9b13-96622d629ae6" class="">
+</p><div id="688d74a1-132b-4fbe-8249-11977b660f39" class="column-list"><div id="cceaa157-d4ad-44cb-b16b-3573a5ff8f8a" style="width:50%" class="column"><p id="20935071-aa18-4007-b86e-93a9e0756cd6" class="">When you hear the word <em>proposal</em>, you probably imagine a long and complex document. But proposals don&#x27;t need to be complex.</p><p id="038a1c97-2d25-4fa7-a0f1-c2f9a3a8f4a9" class="">In an office environment people make small proposals all the time during meetings or hallway conversations: <em>&quot;Hey I think we should do X because Y. What do you think?&quot;</em></p><p id="f35f4e24-6fd5-44a0-b587-c1f9e1374f46" class="">The discussion that follows will normally involve a bunch of back-and-forth which touches on pros &amp; cons, as well as some alternative solutions.</p><p id="8c0b0493-56da-45a5-b6e1-959aae94fa5b" class="">When working asynchronously these kind of discussions happen much less naturally. Timezones also mean that the back-and-forth discussion takes much longer, so we need to minimize this wherever we can.</p></div><div id="0472c756-65ca-4b20-a9c9-cfb8c53c159a" style="width:50%" class="column"><figure id="e976c7ff-5d76-4d2d-9742-13e40186bb85" class="image"><a href="Writing%20Proposals%20a47554b67afd4b04a8861f3d5456d4d8/Screenshot_2020-11-14_at_02.41.41.png"><img style="width:382px" src="Writing%20Proposals%20a47554b67afd4b04a8861f3d5456d4d8/Screenshot_2020-11-14_at_02.41.41.png"/></a><figcaption>Example of a very simple proposal in slack.</figcaption></figure><p id="3089a2ee-5bd7-4c8f-89cf-271a34b280f9" class="">
+</p></div></div><p id="6127620c-5cec-41e6-bb44-78ad01239531" class="">As with most things in async teams, we need to be much more <strong>intentional</strong> about how we make proposals than we would in an office environment.</p><p id="93f37b73-9275-4851-bf89-95cad274f0d5" class="">Because of this, learning how to write good proposals is an important skill for distributed working. And if you&#x27;re good at writing simple proposals, you&#x27;ll also write much better <em>formal</em> proposals when you need to.</p><p id="6f8d1042-d552-4574-8307-776d58147224" class="">You might need to write a proposal...</p><ul id="79de0db6-bd08-4451-b0ea-60301aa3020f" class="bulleted-list"><li style="list-style-type:disc">When quickly suggesting something on Slack.</li></ul><ul id="5faf9219-a463-44d7-bb5e-3008fef00e63" class="bulleted-list"><li style="list-style-type:disc">When suggesting improvements to process or documentation.</li></ul><ul id="72e84a99-1769-4304-b4a4-a34512fd33bc" class="bulleted-list"><li style="list-style-type:disc">When proposing a new product feature (or a refactoring of some code).</li></ul><ul id="81e91def-22ac-416c-86bb-cde68d0caca6" class="bulleted-list"><li style="list-style-type:disc">Before Decision Meetings.</li></ul><ul id="745acbd4-f7c0-4b67-b258-56a28e3d3431" class="bulleted-list"><li style="list-style-type:disc">When proposing something big, like a new strategy.</li></ul><ul id="87a8954d-d3fb-40ba-990a-48eea2b5b967" class="bulleted-list"><li style="list-style-type:disc">Etc.</li></ul><p id="58875874-63d6-4695-998a-6d6dda2e0d35" class="">
+</p><h2 id="6902cd60-e1ba-4b01-9a6a-34a0b06da289" class="block-color-pink">How to write proposals</h2><hr id="820722c0-9ab8-4ac3-b0a3-1209af8c365e"/><p id="061304b1-1e03-4a59-9a82-f094d9e4d613" class="">Most proposals should include:</p><ul id="ae86aa8f-8e9d-4c2d-adfc-5a375db438e1" class="bulleted-list"><li style="list-style-type:disc">The problem <mark class="highlight-gray">(usually expressed in terms of business value)</mark>.</li></ul><ul id="f4b504f4-b1d7-45f5-97a0-dd7e9c784de7" class="bulleted-list"><li style="list-style-type:disc">Your proposed solution, along with its pros and cons.</li></ul><ul id="5832bc0a-395d-48af-93ad-a3a253eeef1c" class="bulleted-list"><li style="list-style-type:disc">Alternative solutions and their pros and cons.</li></ul><ul id="371aa2c3-2273-4598-9c17-a532332fa987" class="bulleted-list"><li style="list-style-type:disc">The people who should be involved in making the decision.</li></ul><p id="1da09915-b545-41ae-83c1-784613dbc017" class="">
+</p><p id="9bc8531f-d71c-4872-b8f2-e4ce0150af9c" class="">Depending on what you&#x27;re proposing, you might also want to include:</p><ul id="72e9771e-dcae-4feb-83f1-6faf5d94a4d6" class="bulleted-list"><li style="list-style-type:disc">Some background context.</li></ul><ul id="cd0c8105-2674-4c9d-a116-366c78f01df3" class="bulleted-list"><li style="list-style-type:disc">Risks and knock-on effects for each solution.</li></ul><ul id="dbf52fc5-bcc4-4cc1-a80c-9e0b4b627e5b" class="bulleted-list"><li style="list-style-type:disc">Solutions you have already discounted, and why.</li></ul><ul id="9dd77907-50b0-465b-bdba-2da7ba7cce1a" class="bulleted-list"><li style="list-style-type:disc">The pros and cons of making <strong>no decision at all</strong>.</li></ul><ul id="031180ba-cdc4-4a40-94b0-3ce5314306d3" class="bulleted-list"><li style="list-style-type:disc">Deadlines, timelines and work dependent on the decision.</li></ul><ul id="a38f8be5-50c7-4789-9771-f126403fd252" class="bulleted-list"><li style="list-style-type:disc">A proposed decision owner who has the final say.</li></ul><p id="b7af85b9-8788-4da8-bb23-d56f5fc926e8" class="">
+</p><h3 id="dc02a293-17ef-4cd6-81ac-c7e5eae38009" class="block-color-purple">Key Points</h3><hr id="0bf5ed30-4302-41d1-9f50-4a8c21b8ce8b"/><p id="71173651-e81f-43ce-a4b4-cfd6d1fbb8b5" class="">
+</p><ul id="b33093e4-79fd-4679-a09e-d0e1af58ec79" class="bulleted-list"><li style="list-style-type:disc">Proposals don&#x27;t need to be big, scary documents. You <strong>don&#x27;t need to spend hours</strong> crafting them.</li></ul><ul id="7c41dd62-a257-4e68-9a00-b35b0f1ca45e" class="bulleted-list"><li style="list-style-type:disc">Put yourself <strong>in the shoes</strong> of the people reading it – what do they need to know to contribute to the decision-making process in a useful way?</li></ul><ul id="c55c9fae-2ee9-49b7-a2b2-e86ec043412e" class="bulleted-list"><li style="list-style-type:disc">Try to <strong>anticipate</strong> likely questions and objections, and answer them in the initial proposal.</li></ul><ul id="303ffcd4-013d-455c-a3b2-21a24200115b" class="bulleted-list"><li style="list-style-type:disc">Ask <strong>specific questions</strong> so it&#x27;s easier for people to contribute their thoughts.</li></ul><p id="c315b1f3-8276-4adb-a210-d314f60c80b6" class="">
+</p><h3 id="ebf5d13f-dbc9-462a-9c77-285126289c44" class="block-color-purple">Example</h3><hr id="2c8888e7-5c09-4e12-894f-20f1e20d1e51"/><p id="39ee8d34-b572-4770-ad23-1e0921984f7e" class="block-color-gray">Here&#x27;s a simple example...</p><p id="e688a740-3e6e-47ab-b927-6a6933a293c2" class="">
+</p><p id="76ed30ea-6887-470e-9c79-66eb410b8d6c" class="block-color-pink_background"><div class="indented"><p id="84ee0ffd-40bf-496c-9830-df53af7e897d" class="block-color-teal"><mark class="highlight-teal"><strong>Problem</strong></mark></p><p id="2e0130ea-2875-4b2b-81cd-54f42cceeeea" class="">The product team isn&#x27;t getting enough time to socialize, and it&#x27;s damaging our sense of &quot;team&quot;.</p><p id="487f3eb0-6fff-4d46-b6c3-61bd615f8aa6" class="">
+</p><p id="74f79cb8-1995-4df3-bd2b-2230906deae1" class=""><mark class="highlight-teal"><strong>Option 1 - Schedule a 1-hour weekly team social call</strong></mark></p><p id="24779579-e7e6-4ba6-b4ff-cb95b252cb5c" class=""><strong>Pros</strong>: Simple solution. Clearly signals that we care about socializing.</p><p id="aa5ab095-5d95-44de-8d02-624d9cd87c49" class=""><strong>Cons</strong>: Takes an hour out of everyone&#x27;s week. Hard to fit in for Alice and Romeo (they have very busy calendars). Will probably be at an unsociable time for Carlos and Misha.</p><p id="f77d8e6e-22c8-4cdf-8001-53acde500272" class="">
+</p><p id="338f5720-6995-45e5-9b53-8bc66ae83a65" class=""><mark class="highlight-teal"><strong>Option 2 - Replace every other weekly team meeting with a social call</strong></mark></p><p id="9183b8d0-3317-47fb-be94-bdbd8a08abf0" class=""><strong>Pros</strong>: No extra time. We know this time slot works.</p><p id="d393e104-dadc-4796-8dc7-985578651b4c" class=""><strong>Cons</strong>: It&#x27;s only once every two weeks. Less regular team meets will affect alignment about work.</p><p id="979a5b34-fb5d-4666-9bb3-fdc858b2bef0" class="">
+</p><p id="b26e9c14-0090-4c96-a56c-6dedb493fd04" class=""><mark class="highlight-teal"><strong>Option 3 - Do nothing / Something else</strong></mark></p><p id="66783ca2-8a3f-4bf8-9f82-30a62a9a2f46" class="">I feel like doing nothing isn&#x27;t really an option here. But am open to any other ideas that might solve this problem.</p><p id="00e7ad32-f345-48c7-8857-da8ddd47db0c" class="">
+</p><p id="9fcd1de4-10a0-48f3-8033-6409de4a5866" class=""><mark class="highlight-teal"><strong>Questions</strong></mark></p><ul id="7fab565c-5be9-4714-a3f3-cc2f7fa231e4" class="bulleted-list"><li style="list-style-type:disc">How do we make social calls less awkward? How do we give them some structure? Any creative ideas?</li></ul><ul id="a1d5af85-2b3f-432b-b822-d222cbcc40de" class="bulleted-list"><li style="list-style-type:disc">Who should lead these to begin with?</li></ul><ul id="259f4328-2d0d-47e3-aee1-8017e10243c0" class="bulleted-list"><li style="list-style-type:disc">Who&#x27;s the decision maker here? If nobody obvious, is anyone uncomfortable with me making a decision on this after everyone&#x27;s given their input?</li></ul><p id="0ba29103-18a2-4a33-8133-c02806643dc3" class="">
+</p></div></p><p id="121dc0b3-8e8a-4071-bc27-dd05675927ff" class="">
+</p><p id="a2deacee-f6d0-42e5-a9c3-986d8e7c37d5" class="">
+</p><h2 id="624d5128-20a0-45de-88fa-c70ebf9eea92" class="block-color-pink">Summary &amp; Key Points</h2><hr id="acfd9abc-a495-4da8-9ba0-ba25f3832199"/><p id="f1ba48eb-7631-4d6c-8b80-3bf65381f667" class="">Writing good proposals is a core skill for asynchronous workers, but it should not be scary – some proposals can be very simple!</p><p id="b7de720c-de5a-4181-a465-bd0ad26ae820" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="7fa5df1d-afcd-416e-96bd-07fee042960e"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise:</strong> Think of a decision you need to make jointly with someone else – this need not be about work work, it could be with your partner, or some friends (it could be as simple as &quot;where do we go for dinner this weekend&quot;).
+
+Spend ten minutes writing a description of the problem, along with the potential solutions and their pros/cons. Then make your recommendation.
+
+<strong>Now reflect on the process. </strong>Prompts:
+- Was it difficult or easy?
+- Did it help you clarify your thoughts at all?
+- Did it spark any questions? Did you look anything up?
+
+<mark class="highlight-gray">Bonus points if you share your proposal and actually use it to make a decision.</mark></div></figure><p id="54492979-4acf-4866-9958-7e4ccc543982" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

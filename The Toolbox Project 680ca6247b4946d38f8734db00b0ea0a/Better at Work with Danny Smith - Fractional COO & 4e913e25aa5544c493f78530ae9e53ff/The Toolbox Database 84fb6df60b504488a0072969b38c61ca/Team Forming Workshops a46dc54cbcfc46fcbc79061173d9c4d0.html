@@ -1,0 +1,701 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Team Forming Workshops</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a46dc54c-bcfc-46fc-bc79-061173d9c4d0" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🌱</span></div><h1 class="page-title">Team Forming Workshops</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="9f5fbc69-5e72-411d-b25a-570f34e688a6" class="">
+</p><p id="6c7be093-0e3b-45b7-9871-87211bd88c31" class="">Forming new teams can be a challenge in a remote environment – especially if the folks on the new team have never worked together before. Whenever a new team is established (see <a href="Formally%20Established%20Teams%2029976b17bd724470892dc4956b9f3cf1.html"><span class="icon">👨‍👩‍👦‍👦</span>Formally Established Teams</a>) I like to run a workshop – or series of workshops – to kick things off. The exact format of these will depend on the team and the work they’re going to do, but when I run them I like to start by focussing on three things first.</p><p id="8ddc4bc7-e65c-40ef-b051-82eca26e1dd2" class="">
+</p><ol type="1" id="99ccd94e-be0c-49c0-a016-cad5fb8c0a48" class="numbered-list" start="1"><li>Get mutual understanding of what we need from each other to do our <strong>best</strong> work.</li></ol><ol type="1" id="a2f06f73-c111-4dd1-801b-afc74091d68c" class="numbered-list" start="2"><li>Understand our team vision and mission.</li></ol><ol type="1" id="512dc74c-ae6f-4e49-ab43-b5b5e5265c85" class="numbered-list" start="3"><li>Define our team principles, what they mean and how we use them to guide our daily decision-making.</li></ol><p id="09534efd-3fc9-4a7b-a3a9-80f129b429e3" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="a68088a5-8119-4a79-9e0c-b3f1bbc9b8b6"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">If the team are all <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>totally new</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> to each other, it’s a good idea to run a few social calls (or meet up in person) beforehand, jus so everyone has met each other and feels comfortable. See <a href="Social%20Calls%20b8a7137e6a60495eab651c773efc0e1d.html"><span class="icon">☕</span>Social Calls</a> and <a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db.html"><span class="icon">🕹️</span>Games for Remote Teams</a> for more on this.</div></figure><p id="cded92f2-c9f9-4c4f-83b1-e0b8ffa59313" class="">
+</p><p id="029a1a10-0d9d-4461-a5f9-9e6b77bc1d2b" class="">
+</p><h2 id="4527bda8-4efe-4dc1-886d-94741ed605de" class="block-color-pink">The Team Forming Workshop 🎨</h2><hr id="679adc45-94ad-4ed3-a88c-fcaf5fb136bb"/><p id="51cca1fb-5374-4da8-85c6-aa17f720bbbd" class="">This format works best with small teams of 5-8. I tend to use  <a href="Fundamental%20Workshopping%20Tools%20d894cb8253554de8b704f46db2cf8128.html"><span class="icon">🪢</span>Fundamental Workshopping Tools</a> along with a simple FigJam board (see <a href="Intro%20to%20FigJam%20dcf8b3ac909c46a1916a226fa14a9830.html"><img class="icon" src="Intro%20to%20FigJam%20dcf8b3ac909c46a1916a226fa14a9830/figma.png"/>Intro to FigJam</a>) to run these, and the format usually looks like this…</p><p id="fcfb65f1-570f-4ba0-b897-109adbd7d433" class="">
+</p><h3 id="c847bce8-be08-4543-a5ac-bd87961f92ac" class="">Opening <mark class="highlight-gray">(5-10 mins)</mark></h3><hr id="aa604d80-f5f0-43fa-879e-2c654a097215"/><ul id="a7672425-efb1-4713-a306-bf22889cd0ba" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Checkin  <a href="Meeting%20Checkins%20b53c2408d1ff474488783732fec1aaf1.html"><span class="icon">💙</span>Meeting Checkins</a> </span><div class="indented"></div></li></ul><ul id="e4747be0-9085-48e3-a3e0-6e0374976cd5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Explain the agenda &amp; set the scene</span><div class="indented"></div></li></ul><ul id="49dfc282-387e-4949-9f0f-201bbd533b1e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Grounding exercise (depending on the team)</span><div class="indented"></div></li></ul><p id="121de2b7-7ba1-4175-b503-1d97b95a7a00" class="">
+</p><h3 id="b09bbc0d-a0cf-42fa-82e9-7abb12e8796c" class="">Doing our best work <mark class="highlight-gray">(75 mins)</mark></h3><hr id="f4a84b50-bf66-4b27-ac6f-7e3d4a152fc2"/><p id="0d0796ff-6a30-406d-8365-38c2793bed98" class="">This is about helping the team identify their own needs and behaviour as individuals, and then discussing and acknowledging them as a group.</p><p id="9eff0191-5d20-4b64-8608-3e6ea74baeba" class="">
+</p><p id="ea630868-a63f-4ddf-9248-cb00cf6ab897" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="552cf40e-a1f5-4673-a665-9381d00af835"><div style="font-size:1.5em"><span class="icon">1️⃣</span></div><div style="width:100%"><strong>Activity One</strong><hr id="c4283182-ce00-4fd7-aee0-b6bb60991505"/><p id="6b91e32f-070e-4751-ac94-eb70dbec9cf4" class="">
+</p><p id="609c1b95-4bc5-48d7-9319-ef50abaff9dd" class=""><strong>What do I need to do my best work in a team?</strong></p><p id="16aaedba-5eb0-4dcf-ad4e-ceec4da2285e" class="">
+</p><ul id="6bc65aa1-303e-48b9-b1b5-d48d340077da" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Individual reflection in separate areas on the board (8 mins)</span><div class="indented"></div></li></ul><ul id="f10d74f2-ffa9-412f-89a5-16d1681ae12f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Sharing – each participant talks over their sticky notes one by one (3 mins each)</span><div class="indented"></div></li></ul><ul id="64e99968-4b46-4899-b423-dca3c3d2cd99" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Group Reflection - what was surprising here? Top 1 insight (10 mins)</span><div class="indented"></div></li></ul><p id="6655e59f-5eba-4e69-91c4-d510b20bcb32" class="">
+</p></div></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="403207f2-1fcc-4c8a-a02f-f1f8ffa03445"><div style="font-size:1.5em"><span class="icon">1️⃣</span></div><div style="width:100%"><strong>Activity Two</strong><hr id="5fc9ccb9-ad7b-47bf-ac83-e586ad10bfdb"/><p id="d6d17f4a-94b3-491f-81fb-83a593c37de5" class="">
+</p><ul id="3336b6d4-3fc3-4f95-816c-d9309a24a3af" class="bulleted-list"><li style="list-style-type:disc">What do I <strong>struggle</strong> with? What am I bad at?</li></ul><ul id="49ad9e01-312b-43dc-9e16-dd0b6854ba50" class="bulleted-list"><li style="list-style-type:disc">What frustrates <strong>others</strong> when working with me?</li></ul><ul id="702c23fe-0d2f-4712-8ea2-a3f86e983432" class="bulleted-list"><li style="list-style-type:disc"><strong>What tends to derail me</strong> (either internal or external)</li></ul><p id="f4ea89d0-82a2-4f45-8306-f9aabf43fb1c" class="">
+</p><ul id="c4adbc03-b1a1-4068-ab20-e03b60381d50" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Individual reflection in separate areas on the board (8 mins)</span><div class="indented"></div></li></ul><ul id="b4e0a29f-79e2-4225-b049-94671fc09554" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Sharing – each participant talks over their sticky notes one by one (3 mins each)</span><div class="indented"></div></li></ul><ul id="53349c84-0911-4559-8990-7a4462faab88" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Group Reflection - what was surprising here? Top 1 insight (10 mins)</span><div class="indented"></div></li></ul><p id="574c1f47-0fab-492a-b8ff-ebb4e65a6f94" class="">
+</p></div></figure><p id="384c1bea-24d0-4c59-8af8-f321f945b9a7" class="">
+</p><p id="f0b6b1b4-8c09-47cc-89ca-a8b4d70ef2ee" class="">This usually ends up with some interesting insight but can can feel quite uncomfortable for some people. As the facilitator, it’s a good idea to thank everyone for their honesty and let people take a 10-minute break at this point.</p><p id="8136d998-c3bf-4405-ab7d-c3f90379920b" class="">
+</p><div id="3c2d805b-28f2-45c0-ae51-e844325f70bb" class="column-list"><div id="c8fb6d0d-e52b-4cbf-b4b3-ffc1c9ea8935" style="width:50%" class="column"><figure id="1d017d13-2e48-4d5b-9053-428a43fbfeed" class="image"><a href="Team%20Forming%20Workshops%20a46dc54cbcfc46fcbc79061173d9c4d0/Exercise_1.png"><img style="width:808px" src="Team%20Forming%20Workshops%20a46dc54cbcfc46fcbc79061173d9c4d0/Exercise_1.png"/></a><figcaption>Examples from <strong>Activity 1</strong> - what do I need?</figcaption></figure></div><div id="4ef924bc-ef6f-4670-897b-1b2e8defd086" style="width:50%" class="column"><figure id="874ee0b1-98c9-4bfc-8de5-57f3a7eacf70" class="image"><a href="Team%20Forming%20Workshops%20a46dc54cbcfc46fcbc79061173d9c4d0/Exercise_2.png"><img style="width:816px" src="Team%20Forming%20Workshops%20a46dc54cbcfc46fcbc79061173d9c4d0/Exercise_2.png"/></a><figcaption>Examples from <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Activity 2</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> - The 3 questions</figcaption></figure></div></div><p id="08a55094-ef1a-4b33-884c-6a6ae3e2db48" class="">
+</p><p id="a21b0b2e-27da-4c52-bd71-87dfeba1ee2a" class="">
+</p><h3 id="fe1bed3b-cd83-4d98-868b-a987fc9bb3e6" class="">Team Operating Principles <mark class="highlight-gray">(60 mins)</mark></h3><hr id="e337075b-dd9a-4212-a8ee-223569db24a6"/><p id="96a4032d-a1d2-4251-bde4-25197822e86a" class="">As a group, look back over the sticky notes from earlier and try to identify any commonalities and potential solutions to these. Sometimes this involves members of the team just agreeing to help others work on something, but often there are some very practical practices the team can adopt to do help with these.</p><p id="b7e2a7c4-9932-4b0f-a9c7-a2b2f16fcb55" class="">If some of the team members find it hard to get going in the morning, we might agree to always start the day with a synchronous stand-up, or that we’ll always spend the first hour of the day pairing with each other (see <a href="Pair%20Working%203107d4c489474044a8ac03d9545a0eb7.html"><span class="icon">🤝</span>Pair Working</a>).</p><p id="30c5e132-e274-43da-945b-0bc1e9eedd39" class="">If folks struggle with decision paralysis or knowing what to work on, we might all agree to be very disciplined about breaking work into smaller tasks and keeping our project management software up-to-date.</p><p id="2e1a50d0-edcf-4b2c-b9f6-92b778d82ec3" class="">Whatever comes out of these discussions, it’s a good idea to spend some time writing them down clearly, either as <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>principles </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>or<strong> values</strong>, agreed <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>ways of working</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> or perhaps as a <strong><strong><strong><strong><strong><strong><strong>charter</strong></strong></strong></strong></strong></strong></strong> which everyone commits to.</p><p id="13aa33ea-4070-4713-9b3a-6f8cbff0159c" class="">I’ve found that this part of the workshop is always quite messy, and there’s no “right” way to facilitate it. </p><p id="818aec3d-5e17-4805-8605-4a33bf1b332c" class="">Once the team has agreed on these operating principles, I always ask the question “If we do these things, are we all getting what we need from each other to do our best work as a team?”</p><p id="9c40406a-63e2-4374-9c82-c6effb34cfa7" class="">
+</p><h3 id="c6016c2f-5d4f-43e5-90fb-593a44b30df7" class="">Vision &amp; Mission <mark class="highlight-gray">(max 15 mins)</mark></h3><hr id="ac48e9c6-b42b-4a69-bc47-149397d15033"/><p id="fd409bad-1880-40cd-9a35-31b6019b72fa" class="">I usually wrap up the workshop with a short section on the team vision and mission. Most of the time, these will be set by someone outside the team (you should know <strong><strong><strong>why</strong></strong></strong> you’re standing up a team before you do). So this part usually just involves someone painting a picture of the future and explaining why the team exists, and then <strong>clearly stating the team’s immediate mission</strong>.</p><p id="3b0222b8-bd13-4b80-b141-e06cbfb85427" class="">If the team have any questions or suggestions about the mission, we might spend some time tweaking.</p><p id="dfdf5271-0b1c-47af-9724-a643c4686669" class="">Ending on vision &amp; mission isn’t necessary, but I’ve found it helps to anchor the other work in the workshop back to the work to be done, and is a good springboard for moving into planning meetings and the like.</p><p id="97e84388-5b91-4739-adb3-199caf3fc369" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1eb1cf8f-cbfd-44be-8147-b56eb6c835b0"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">If you don’t have an externally-defined vision and mission, you should run a separate workshop to define them.</div></figure><p id="a9396a66-733a-462a-88f6-9b4ee5675cea" class="">
+</p><h3 id="664d6868-253e-46af-b7c3-4b05a8431c98" class="">Closing<mark class="highlight-gray"> (5 mins)</mark></h3><hr id="fff1b69a-db65-4d78-9ea1-ca87bb0f6e22"/><ul id="9b132266-af78-49cb-995e-513128a95bc8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Remind folks of the agenda and what happened in the workshop.</span><div class="indented"></div></li></ul><ul id="beffdbf0-7f2f-42af-b235-82ade74023c3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Reflection – go round the room. How are you feeling and what was the most insightful thing to come out of today for you?</span><div class="indented"></div></li></ul><ul id="ce6ba176-78f6-4666-be32-f466373b93d9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Thank everyone for their honesty &amp; openness.</span><div class="indented"></div></li></ul><ul id="307a2dc9-62be-4422-b413-94411b6c8bad" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Repeat the mission &amp; look forward to the next step in the team’s formation.</span><div class="indented"></div></li></ul><p id="9a6deb8c-12c4-4dc8-8e57-99303e37cb55" class="">
+</p><p id="2d448032-7b49-4881-a870-1620721cb9bb" class="">
+</p><h2 id="f968ea21-0e0f-4b51-8902-fdc0fdfc95c5" class="block-color-pink">Why does this format work? 🤔</h2><hr id="704e6a65-f122-41d5-a982-c46be56d3bf0"/><p id="56dcbb13-1d1e-4d7f-bdbf-b3f2827dcd8e" class="">I think because…</p><p id="431c1874-1254-4cb1-bbba-30b15269a34b" class="">
+</p><ul id="d5e246ad-4ccc-49d7-abec-e59ec1e7ae86" class="bulleted-list"><li style="list-style-type:disc">It forces <strong><strong><strong>all</strong></strong></strong> team members to step slightly outside their comfort zone. The shared experience of being slightly uncomfortable <em><em><em><em><em><em><em><em>together</em></em></em></em></em></em></em></em> makes it much easier when it (inevitably) happens in the future and feel okay about it. This is especially valuable if the team has senior people on it, who wouldn’t normally share uncomfortableness with the other members.</li></ul><ul id="701c99f8-01dd-430a-8cdb-6430d748d674" class="bulleted-list"><li style="list-style-type:disc">It asks folks to be open, vulnerable and honest from the start – all of which are important in high-functioning teams.</li></ul><ul id="d4afd749-bb44-4fc7-8347-0a8b38715ca4" class="bulleted-list"><li style="list-style-type:disc">It helps people see and acknowledge that we’re all different and have different needs.</li></ul><ul id="6b7216ab-5bf8-4bf3-8316-735b84e98287" class="bulleted-list"><li style="list-style-type:disc">It’s a good introduction to individual reflection, which most of us don’t do nearly enough. It’s very hard for a team to honestly reflect on their work together if they can’t reflect as individuals. <mark class="highlight-gray">(These kind of workshops can lead to deeper retros later on)</mark></li></ul><ul id="2b4f8a77-275c-49c3-87f1-00d4e101a286" class="bulleted-list"><li style="list-style-type:disc">The act of working together to turn individual needs and failings into jointly owned principles really helps folks take ownership of <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>how we do work</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> and not just the work itself. We’re starting to design our team together.</li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

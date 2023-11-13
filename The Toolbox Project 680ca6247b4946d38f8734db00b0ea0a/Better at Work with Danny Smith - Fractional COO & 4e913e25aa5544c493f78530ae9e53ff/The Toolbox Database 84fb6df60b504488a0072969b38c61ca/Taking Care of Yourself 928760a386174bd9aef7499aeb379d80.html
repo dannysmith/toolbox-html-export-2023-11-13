@@ -1,0 +1,699 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Taking Care of Yourself</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="928760a3-8617-4bd9-aef7-499aeb379d80" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">❤️</span></div><h1 class="page-title">Taking Care of Yourself</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="38487264-e159-4728-98af-e115df8f8892" class="">
+</p><p id="943d7f14-7792-4f20-b105-20c4b85c5653" class="">Like anything, remote working can be tough at times. The first and most important thing to remember is that remote working presents a whole new set of challenges – and we&#x27;d be lying to ourselves if we pretended that they didn&#x27;t exist. The only way to address these challenges is to talk openly and transparently about them.</p><p id="5bc539c7-f467-4271-9fb2-87dbbe7e397b" class="">The advice below has helped a lot of folks to take better care of themselves in a remote environment, but it&#x27;s by no means exhaustive since everyone&#x27;s needs are different. And as in any community, <strong>everyone in your company has a responsibility to look after each other</strong>. No <em>Top Tips</em> can replace that.</p><h2 id="5cd70515-bb63-404d-b197-9f5fcc5be396" class="block-color-pink">Shutting off from work 🛌</h2><hr id="b1d1bd55-92fb-4621-a2f7-e55aa3002f17"/><p id="267388ae-c395-4978-b477-c132f3a47d82" class="">
+</p><blockquote id="e7f4b580-6325-4d67-ade6-e9a7108cd8d5" class="">&quot;There is always more to do, and when you work remotely, there is no one to tell you to go home or that the office is closing, so it has to be YOU who decides when to stop. You have to decide that the rest of your life is worth making space for, and not let work take over that time&quot; <em><mark class="highlight-gray">– </mark></em><em><mark class="highlight-gray"><a href="https://zapier.com/learn/remote-work/avoid-work-burnout/#priorities">Kate Stull</a></mark></em><em><mark class="highlight-gray">, Co-founder at Popforms</mark></em></blockquote><p id="c273c04c-6171-495c-90a4-faefc91a9f46" class="">
+</p><p id="cb97c1c5-4eab-4cf8-bf02-282cdf309da0" class="">Over-working is <strong>extremely common</strong> among remote workers. It&#x27;s so easy for work hours to accidentally extend into the evenings and weekends – especially if your team spans multiple timezones where work is <strong>always</strong> happening.</p><p id="a29913df-e9ff-419d-9381-0a46e472d287" class="">Eventually, this results in burnout. At best, it causes low-level stress and tiredness. At worst, it can have a disastrous effect on mental health.</p><p id="b0f5d59f-904d-4d75-b936-f6bb39e8143d" class="">The root causes of this kind of overwork are usually:</p><ul id="b4a48792-5fc2-436f-ad21-7d4fb245a6f6" class="bulleted-list"><li style="list-style-type:disc">Unclear expectations.</li></ul><ul id="90776c6d-012e-4a32-8617-9d99051ef059" class="bulleted-list"><li style="list-style-type:disc">Poorly designed personal routines.</li></ul><p id="9d71e916-87dd-4b7b-825d-faabb1d9b135" class="">
+</p><h2 id="5f2d1bc9-076a-46f0-8493-3f00a213eaf7" class="block-color-pink">Setting &amp; Communicating Expectations</h2><hr id="3deced8d-56b3-4c99-a0f4-b2ccb62ae3ac"/><p id="65196fa2-3d14-4c22-a0dd-569c8882b4be" class="">Make sure you&#x27;re very clear on what&#x27;s expected of you and what you&#x27;re happy doing. If you don&#x27;t do this work hours will stretch. Your manager and everyone on your team should be super clear on your working hours under normal circumstances (e.g. 09:00-18:00 EST Mon-Fri) and when you&#x27;re working / not working.</p><p id="a06ea84f-1007-4f35-8e9e-4ac422405377" class="">You should be very clear that nobody expects you to work or be responsive outside your normal hours.</p><p id="e2ae638e-efb5-4c3b-ab58-556fb748e96d" class="">It&#x27;s your job to clearly communicate this to others, and enforce it in your own life. It&#x27;s your manager&#x27;s job to help you do this if you find it hard.</p><p id="fdf2eeb0-3eaf-48bc-9d04-ad4a397bad1f" class="">
+</p><h2 id="dd28968e-f26b-4c68-8ea5-bdd6d53e1871" class="block-color-pink">General Tips ✅</h2><hr id="127c5b8c-39f4-4d96-9ed1-a8f21830042b"/><ul id="cb2397de-04d6-4ed8-8d3f-a70a8564c4aa" class="bulleted-list"><li style="list-style-type:disc">Don&#x27;t reply to slack messages out of hours - <strong>nobody expects this from you</strong>.</li></ul><ul id="7324ff91-ad2f-404e-8397-64bf915d0a95" class="bulleted-list"><li style="list-style-type:disc">Never feel bad about blocking someone&#x27;s work because it&#x27;s the evening/weekend for you. This will inevitably happen sometimes and is part and parcel of globally distributed working. It&#x27;s cool.</li></ul><ul id="40123f8a-70a9-41d1-bf1e-536504031d22" class="bulleted-list"><li style="list-style-type:disc">Start your day by saying <em>Good morning</em> in Slack, and end it by saying <em>Good evening</em>. This helps to <strong>mentally open and close your day</strong>. </li></ul><ul id="2571e075-3f94-4b77-8773-951d39294b5c" class="bulleted-list"><li style="list-style-type:disc"><strong>Add your normal working hours</strong> to Google Calendar so folks are warned if they try to book a meeting when you&#x27;re not working (see <a href="https://www.notion.so/a01d433b61964b6fa4c11e4cdf8d76c6?pvs=21">here</a>).</li></ul><ul id="17f2b355-f002-4940-91b5-a9b33321ef0c" class="bulleted-list"><li style="list-style-type:disc">Use the <strong>Out of Office</strong> function in Google Calendar to automatically decline any meetings scheduled on days you&#x27;re not working.</li></ul><ul id="ce29fb12-e41f-49e1-af6a-1eccd216cd2b" class="bulleted-list"><li style="list-style-type:disc">If you see someone working super long hours, gently call them out on it.</li></ul><p id="d7d9041c-f2e0-406f-8465-32e859a5da65" class="">
+</p><h2 id="b618f2ad-805f-4376-a0f4-b284240521e0" class="block-color-pink">Notifications 📱</h2><hr id="ba886107-5fac-4280-b06a-b28b8cdd06ec"/><p id="ceba368d-262c-4bcc-abef-8faf37d94d9c" class="">Even with clear expectations around working hours, it can be hard to switch off if your phone is beeping at you all the time.</p><ul id="864ccc3d-94e5-49d2-9011-ce71a34ee152" class="bulleted-list"><li style="list-style-type:disc">Turn off all non-essential work notifications on your phone. This will depend on your role, but most people don&#x27;t need mobile notifications from email, Notion, Salesforce etc – even during the work day. If these are off by default then they can&#x27;t bother you when your work laptop is shut.</li></ul><ul id="45523a5f-07d2-4735-9731-ed4c0bbaf150" class="bulleted-list"><li style="list-style-type:disc"><a href="https://slack.com/intl/en-gb/help/articles/201864558-Set-your-Slack-status-and-availability">Set your Slack status to away </a>and turn on DND when you&#x27;re not working. <a href="https://slack.com/intl/en-gb/help/articles/214908388-Pause-notifications-with-do-not-disturb#set-a-notification-schedule">Use a schedule to set DND automatically</a>. This will prevent slack notifications.</li></ul><ul id="55aabae8-9e5c-4664-b804-e0bb4c14ed8d" class="bulleted-list"><li style="list-style-type:disc">Use DND on your laptop and phone when you&#x27;re not working to prevent notifications.</li></ul><ul id="674cfeec-44c0-4e39-878e-3ed5563c4ca4" class="bulleted-list"><li style="list-style-type:disc">Move work apps to a separate area of your phone so you&#x27;re not tempted to open them when you don&#x27;t need to.</li></ul><p id="1747316b-7b8d-4ec8-8944-021a2d0f1b21" class="">
+</p><h2 id="96b070f8-904e-4a40-8e60-1e7df5256a89" class="block-color-pink">Dealing with isolation and loneliness ❤️</h2><hr id="a36f391a-f07d-4032-b9f8-2366e242a90f"/><div id="9dc591f9-29d5-404e-aabc-5b763cb5f1d2" class="column-list"><div id="69661c9e-55b2-42ee-90ca-9753305d84a9" style="width:56.25%" class="column"><p id="329d5b1b-b531-413c-89f3-3d1ce4ffa8b0" class="">It&#x27;s very easy to become isolated as a remote worker, which is why socializing counts as &quot;work&quot; at many distributed companies.</p><p id="d1cc50ea-5e76-4c8e-845c-7c12541b5630" class="">Aim to spend 2-3 hours a week building relationships with other folks in the team. </p><p id="6dd1728d-76f8-43ca-8d51-1afd09fa719a" class="">Some other pointers:</p><p id="814694b8-ef42-4b43-a6f6-a709d855622f" class="">
+</p></div><div id="ca343fc0-5238-4218-9eae-f4c26ed69044" style="width:43.74999999999999%" class="column"><figure id="bb60fcb9-ba10-4573-8e5d-9aa507e52892"><div class="source"><a href="https://youtu.be/es8l7JAyYMk">https://youtu.be/es8l7JAyYMk</a></div></figure></div></div><ul id="4d73c236-f882-4ac0-a4d3-038aca817936" class="bulleted-list"><li style="list-style-type:disc">Share a &quot;good morning&quot; chat without discussing work.</li></ul><ul id="867d4efe-2ea5-4e70-b38c-02d67bd9f566" class="bulleted-list"><li style="list-style-type:disc">Use a <code>#socialbreak</code> channel in Slack to post when you&#x27;re free to have a break and want to have a chat with someone.</li></ul><ul id="6cf0faad-ecba-48ac-b2a0-8581eb30d6df" class="bulleted-list"><li style="list-style-type:disc">If you live alone, try to speak to someone in real life every morning and evening. <mark class="highlight-gray">(Pop into your local coffee shop on your circular commute?)</mark></li></ul><ul id="f79d7955-7b98-4cb1-9b81-57b6ff98ed64" class="bulleted-list"><li style="list-style-type:disc">You may have to organize more face-to-face activities in the evenings to make up for the lack of face-to-face contact during the workday. This is on you.</li></ul><ul id="28316369-6322-4d01-9c28-89bbde146c38" class="bulleted-list"><li style="list-style-type:disc">If you&#x27;re feeling isolated or lonely, <strong>speak up</strong>. It&#x27;s not unusual so there&#x27;s no need to feel embarrassed.</li></ul><p id="7ff37d36-3a39-43ee-a9cf-6cf02ac99b92" class="">
+</p><h2 id="9b54896e-bd1d-4e6a-bf76-48dbee8b7d00" class="block-color-pink">Staying fit and healthy 🏃</h2><hr id="89bf16cf-e6ca-4721-b52b-9d3feb8525aa"/><div id="98914fe7-9c31-442f-b35d-435099e81d4c" class="column-list"><div id="90b000e1-a17b-4d45-a5d8-ad23d64ccca6" style="width:50%" class="column"><p id="338bacb4-816b-45b9-855c-0fd2d07ff324" class="">If you&#x27;re new to remote working, you might need to develop a few habits to stay fit and healthy. </p><ul id="129af552-6a45-425e-8888-67890571e1a9" class="bulleted-list"><li style="list-style-type:disc">If you can, schedule your day so you can go to the gym when it&#x27;s less busy.</li></ul><ul id="997e9783-2bba-44e4-a84a-d6d83e924858" class="bulleted-list"><li style="list-style-type:disc">Use the fact you&#x27;re at home all day to cook more healthy food.</li></ul><ul id="d2816d6f-631d-4f5c-92b5-f1d3a1c0eb1c" class="bulleted-list"><li style="list-style-type:disc">Keep a bottle of water and a bowl of fruit on your desk. 🍊</li></ul><ul id="75283ca7-a43b-4f8e-8a7c-194c496de0f3" class="bulleted-list"><li style="list-style-type:disc">Use a standing desk.</li></ul><ul id="5dd9d83f-1226-416d-817f-f9c1d4179da9" class="bulleted-list"><li style="list-style-type:disc">Get up regularly and <strong>move</strong>. You&#x27;d be amazed how far most folks walk in an average day at the office. Set a reminder if you have to.</li></ul></div><div id="2f6e609e-a55f-43f4-bbcd-e6915e36271d" style="width:50%" class="column"><figure id="2807513c-3767-4603-9ffd-2106f650aa22" class="image"><a href="Taking%20Care%20of%20Yourself%20928760a386174bd9aef7499aeb379d80/Screenshot_2020-10-14_at_01.30.28.png"><img style="width:450px" src="Taking%20Care%20of%20Yourself%20928760a386174bd9aef7499aeb379d80/Screenshot_2020-10-14_at_01.30.28.png"/></a></figure></div></div><p id="b5ce968b-29d4-4ac1-b6c5-faa9b5114897" class="">
+</p><h2 id="3a8776be-92f0-4c4a-83fa-a42d275055d7" class="block-color-pink">Taking Care of Yourself</h2><hr id="67f50092-dc73-4179-bc9f-9743b00e3e6f"/><p id="c1084fdc-7aeb-4bd2-b906-1e0b31ed2b0e" class="">Taking care of yourself is no easy task.</p><p id="48184d44-e5a7-4b6a-ad03-f4a249bf6339" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0f77c49a-6bc4-481b-a2ff-224a50c7d32a"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise</strong>: Take a moment to <em>think</em> about the following questions:
+
+- What is a good day for me? What do I need to have a good day?
+- What is a bad day for me? What causes a bad day?
+- How do I turn a bad day into a good one? What things do I do?
+- When do I feel most motivation? Where does this motivation come from?</div></figure><p id="99ff9238-5acb-4f86-82ce-0fcf8b83ec16" class="">
+</p><p id="3cb28872-5365-4587-8810-39e18ec676d5" class="">Maintaining your health is a significant challenge for many remote workers. The best place to start is by reflecting on your personal needs and then finding ways to meet those needs in a remote environment.</p><p id="95cc8f47-a50b-4611-8ea5-20f3d38b6954" class="">
+</p><p id="ec26918b-00eb-4521-b8dd-36d3e5dc7392" class="">The following questions help guide that process:</p><ul id="721e0c84-bbc5-40d2-877b-d4241778d29d" class="bulleted-list"><li style="list-style-type:disc">How do I access whatever I need to have a good day? What resources do I need to actively seek in order to stay healthy and happy?</li></ul><ul id="89d24edd-357c-46af-ae79-70887235c961" class="bulleted-list"><li style="list-style-type:disc">Where do I draw the line? What are my limits? How long can I work before needing a break? How can I access this break time comfortably and consistently?</li></ul><ul id="06afdf1c-6ceb-4183-9ae9-740eec6daf89" class="bulleted-list"><li style="list-style-type:disc">Where do I feel comfortable working? Do I have access to this location? How can I find such a location? Do I enjoy staying at home? Do I prefer moving around? A little bit of both?</li></ul><ul id="6a840a6b-75c1-4a29-a77a-52a2db7d9854" class="bulleted-list"><li style="list-style-type:disc">How willing am I to ask for help when I need it? How willing am I to ask for clarifications when things aren&#x27;t clear enough?</li></ul><p id="0fa5ff57-1e7f-48c3-8954-a39cd4abb7e5" class="">
+</p><p id="ee4413fb-e067-4cda-a987-aea6a162f222" class="">These questions attempted to frame your needs in relation to a remote job. Now, your task is to represent this thinking process through a FigJam board, an online collaborative whiteboard tool. You have the full freedom to choose whatever format, look, or feel. </p><p id="d3ba0ce3-6109-4b27-a404-20b954598136" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="cc61c61d-7714-4f03-9021-c304fea5032f"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise</strong>: Take 20 minutes to represent your answers to the above questions, and whatever other reflections you have on health (or even a picture of your workspace), on a FigJam Board.</div></figure><p id="7dd4c245-9e54-401d-a39c-3fe6434c347c" class="">
+</p><h2 id="ca902f02-43e6-4836-acb0-f798c9672074" class="block-color-pink">Summary</h2><hr id="d61b343e-c2ed-4609-8e25-03e104771e64"/><ul id="165f0373-39d0-4c9f-b6f8-ff11535ecf3c" class="bulleted-list"><li style="list-style-type:disc">Overworking is too common in distributed work, make sure to properly shut off from work and to set proper expectations for your work hours.</li></ul><ul id="6fb582e8-450c-4bbe-b1dc-5d207a00e7cd" class="bulleted-list"><li style="list-style-type:disc">Make sure to have a personal routine. It&#x27;s very easy to get lost between 4 walls in front of a screen.</li></ul><ul id="f0249f9b-0959-41e1-a759-18ca91d2cbea" class="bulleted-list"><li style="list-style-type:disc">It gets very lonely, be intentional about seeing and talking to other people. We believe time spent together not doing work is work.</li></ul><ul id="5a0ab24a-0cc0-4cde-8286-6b190ea68ff5" class="bulleted-list"><li style="list-style-type:disc">Exercise! You move much less when you&#x27;re working remotely.</li></ul><ul id="a5d3cf30-fe93-4445-b153-c550b8e95706" class="bulleted-list"><li style="list-style-type:disc">Make sure your physical work environment is comfortable and conducive to work.</li></ul><p id="80b25550-d769-4321-8604-29f2b6612b0c" class="">
+</p><h2 id="4c41f6f1-1ddb-40a3-be27-182b4d64079a" class="block-color-pink">Further Reading</h2><hr id="1ebebf04-7b51-4f95-9d4e-1e3c243e4e6c"/><div id="3d96d702-1cbf-4433-9fca-d9f70f879342" class="column-list"><div id="07df4c2b-181c-47a9-b9a9-d7c91ab78ac4" style="width:50%" class="column"><figure id="e0a6442a-f9a2-4e6c-a6a5-5f7f51f5bdf0"><div class="source"><a href="https://youtu.be/8CTA5VXUEnI">https://youtu.be/8CTA5VXUEnI</a></div></figure></div><div id="b14c2499-449d-461b-82bf-3c704253a8c6" style="width:50%" class="column"><figure id="83986f72-f6cd-48c0-8baa-0c34e30e6f4a"><a href="https://www.calmmoment.com/wellbeing/ways-to-practise-self-care-when-working-at-home/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">17 ways to practise self care when working from home</div><div class="bookmark-description">As increasing numbers of us find ourselves working at home due to the COVID-19 outbreak, looking after our wellbeing and mental health is essential. So why is self care so important when you work from home?</div></div><div class="bookmark-href"><img src="https://images.immediate.co.uk/production/volatile/sites/11/2018/07/cropped-Site-Icon-368c0b7-e4253d0.png?quality=90&amp;resize=192,192" class="icon bookmark-icon"/>https://www.calmmoment.com/wellbeing/ways-to-practise-self-care-when-working-at-home/</div></div><img src="https://images.immediate.co.uk/production/volatile/sites/11/2020/03/woman-working-from-home-on-laptop-self-care-thought-catalog-Nv-vx3kUR2A-unsplash-1-f91a1ab.jpg?quality=90&amp;resize=620,413" class="bookmark-image"/></a></figure><figure id="53ef7508-1561-4cf5-8dca-11d1f16cf4d3"><a href="https://www.everydayhealth.com/healthy-living/your-work-from-home-survival-guide-for-self-care/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">11 Self-Care Tips for Working From Home | Everyday Health</div><div class="bookmark-description">Becoming a remote worker unexpectedly is challenging. Making time for some self-care in the midst of it isn&#x27;t indulgent - it&#x27;s essential. These tips can help you work more efficiently and feel better, even through coronavirus self-quarantine.</div></div><div class="bookmark-href"><img src="https://images.everydayhealth.com/images/site-images/favicon.png" class="icon bookmark-icon"/>https://www.everydayhealth.com/healthy-living/your-work-from-home-survival-guide-for-self-care/</div></div><img src="https://images.everydayhealth.com/images/your-work-from-home-survival-guide-for-self-care-722x406.jpg?sfvrsn=92ef5e39_1" class="bookmark-image"/></a></figure><figure id="6341739f-ffa7-462a-9799-729677d09df6"><a href="https://www.siliconrepublic.com/advice/work-from-home-productivity-self-care" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">5 productivity and self-care tips while you work from home</div><div class="bookmark-description">Working from home can be a major adjustment, but it&#x27;s important to look after yourself as well as your productivity levels. As the world settles into a large, very sudden remote working experiment, many employees and employers alike are working from home for the first time.</div></div><div class="bookmark-href"><img src="https://www.siliconrepublic.com/favicon.ico" class="icon bookmark-icon"/>https://www.siliconrepublic.com/advice/work-from-home-productivity-self-care</div></div><img src="https://www.siliconrepublic.com/wp-content/uploads/2020/03/work-from-home.jpeg" class="bookmark-image"/></a></figure></div></div><p id="894909eb-81e8-4910-95fe-b1d13dd934fa" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

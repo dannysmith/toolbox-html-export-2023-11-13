@@ -1,0 +1,707 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Building Relationships in Remote Teams</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="29f5560b-a370-40ee-bc0b-74bb9624c655" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🤼</span></div><h1 class="page-title">Building Relationships in Remote Teams</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="bf3a62e2-263d-463c-8c25-69e96661d1d4" class="">
+</p><p id="3e02c53a-fbc3-4571-8990-087f2ac9e855" class="">Strong, resilient relationships are as important at work as anywhere else in life. They&#x27;ve not only been <a href="https://deepblue.lib.umich.edu/bitstream/handle/2027.42/61533/932_ftp.pdf?sequence=1)">proven</a> to increase productivity but they also help people feel safe and happy.</p><p id="d82c4cd4-7c25-425d-80df-805846abf1e3" class="">
+</p><h2 id="c05b9242-43a4-4880-87ab-fcec0f0cc26c" class="block-color-pink">Why do work relationships matter?</h2><hr id="0e5b4d0f-cdd5-4d4d-bc55-51662ed5995b"/><p id="d952a5a0-831d-471e-8b54-2e17c1b8b55c" class="">
+</p><blockquote id="8e8d2f56-9e99-4db2-92b7-e134bb003b65" class="block-color-teal"><mark class="highlight-orange">Human beings are </mark><strong><mark class="highlight-orange">naturally social creatures</mark></strong><mark class="highlight-orange">. And when you consider that we spend </mark><strong><mark class="highlight-orange">one-third</mark></strong><mark class="highlight-orange"> of our lives at work, it&#x27;s clear that good relationships with colleagues will make our jobs more </mark><strong><mark class="highlight-orange">enjoyable</mark></strong><mark class="highlight-orange">.</mark>
+The more comfortable co-workers are around one other, the more <strong>confident</strong> they&#x27;ll feel voicing opinions, brainstorming, and going along with new ideas, for example. This level of teamwork is essential to <strong>embrace</strong> change, <strong>create</strong>, and <strong>innovate</strong>. And when people see the successes of working together in this way, group morale and productivity soars.
+<mark class="highlight-orange">Good work </mark><strong><mark class="highlight-orange">relationships also give you freedom</mark></strong><mark class="highlight-orange">. Instead of spending time and energy dealing with negative relationships, you can instead focus on opportunities – from winning new business to focusing on personal development.</mark>
+And having a strong professional circle will also help you to <strong>develop your career</strong>, opening up opportunities that otherwise might pass you by.</blockquote><p id="d325afce-397c-40da-a753-358bfc70ce6f" class=""><a href="https://www.mindtools.com/pages/article/good-relationships.htm"><em>Source</em></a></p><p id="50c9252f-9f2a-43f3-9665-0a0abc66975f" class="">
+</p><p id="59a68499-d03d-4932-a750-2a66c6c369ba" class="">While good work relationships have significant benefits for your company (in terms of productivity/morale etc), the most important benefit it <strong>for you</strong>. They make work more enjoyable. </p><p id="48d7142f-1ab9-4a2e-a044-ff0a7d33aa63" class="">Considering how much energy we put into developing good relationships with our friends, partners, children and neighbors, it seems only sensible that we <em>also</em> put energy into developing relationships with our co-workers – with whom we <strong>spend a third of our time</strong>! </p><p id="ca9e35bd-e636-4993-a774-fa61de118650" class="">
+</p><h3 id="08a3b188-35c1-4f79-8376-1c5fa8122f47" class="block-color-purple">So what makes a good relationship?</h3><hr id="9e158e49-a3c5-46bd-904a-dce7d0d66a3f"/><ul id="bd11256b-3280-435c-9273-dcac602ccec5" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Trust</strong></mark><mark class="highlight-teal"> </mark>- If you trust your coworkers, you can be open and honest in your thoughts and actions. And you don&#x27;t have to waste time or energy &quot;watching your back.&quot; It&#x27;s very hard to have genuine relationships without <em>trust</em>.</li></ul><ul id="47e74230-659e-4a88-84e6-45882563094e" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Respect</strong></mark><mark class="highlight-teal"> </mark>- If you have mutual respect amongst people in a team, everyone will value one another&#x27;s input and are likely to find solutions based on collective insight, wisdom, and creativity.</li></ul><ul id="1cd1672b-aed1-4817-b988-664a7f8b48fe" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Self-awareness</strong></mark><mark class="highlight-teal"> </mark>- this means taking responsibility for your words and actions, and not letting your own negative emotions impact the people around you. It&#x27;s hard to build (and feel) trust and mutual respect without self-awareness.</li></ul><ul id="a1d32118-40f9-478a-9361-e79ad7336b72" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Inclusion &amp; Safety</strong></mark><mark class="highlight-blue"><strong> </strong></mark>- Feeling safe and included is incredibly important. It&#x27;s not enough everybody to have trust, mutual respect and self-awareness. We need to actively show this so that others feel safe and included.</li></ul><ul id="17565f24-9495-4755-8995-189bbab3b42d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Open communication</strong></mark> - All good relationships depend on open, honest communication. Whether you&#x27;re sending emails, Slacking, or meeting face-to-face or on video calls – the more effectively you communicate with those around you, the better you&#x27;ll connect.</li></ul><p id="8cd7662f-29e2-4805-a621-2d8171dd2c57" class="">
+</p><h3 id="87c1642b-56a9-418f-94c4-1ffecfcf7cf7" class="block-color-purple">Who should we build relationships with at work?</h3><hr id="3162fb5f-2a25-491f-8797-8ce89f9059d4"/><p id="f1294a97-1c5f-4b9e-9eb6-05f3edb4c609" class=""><mark class="highlight-gray">Here are some of the more obvious candidates...</mark></p><ul id="f6e77d4e-6b63-47af-bd4a-df883267be1c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Your immediate team-mates</strong></mark> - These are the people you&#x27;ll work with every day. This is where most people start (and in some cases never look beyond this 😢 ).</li></ul><ul id="68720dfb-3f16-45cd-bca6-a51e0630d607" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Anyone who reports to you</strong></mark><strong> </strong>- If you have direct reports, building a good relationship with them is a <strong>core</strong> part of your job. Far too many managers fail to do this well.</li></ul><ul id="4f61445b-fad0-4f12-a7ae-3cdb5a538c65" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Your line manager</strong></mark> - While your manager should be trying to build a good, open and trusting relationship with you, it takes two to tango. You should be actively working to build a relationship with them, too.</li></ul><p id="13179e37-ca16-405c-9047-a9f473034970" class="">
+</p><p id="75bfcaed-26b3-42f1-8e60-22ffc3e382e0" class=""><mark class="highlight-gray">Here are some candidates that are maybe less obvious...</mark></p><ul id="0cf10425-65d1-4c8c-b2a6-460a1ca5e7c8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Anyone you need to work with</strong></mark> - Most of us need to work with people outside of our immediate team (often when we need help from them!) The stronger your relationship the easier it is to get this work done.</li></ul><ul id="d905d452-477a-4853-877d-adf7bf84b001" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Your boss&#x27; boss</strong></mark><mark class="highlight-teal"> </mark>- Providing you have a good relationship with your boss, building a relationship with their boss can be a great thing to do. <mark class="highlight-gray">More senior managers can often feel somewhat isolated from folks a few levels below them, so most will welcome a social call</mark>.</li></ul><ul id="35dd8781-681f-433d-8b92-9d24341df263" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Your peers in other areas of the business</strong></mark><mark class="highlight-teal"> </mark>- Look for people who do a similar thing as you in other areas of the business. You can probably learn a lot from each other, and the more strong cross-department relationships there are in a company, the more open that company will be as a whole.</li></ul><ul id="4029fd9d-ee66-43a7-a92c-84e0a32cf57d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Random folks in the company</strong></mark><mark class="highlight-teal"> </mark>- Even in large companies, it can be a good idea to start building relationships with random folks in other areas of the business.</li></ul><p id="69a954a2-54ed-4007-aab1-d130d49a6648" class="">
+</p><h2 id="779420e8-9a0a-49c9-a733-dbaa84f375ee" class="block-color-pink">Openness &amp; Trust</h2><hr id="89ed6dc9-3840-4740-a3d1-0f45412e6c8f"/><p id="7e804f41-95dc-45af-a433-7497d442592b" class="">Now we&#x27;ve got an idea of what a good relationship looks like and who we might want to focus on building one with, let&#x27;s focus in on two key ideas: <strong>Openness</strong> and <strong>Trust</strong>.</p><p id="b9ce9a22-033d-498c-bcab-72263f917b7b" class="">The absolute best way to build trust is to be totally open and honest with others. <mark class="highlight-gray">(Note: this means being open and honest with yourself first - self-awareness.)</mark></p><figure id="6176433a-20f3-4711-a54b-dbf3723d9633" class="image"><a href="Building%20Relationships%20in%20Remote%20Teams%2029f5560ba37040eebc0b74bb9624c655/Screenshot_2019-04-09_at_00.57.45.png"><img style="width:384px" src="Building%20Relationships%20in%20Remote%20Teams%2029f5560ba37040eebc0b74bb9624c655/Screenshot_2019-04-09_at_00.57.45.png"/></a></figure><p id="2d3fdc64-60aa-42a6-a40e-6796e46a95a6" class="">The more open we are with others, the more trust we build. And the more trust we have, the more  others can be open with us (and the easier it is to be open ourselves).</p><p id="1bbf4124-185a-45c0-af44-0af50e42a23c" class="">
+</p><p id="a9795092-96c0-4792-bbfa-36a043e9dcf2" class=""><strong>Trust → Openness → Trust → Openness → 🔁</strong></p><p id="885d4823-0220-4d35-b1ae-9215bc5a781e" class="">
+</p><p id="236997eb-6107-415b-962d-760ee860c060" class="">So if there&#x27;s one key message here, <mark class="highlight-red"><strong>it&#x27;s to be as open and honest as you can with anyone you&#x27;re trying to build a good relationship with</strong></mark>.</p><p id="b02b1854-d846-4cce-af05-d106092f866a" class="">
+</p><p id="f1aebe3c-6182-4bf5-a9ae-addd07020f87" class="">There are some other things to consider when it comes to building trust, though...</p><p id="1c7ac993-41cb-46ac-9ddb-6a13860375df" class="">
+</p><h3 id="f07b3fd3-2874-43b2-b2ec-ff9203e9368b" class="block-color-purple">Other key elements for building trust 🔑</h3><hr id="b22d1753-b095-4488-9b43-bc18daaa821b"/><p id="3cd8026f-780f-41a6-8951-20a53166dccf" class="">As well as being open, you also need to be...</p><ul id="c40c9e03-bfdd-4842-83e0-641184bb9e9e" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Dependable </strong></mark>- If you&#x27;re not dependable, you&#x27;ll lose trust quickly. Do what you say you&#x27;ll do.</li></ul><ul id="fcc56a8f-83d1-41e7-80e9-805e3195a9ce" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Consistent</strong></mark><mark class="highlight-teal"> </mark>- Being consistent is a great way to show others that you&#x27;re dependable. If you&#x27;re seen as inconsistent it can really damage others&#x27; trust in you.</li></ul><ul id="40b16166-9f80-4797-8f06-dfa655fb98ff" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Visible</strong></mark><mark class="highlight-teal"> </mark>- In a remote setting, it&#x27;s important to be visible to those you want to build a relationship with. If you only interact occasionally, it&#x27;s going to take a long time to build an open and trusting relationship.</li></ul><p id="1fc3243c-4280-4f91-8e12-14294b6aebe9" class="">
+</p><h2 id="2e12e4d1-3629-4832-ae56-914c35a2fc35" class="block-color-pink">Emotional Intelligence</h2><hr id="48087e2f-7600-4b1b-98d5-84fb007db7fe"/><p id="0708ea92-64fd-4e2a-bc05-b77977aecad9" class="">Emotional Intelligence (or EI) is your ability to <strong>recognise your own emotions</strong>, and better understand <strong>what they&#x27;re telling you</strong>. By developing your EI, you&#x27;ll also become more adept at identifying and handling the emotions and needs of other people.</p><p id="595f436b-6796-46eb-a63c-88f8f464cc70" class="">Both these things make it<strong> much, much easier</strong> to build open and trusting relationships. And the complete absence of emotional intelligence makes it almost impossible to build strong relationships.</p><p id="7e385e3c-5e5e-4f18-807f-16674195bde2" class="">
+</p><figure id="0fed93df-77b9-4737-bc7e-1759cad2545c"><div class="source"><a href="https://youtu.be/hlfPjCviTxA">https://youtu.be/hlfPjCviTxA</a></div></figure><p id="f06fa9ad-f8d9-42c0-ad28-0dcb56c2e640" class="">
+</p><figure id="421bd5ec-d629-40f8-ad93-a5b1b30ff65c"><a href="https://www.forbes.com/sites/ashleystahl/2018/05/29/5-ways-to-develop-your-emotional-intelligence/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">5 Ways To Develop Your Emotional Intelligence</div><div class="bookmark-description">Emotional intelligence (EQ or EI) is one of the strongest indicators of success in business. Why? EQ is not only the ability to identify and manage your own emotions, but it&#x27;s also the ability to recognize the emotions of others.</div></div><div class="bookmark-href"><img src="https://i.forbesimg.com/48X48-F.png" class="icon bookmark-icon"/>https://www.forbes.com/sites/ashleystahl/2018/05/29/5-ways-to-develop-your-emotional-intelligence/</div></div><img src="https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1100247800%2F0x0.jpg%3Ffit%3Dscale" class="bookmark-image"/></a></figure><p id="ae23da0b-ace0-45de-910c-55d64bf7de53" class="">
+</p><h2 id="082fd238-7564-4826-bfeb-57ae215433cc" class="block-color-pink">Some Practical Tips for Building Relationships</h2><hr id="ac3d91fa-b556-4fda-b446-f176545b2f78"/><p id="d8b3de0d-c947-4857-b97f-3a4f12353be0" class="">There are no magic <em>top tips</em> for building strong relationships... there&#x27;s no shortcut for developing empathy, emotional intelligence, self-awareness and openness. And relationships always take time to develop. Bearing that in mind, here are a few thoughts that might help along the way...</p><p id="95cc296a-6bd5-4b0d-bb57-6e11295eeca5" class="">
+</p><h3 id="01609659-e256-480c-ac7e-20b8d5573efc" class="block-color-purple">Be Intentional</h3><hr id="61eb6048-118d-4ee8-808d-4d7f41d195fd"/><p id="abefdcc0-ab48-470e-ae22-7f2f17862da0" class="">Like many things in distributed companies, we need to be more <strong>intentional</strong> about building good relationships than we might in an office. So make <em>building good relationships</em> part of your job and take deliberate action on it.</p><p id="cafe788a-9aa9-41b3-b76d-e763535526b1" class="">
+</p><h3 id="8d7950d8-c348-4581-9fb3-10b724e4d37d" class="block-color-purple">Organize social calls</h3><hr id="3d6970f1-04c5-4d06-a40d-638f444db025"/><p id="c74d9383-45f6-4c52-bc78-360f3ce332c9" class="">Make the time to organize regular social calls with anyone and everyone you want to develop a relationship with. See <a href="Socialising%20in%20Remote%20Teams%201131e149db524201a458e24187bca2f5.html"><span class="icon">👨‍👩‍👧‍👧</span>Socialising in Remote Teams</a> . Don&#x27;t wait for others to do this, be proactive.</p><p id="73c76f7c-f76e-4e09-b455-ceb7bc9efc6e" class="">
+</p><h3 id="4f1f9191-c163-4594-8dc3-2a17e268a7c9" class="block-color-purple">Be genuine and actually listen</h3><hr id="13e4cad8-d713-4cce-97db-3c53e63a1e60"/><p id="518b8f8d-6f22-4a94-8e28-15dd87d8b77b" class="">It&#x27;s impossible to build a real relationship with someone unless you <strong>are actually interested in them</strong>. If you view relationship-building purely as a means to an end, you won&#x27;t have much success.</p><p id="fe5467a8-1907-4e8c-9ac7-e996a6a27fe4" class="">Similarly, you need to actually listen and <strong>hear</strong> what people are saying to you. This is incredibly difficult, but <strong>active listening</strong> is a learnable skill.</p><div id="d87aa7c5-3d04-4511-b552-b3f27489ef12" class="column-list"><div id="0e411174-efc4-4e47-936f-07aec1e713ea" style="width:50%" class="column"><figure id="1b542653-e1b3-4277-969c-b6b3b451d6ef"><a href="https://positivepsychology.com/active-listening/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Active Listening: The Art of Empathetic Conversation</div><div class="bookmark-description">Julian Treasure claims that we are losing our hearing. Maybe he has a point. With personal broadcasting replacing the art of conversation, and silence becoming a scarce resource, we have forgotten how to listen. It is time to focus again and practice the skill of mindful listening.</div></div><div class="bookmark-href"><img src="https://positivepsychology.com/wp-content/themes/ppp/img/favico/favicon-16x16.png" class="icon bookmark-icon"/>https://positivepsychology.com/active-listening/</div></div><img src="https://positivepsychology.com/wp-content/uploads/2016/07/active-listening.jpg" class="bookmark-image"/></a></figure></div><div id="a0839489-20d4-4a19-8a3a-9e253cb66016" style="width:50%" class="column"><figure id="7df36a4f-ec58-49fd-a614-c1acae892157"><div class="source"><a href="https://youtu.be/cSohjlYQI2A">https://youtu.be/cSohjlYQI2A</a></div></figure></div></div><p id="bf040879-032e-4b6f-b1c7-f85c12b39bb9" class="">
+</p><h3 id="f7ed532c-f091-44f9-82ce-f6b7350cd660" class="block-color-purple">Spend time on Slack</h3><hr id="14e85d60-4e22-4c12-ad15-e5f17c806721"/><p id="312bf726-a564-40fe-98cc-7a23207d594c" class="">While you&#x27;re unlikely to build a great relationship with someone <em>only via Slack</em>, it&#x27;s a great way to start or maintain an existing one. Take some time every day to get to know people through their slack messages. Send thoughtful and honest responses. Etc.</p><p id="d540b246-3693-423d-afa2-d4942f9cec4c" class="">Being open and honest on slack yourself is a great way to help others form relationships with you. So post pictures of your dogs, food, holidays etc! 🐶🥑🌴</p><p id="65b7dfd9-7cd5-4d0b-bc12-e019d12f06c3" class="">See <a href="Socialising%20in%20Remote%20Teams%201131e149db524201a458e24187bca2f5.html"><span class="icon">👨‍👩‍👧‍👧</span>Socialising in Remote Teams</a> for more on this.</p><p id="6bb7ae14-790f-424f-b545-d80ae9de4fd9" class="">
+</p><h3 id="ba42b527-5baa-4bbe-9ddd-b8745a20d78a" class="block-color-purple">Show appreciation ❤️</h3><hr id="02966e77-10fb-42f3-aacc-df923a47eaf8"/><p id="38d16498-2a46-4d6e-913c-1e22efeabfa9" class="">Showing appreciation is a great way to develop trust and goodwill. This might be as simple as a slack message in <code>#core-shoutouts</code> or a DM to thank someone for their work. Or you might take the time to thank someone at the end of your next zoom call.</p><p id="746da42a-b53a-4eff-a581-cd3ae3913550" class="">
+</p><figure id="10f71d2d-8a7b-4f11-bf1f-23288eb6a090" class="image"><a href="Building%20Relationships%20in%20Remote%20Teams%2029f5560ba37040eebc0b74bb9624c655/Screenshot_2020-12-04_at_02.40.37.png"><img style="width:673px" src="Building%20Relationships%20in%20Remote%20Teams%2029f5560ba37040eebc0b74bb9624c655/Screenshot_2020-12-04_at_02.40.37.png"/></a><figcaption>Some messages in <code>#core-shoutouts</code>.</figcaption></figure><p id="dd64a79a-0fd5-4e36-9955-f425d9be47bd" class="">
+</p><h3 id="07bbdce8-b463-45bc-a796-5bc289849fda" class="block-color-purple">Smile 😃</h3><hr id="bc121ff4-d41e-4cd0-93c2-f8026472bd8d"/><p id="79d0d2a5-fdd6-432a-9602-f7f59fe6bdae" class="">It might sound obvious, but smiling lots is an underrated skill. Not only will it help you to feel a little better if you know you&#x27;re a bit grumpy (see Emotional Intelligence 👆), it also does a huge amount to help others feel comfortable around you.</p><p id="2ceee26b-9ce0-469c-9b3f-9f4db5d3e7c8" class="">So if you&#x27;re trying to build a new relationship with someone, remember to smile.</p><p id="7550a5db-b10e-4632-a3bd-937a68a7c762" class="">
+</p><figure id="b2ffeece-b741-4ba4-a6de-7a8341e727cd" class="image"><a href="Building%20Relationships%20in%20Remote%20Teams%2029f5560ba37040eebc0b74bb9624c655/giphy.webp"><img style="width:460px" src="Building%20Relationships%20in%20Remote%20Teams%2029f5560ba37040eebc0b74bb9624c655/giphy.webp"/></a><figcaption>The most genuine smile in the world 🙃</figcaption></figure><p id="246c106b-b542-4df2-a850-af6076717bc8" class="">
+</p><p id="fe5c761a-2b05-46b9-9c1c-122a09a2b8aa" class="">
+</p><h2 id="798538af-e194-4427-935a-7da894fb0039" class="block-color-pink">Summary</h2><hr id="f988466e-c05b-4834-8685-b9e9f13552e2"/><p id="919993ea-a41e-492a-8c4c-b5996d9f91e4" class="">Strong, resilient relationships are <strong>so</strong> important at work. And doubly so in distributed companies because they&#x27;re less likely to form organically. So be <strong>intentional</strong> about how you build relationships and take the time to learn how to do it well. Give this the time and attention it needs.</p><p id="a2ae0d33-139e-4c8a-82b8-9fb92fcdefb7" class="">And if you lead or manage others this is <strong>even more important</strong> – not only do you have to be great at it yourself, you also have to help your reports become great at it!</p><p id="b80e9e49-f7bf-46f4-a2e1-7dcd71a14568" class="">We&#x27;ve hardly scratched the surface in this lesson, but if you&#x27;ve not spent much time deeply reflecting on emotional intelligence and how trusting relationships develop, that&#x27;s a great place to start. ❤️</p><p id="8910cba4-0719-48d8-86c3-a20c4fe66258" class="">
+</p><h2 id="25b12c05-e1db-48de-b1e8-c88833a10fac" class="block-color-pink">Further Reading</h2><hr id="353e2eb6-e8ea-42db-a4ba-d26a9a9829ab"/><figure id="64423b36-a409-460f-9a00-2dbb8a85c028"><a href="https://www.theremoteworksummit.com/build-strong-relationships-remotely/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">[Case Study] How We Build Strong Relationships Remotely</div><div class="bookmark-description">Trust is an essential building block for any team. Without the intentional effort to encourage bonding and transparency, building personal relationships and retaining remote employees wouldn&#x27;t be possible. But like any &#x27;long-distance relationship&#x27;, virtual relationships are prone to assumptions and misinterpretations that break down the trust.</div></div><div class="bookmark-href"><img src="https://www.theremoteworksummit.com/wp-content/uploads/2020/01/favicon.ico" class="icon bookmark-icon"/>https://www.theremoteworksummit.com/build-strong-relationships-remotely/</div></div><img src="https://www.theremoteworksummit.com/wp-content/uploads/2019/12/rws-15.png" class="bookmark-image"/></a></figure><figure id="905bd3b3-4d06-4987-9021-f8bb76a6c6e2"><a href="https://www.lifecoach-directory.org.uk/memberarticles/seven-ways-to-build-strong-positive-relationships-at-work" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">7 ways to build strong, positive relationships at work</div><div class="bookmark-description">It goes without saying that the better our relationships at work, the happier, more engaged and productive we will be. Instead of focusing our energy on dealing with the problems that come with negative relationships, we can harness our energy positively to allow us to be more creative and the freedom to focus on opportunities.</div></div><div class="bookmark-href"><img src="https://www.lifecoach-directory.org.uk/assets/images/icons/favicon-16x16.png?1606476549488" class="icon bookmark-icon"/>https://www.lifecoach-directory.org.uk/memberarticles/seven-ways-to-build-strong-positive-relationships-at-work</div></div><img src="https://cdn.memiah.co.uk/uploads/lifecoach-directory.org.uk/image_gallery/Man%20and%20woman%20talking-1595412441.jpg" class="bookmark-image"/></a></figure><figure id="e2ccaa08-4d2e-4d0f-b6b6-39294da1ef1f"><a href="https://www.thebalancecareers.com/developing-effective-work-relationships-1919386" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Tips on How to Develop Effective Work Relationships</div><div class="bookmark-description">You can damage your career and work relationships by the actions you take and the behaviors you exhibit with coworkers at work. No matter your education, your experience, your personality, or your title, if you can&#x27;t play well with others, you will never accomplish your work mission.</div></div><div class="bookmark-href"><img src="https://www.thebalancecareers.com/static/3.131.0/icons/favicons/favicon.ico" class="icon bookmark-icon"/>https://www.thebalancecareers.com/developing-effective-work-relationships-1919386</div></div><img src="https://www.thebalancecareers.com/thmb/OPRGpTFX9fHZpmIy5yjEu4I_-GY=/5974x3983/filters:fill(auto,1)/smiling-creative-designers-brainstorming-in-office-meeting-705003595-5b1d4a95ff1b7800377b73ec.jpg" class="bookmark-image"/></a></figure><figure id="306324ca-47b5-4ca2-aafb-37831c6edb96"><a href="https://www.southampton.ac.uk/~assets/doc/hr/Building%20effective%20working%20relationships.pdf" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href"><img src="https://www.southampton.ac.uk/favicon.ico" class="icon bookmark-icon"/>https://www.southampton.ac.uk/~assets/doc/hr/Building%20effective%20working%20relationships.pdf</div></div></a></figure><figure id="2283abc8-eebf-44fa-b552-8160142e6614"><a href="https://www.lifehack.org/816311/work-relationship" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">10 Ways to Build Positive And Effective Work Relationships</div><div class="bookmark-description">Ankit Garg Serial entrepreneur and working towards Early Retirement Read full profile Behind the corporate veil, the actual members who work towards achieving the company goals are the ultimate assets. It is very important for every team member to maintain focused goals on a professional front, at their individual level and at the organizational level.</div></div><div class="bookmark-href"><img src="https://cdn.lifehack.org/wp-content/uploads/2018/05/31002541/lifehack-site-logo.png" class="icon bookmark-icon"/>https://www.lifehack.org/816311/work-relationship</div></div><img src="https://cdn.lifehack.org/wp-content/uploads/2018/11/work-relationship.jpeg" class="bookmark-image"/></a></figure><p id="0a7b4b11-82ca-47da-85ad-1e1275937a34" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

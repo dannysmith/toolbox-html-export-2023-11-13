@@ -1,0 +1,696 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Task Boards</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="16cccbe6-06b9-4f00-a3d5-581b8b08c976" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📋</span></div><h1 class="page-title">Task Boards</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="755d3406-3798-41a2-9749-cfa6aa6f4a85" class="">
+</p><p id="2e9cb0aa-3078-4448-8f7d-5b4dca49778d" class="">Task Boards are commonly sued by agile teams to manage their workload. They’re an incredibly simple tool for keeping everyone informed of where tasks are at and who’s working on them.</p><p id="c2e5a9bb-0b72-419a-8ac2-51d4c0b8050e" class="">
+</p><h2 id="f407c7c9-2cf9-4d0c-be07-eaf06a64b3ef" class="block-color-pink">What are Task Boards?</h2><hr id="ab307746-b1c3-4395-93e6-e488c78ca3c5"/><p id="1985dadb-9ff0-419a-acf6-a267a1930991" class="">At the most basic level, a task boards contain three columns:</p><p id="cf8c1954-9ab9-47e0-ad1f-564f768b77f1" class="">
+</p><ul id="774c1056-ec11-42c6-9f3d-5e7e98bdf2f1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red"><strong>To Do</strong></mark><mark class="highlight-red"> </mark>- Tasks to do, with the highest priority at the top.</li></ul><ul id="112d79ee-3771-457c-a4e2-b91161627917" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><strong>In Progress</strong></mark> - Tasks that are currently in progress.</li></ul><ul id="d9d8ed4f-376b-4f49-8e41-58b3482ba1b8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Done</strong></mark> - Tasks that are finished.</li></ul><p id="3a3c3ae4-d7d3-46fe-860b-ae53f71c482c" class="">
+</p><p id="c07e89de-e8c6-445d-ad59-5f2bda786b27" class="">Tasks move from left to right along a task board until they end up in <strong>Done</strong>. Tasks that are in progress should always have an <strong>assignee</strong> to show who is working on it unless progress is blocked, in which case it should clearly be <strong>marked as blocked</strong>.</p><p id="23b5d594-7c26-49d9-8c33-b82421be4d85" class="">Some task boards might have more than one <em>in progress</em> column, each representing a distinct stage in the process work goes through to get to &quot;done&quot;.</p><p id="75ef059a-ee4b-4435-8a9f-774336d89b02" class="">
+</p><figure id="61545c4c-8ca7-4a6f-9a88-d8ebba041bd4" class="image"><a href="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Screenshot_2020-11-20_at_18.34.36.png"><img style="width:769px" src="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Screenshot_2020-11-20_at_18.34.36.png"/></a><figcaption>In this example, there are two <em>in progress</em> columns – one for development and one for testing.</figcaption></figure><p id="9eeb5631-65b3-49ad-b254-ad4141c23521" class="">
+</p><p id="3e73fdc3-a833-4ed8-a5c8-46f635736819" class="">Here&#x27;s an example of a simple task board built in Notion...</p><p id="e0f5c220-7d01-4ae5-939e-2655a119f9a8" class="">
+</p><div id="19b32707-ae11-4cdc-b81d-9da87d7e7746" class="collection-content"><h4 class="collection-title">Example Task Board</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>Assignee</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesFormula"><path d="M5.04688 14.3604H11.2744C11.7324 14.3604 12.0537 14.0801 12.0537 13.6494C12.0537 13.2119 11.7324 12.9248 11.2744 12.9248H5.81934V12.8564L9.30566 8.82324C9.54492 8.57031 9.6748 8.29688 9.6748 8.0166C9.6748 7.73633 9.54492 7.45605 9.29883 7.20996L5.81934 3.2793V3.21094H11.2812C11.7393 3.21094 12.0537 2.92383 12.0537 2.48633C12.0537 2.05566 11.7393 1.77539 11.2812 1.77539H5.05371C4.34277 1.77539 3.95312 2.26758 3.95312 2.81445C3.95312 3.12207 4.07617 3.44336 4.33594 3.69629L8.15039 7.96875V8.05078L4.3291 12.4395C4.06934 12.6924 3.94629 13.0137 3.94629 13.3213C3.94629 13.8682 4.33594 14.3604 5.04688 14.3604Z"></path></svg></span>Blocked</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCheckbox"><path d="M3.85742 14.4561H12.1357C13.6123 14.4561 14.3779 13.6904 14.3779 12.2344V3.91504C14.3779 2.45215 13.6123 1.69336 12.1357 1.69336H3.85742C2.38086 1.69336 1.61523 2.45215 1.61523 3.91504V12.2344C1.61523 13.6973 2.38086 14.4561 3.85742 14.4561ZM3.93945 13.1162C3.30371 13.1162 2.95508 12.7812 2.95508 12.1182V4.02441C2.95508 3.36133 3.30371 3.0332 3.93945 3.0332H12.0537C12.6826 3.0332 13.0381 3.36133 13.0381 4.02441V12.1182C13.0381 12.7812 12.6826 13.1162 12.0537 13.1162H3.93945ZM7.26855 11.3115C7.51465 11.3115 7.72656 11.1885 7.87012 10.9697L10.9258 6.19141C11.0146 6.04785 11.0967 5.88379 11.0967 5.72656C11.0967 5.3916 10.7959 5.16602 10.4746 5.16602C10.2695 5.16602 10.085 5.27539 9.94141 5.50781L7.24121 9.8418L5.96973 8.22168C5.80566 8.00977 5.6416 7.93457 5.43652 7.93457C5.10156 7.93457 4.8418 8.20117 4.8418 8.54297C4.8418 8.70703 4.90332 8.85742 5.01953 9.00098L6.63281 10.9697C6.81738 11.209 7.01562 11.3115 7.26855 11.3115Z"></path></svg></span>Blocked?</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Status</th></tr></thead><tbody><tr id="24be1df0-1768-460f-ae73-9f2f9e1294dd"><td class="cell-title"><a href="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Example%20Task%20Board%2019b32707ae114cdcb81d9da87d7e7746/Our%20Team%20Page%2024be1df01768460fae739f2f9e1294dd.html">Our Team Page</a></td><td class="cell-pvCb"></td><td class="cell-]ePJ"></td><td class="cell-RFkU"><div class="checkbox checkbox-off"></div></td><td class="cell-^C{i"><span class="selected-value select-value-color-red">Backlog</span></td></tr><tr id="e4782061-beb1-46f5-9e6e-30a95efbd038"><td class="cell-title"><a href="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Example%20Task%20Board%2019b32707ae114cdcb81d9da87d7e7746/Figure%20out%20how%20to%20rework%20Features%20Page%20e4782061beb146f59e6e30a95efbd038.html">Figure out how to rework Features Page</a></td><td class="cell-pvCb"></td><td class="cell-]ePJ"></td><td class="cell-RFkU"><div class="checkbox checkbox-off"></div></td><td class="cell-^C{i"><span class="selected-value select-value-color-red">Backlog</span></td></tr><tr id="0db2de68-7c1f-41ca-9045-2fc5636dd80a"><td class="cell-title"><a href="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Example%20Task%20Board%2019b32707ae114cdcb81d9da87d7e7746/Blog%200db2de687c1f41ca90452fc5636dd80a.html">Blog</a></td><td class="cell-pvCb"></td><td class="cell-]ePJ"></td><td class="cell-RFkU"><div class="checkbox checkbox-off"></div></td><td class="cell-^C{i"><span class="selected-value select-value-color-red">Backlog</span></td></tr><tr id="7691281d-ed96-4c4b-9e11-2bba9734ac7d"><td class="cell-title"><a href="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Example%20Task%20Board%2019b32707ae114cdcb81d9da87d7e7746/Features%20Page%207691281ded964c4b9e112bba9734ac7d.html">Features Page</a></td><td class="cell-pvCb"><span class="user"><img src="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Example%20Task%20Board%2019b32707ae114cdcb81d9da87d7e7746/Features%20Page%207691281ded964c4b9e112bba9734ac7d/45337824_10156920904624429_2319732976398630912_o.jpg" class="icon user-icon"/>Mohamad Chamas</span></td><td class="cell-]ePJ"></td><td class="cell-RFkU"><div class="checkbox checkbox-off"></div></td><td class="cell-^C{i"><span class="selected-value select-value-color-yellow">In progress</span></td></tr><tr id="55a199bc-9ef2-400e-8009-a1ff7163289b"><td class="cell-title"><a href="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Example%20Task%20Board%2019b32707ae114cdcb81d9da87d7e7746/Contact%20Page%2055a199bc9ef2400e8009a1ff7163289b.html">Contact Page</a></td><td class="cell-pvCb"><span class="user"><img src="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Example%20Task%20Board%2019b32707ae114cdcb81d9da87d7e7746/Contact%20Page%2055a199bc9ef2400e8009a1ff7163289b/542A3044.jpg" class="icon user-icon"/>Rhys Black</span></td><td class="cell-]ePJ"></td><td class="cell-RFkU"><div class="checkbox checkbox-off"></div></td><td class="cell-^C{i"><span class="selected-value select-value-color-yellow">In progress</span></td></tr><tr id="30d74c0c-4747-4d6e-be0f-ea0752b2a3fe"><td class="cell-title"><a href="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Example%20Task%20Board%2019b32707ae114cdcb81d9da87d7e7746/Pricing%20Page%2030d74c0c47474d6ebe0fea0752b2a3fe.html">Pricing Page</a></td><td class="cell-pvCb"></td><td class="cell-]ePJ">🔴   BLOCKED</td><td class="cell-RFkU"><div class="checkbox checkbox-on"></div></td><td class="cell-^C{i"><span class="selected-value select-value-color-yellow">In progress</span></td></tr><tr id="7da71f2f-7c0f-47e7-abe6-c042b21a1c29"><td class="cell-title"><a href="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Example%20Task%20Board%2019b32707ae114cdcb81d9da87d7e7746/Initial%20visual%20design%207da71f2f7c0f47e7abe6c042b21a1c29.html">Initial visual design</a></td><td class="cell-pvCb"></td><td class="cell-]ePJ"></td><td class="cell-RFkU"><div class="checkbox checkbox-off"></div></td><td class="cell-^C{i"><span class="selected-value select-value-color-green">Done</span></td></tr><tr id="0fd5094e-cc7b-4651-b727-1091bea7999e"><td class="cell-title"><a href="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Example%20Task%20Board%2019b32707ae114cdcb81d9da87d7e7746/Homepage%200fd5094ecc7b4651b7271091bea7999e.html">Homepage</a></td><td class="cell-pvCb"></td><td class="cell-]ePJ"></td><td class="cell-RFkU"><div class="checkbox checkbox-off"></div></td><td class="cell-^C{i"><span class="selected-value select-value-color-green">Done</span></td></tr><tr id="7bc3ea48-3a12-4a1c-9e34-ccfac41824da"><td class="cell-title"><a href="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Example%20Task%20Board%2019b32707ae114cdcb81d9da87d7e7746/About%20Page%207bc3ea483a124a1c9e34ccfac41824da.html">About Page</a></td><td class="cell-pvCb"></td><td class="cell-]ePJ"></td><td class="cell-RFkU"><div class="checkbox checkbox-off"></div></td><td class="cell-^C{i"><span class="selected-value select-value-color-green">Done</span></td></tr><tr id="9863037d-103e-44f6-adad-e6f1e8cde2ff"><td class="cell-title"><a href="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976/Example%20Task%20Board%2019b32707ae114cdcb81d9da87d7e7746/Deploy%20Site%209863037d103e44f6adade6f1e8cde2ff.html">Deploy Site</a></td><td class="cell-pvCb"></td><td class="cell-]ePJ"></td><td class="cell-RFkU"><div class="checkbox checkbox-off"></div></td><td class="cell-^C{i"><span class="selected-value select-value-color-green">Done</span></td></tr></tbody></table><br/><br/></div><p id="679d5c67-6fad-41d8-934b-3a3c1aadb970" class="">
+</p><h3 id="e88403bc-edc6-427a-a574-bd85531747ea" class="block-color-purple">Why do task boards work so well?</h3><hr id="7ce1e0f2-1a66-48e4-94d3-95f6e244c3de"/><ul id="ec7d05f5-5830-4787-9c8c-4e2a428626fa" class="bulleted-list"><li style="list-style-type:disc"><strong>They are an information radiator</strong> - if we keep them visible, they help people understand what&#x27;s happening in the team at a glance.</li></ul><ul id="66e6f10d-c87a-4fb8-80b3-9c6ba117e040" class="bulleted-list"><li style="list-style-type:disc">They <strong>passively communicate</strong> a lot of information, reducing the need for status updates.</li></ul><ul id="8f9a521b-ce56-42d3-a32c-3f7a1c9eadb3" class="bulleted-list"><li style="list-style-type:disc">They make it clear <strong>who is working on what</strong> at that moment.</li></ul><ul id="98b243d8-1879-4990-988a-f9869d2029bb" class="bulleted-list"><li style="list-style-type:disc">They make it obvious when tasks are <strong>blocked</strong>.</li></ul><ul id="f4cedcaa-3fe3-49b8-b9b3-7b3721e52233" class="bulleted-list"><li style="list-style-type:disc">They visually show <strong>how much work has been done</strong> so far at a glance, and therefore give a rough indication of the team&#x27;s progress.</li></ul><ul id="c5174769-7124-4da3-8b2b-c32220f4ae02" class="bulleted-list"><li style="list-style-type:disc">If you use a digital tool like Notion or Trello, you can attach relevant documents and links to the task so they&#x27;re easy for people to find.</li></ul><p id="3a2dc81a-07ac-4a40-899d-4fd0adbbb041" class="">
+</p><h2 id="a317ae1a-0cb9-45f7-8c98-bb69afa0eef3" class="block-color-pink">Using Task Boards</h2><hr id="a604697c-4d7d-4dce-8bec-95f18178e3d6"/><p id="b3ffc703-0f9f-4908-9d8a-5a83ec92d77f" class="">Here are some basic rules that will help you use task boards well...</p><p id="114336cc-2ce3-4013-b426-14aabbc4309c" class="">
+</p><ul id="6ad81348-060d-4e5f-af72-ab8adef6818f" class="bulleted-list"><li style="list-style-type:disc">Tasks on the backlog should generally not have assignees - this means anyone can pick them up and work on them.</li></ul><ul id="4bb4abac-9211-474b-84c0-5c42140f59b5" class="bulleted-list"><li style="list-style-type:disc">All tasks that are in progress should have an assignee - otherwise, they are not really in progress.</li></ul><ul id="3e20bbaf-6413-498f-8ced-99f5fd9943d8" class="bulleted-list"><li style="list-style-type:disc">Avoid working on too many tasks at the same time. It&#x27;s usually best to work on one at a time.</li></ul><ul id="9a34dbc8-1c42-4980-b55d-9667ad0fdd79" class="bulleted-list"><li style="list-style-type:disc">If you are blocked on a task and can&#x27;t progress it, mark it as blocked and pick up another one.</li></ul><ul id="9e0eb074-aaa0-4b0f-ab33-649f8b648d64" class="bulleted-list"><li style="list-style-type:disc">Keep the task board up-to-date.</li></ul><p id="42eadff7-e6c9-420b-ba93-ced6d3ee2b8d" class="">
+</p><h2 id="ff837cfe-4d7f-4225-9d38-2df147d1dbba" class="block-color-pink">Breaking down tasks on the backlog</h2><hr id="be82fbc1-89bf-4db1-806e-30ecc25f6202"/><p id="47474f7f-69fe-4a71-9bca-e8352bcbe9c6" class="">For task boards to work properly, it&#x27;s really important that the tasks available to be picked up by team members are clear enough that anyone can pick them up and just get on with them. This means someone needs to make sure those at the top of the backlog are granular enough and contain enough information.</p><p id="6be9228d-d9c3-430b-8257-bd8335cb8dbf" class="">In a team using scrum, this will often be done in a <strong>sprint planning meeting</strong>, before tasks are moved from the product backlog to the sprint backlog.</p><p id="424480ca-5a4a-4d14-838e-f38d4dbb69c6" class="">In teams using a continuous approach (ie without sprints), this needs to be done on a continuous basis.</p><p id="1d9c1daf-3b35-46bf-a03e-9f0e70aace55" class="">There are lots of strategies for breaking down large tasks (sometimes called <em>Epics</em> into smaller do-able tasks, but these will depend on the team and type of work you&#x27;re doing.</p><p id="1df5dfa7-2552-4d76-a4db-9e75986fc825" class="">The key thing to remember is that tasks that are ready to be picked up should be <strong>well planned and detailed enough that someone can work on them without needing to clarify the details</strong>.</p><p id="36bc2ed8-b2ea-437e-aa47-eed7398b4abc" class="">
+</p><figure id="265fbd70-ec13-4f2c-8508-94d5301a1bd6"><a href="http://www.payton-consulting.com/decompose-user-stories-tasks/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How to Decompose User Stories into Tasks - Payton Consulting</div><div class="bookmark-description">This post is a part of a series: Everything You Ever Wanted to Know About User Stories But Were Afraid To Ask Recently I was looking at the sprint backlog of a team, which just started their agile journey. When I looked at the task break down of the user stories, I noticed something like this.</div></div><div class="bookmark-href">http://www.payton-consulting.com/decompose-user-stories-tasks/</div></div><img src="http://www.payton-consulting.com/wp-content/uploads/2015/01/Tasks.jpg" class="bookmark-image"/></a></figure><p id="ece02c1f-e4ff-4674-bddf-06b508b8672a" class="">
+</p><h2 id="0d3282ac-e311-46dc-8920-9ef62a13d728" class="block-color-pink">Definitions of Done</h2><hr id="3e73e2e2-1363-4f3d-9ec3-f3d693ac226c"/><div id="5a694af6-fa43-45e1-9ddc-c1ef58c423e0" class="column-list"><div id="472e735f-73ad-49ff-8993-a78b57ed902b" style="width:56.25%" class="column"><p id="bd7f00f2-ecdc-48f5-b456-342877e43e31" class="">At it&#x27;s most basic level, a <strong>Definition of Done</strong> is a checklist that must be completed before a task is moved into <strong>Done</strong> on the task board.</p><p id="9b678b4b-81ae-4ba9-98f6-839b06fc53a4" class="">Here&#x27;s an example from a team building a simple website. Each page needs to have the following check before it goes live...</p><p id="1b7c8566-760f-4da8-9930-75821feacd09" class="">
+</p><p id="af230290-cb41-4a48-9a92-986d302cba09" class="block-color-yellow_background"><div class="indented"><p id="ef3e8d26-9cf1-4e47-84a2-0f13cc469dc0" class=""><strong>DoD for New Feature </strong>✅</p><ul id="94b39c7b-1ea6-4ffd-a1ab-4024728c0e39" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Copy checked for spelling</span><div class="indented"></div></li></ul><ul id="40f20fb7-dbf2-43ee-8db3-da1d7e9332f5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Pretty URL Slug</span><div class="indented"></div></li></ul><ul id="65dd4115-8ec4-4224-8e2a-60f379fe1bff" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Images uploaded and optimized</span><div class="indented"></div></li></ul><ul id="be7f8cd0-1497-46ad-84cf-89add643b2cf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Ensure webform works as expected</span><div class="indented"></div></li></ul><ul id="1fb42469-4ef7-425a-b589-6ab036df86e2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">All metadata added properly</span><div class="indented"></div></li></ul><ul id="ef958819-7b55-4687-bf4c-8460cb67143d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">SEO Checked</span><div class="indented"></div></li></ul><ul id="761c998d-7aa6-4f4f-b684-3c113b4a412c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for dead links</span><div class="indented"></div></li></ul><ul id="576e66cb-915a-41b9-be69-1735157acdbc" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Add link to footer template</span><div class="indented"></div></li></ul><p id="2db05dfe-4088-4c66-b7ad-3ff622e20c04" class="">
+</p></div></p></div><div id="ab2ec80e-0fb3-4149-a1dc-d724849e7f1c" style="width:43.75%" class="column"><figure id="3fe859f5-4053-43ce-97ce-1946c1ee7128"><a href="https://medium.com/@dannysmith/the-definition-of-done-what-does-done-actually-mean-ef1e5520e153" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The Definition of Done: What does &quot;done&quot; actually mean?</div><div class="bookmark-description">Scrum defines the Definition of Done in pretty simple terms: it&#x27;s the acceptance criteria that are common to every single user story. For scrum teams, it&#x27;s really important to have a solid definition of what &quot;don&quot; means. They work in sprints, and need some way of deciding whether a user story is actually finished.</div></div><div class="bookmark-href"><img src="https://medium.com/favicon.ico" class="icon bookmark-icon"/>https://medium.com/@dannysmith/the-definition-of-done-what-does-done-actually-mean-ef1e5520e153</div></div><img src="https://miro.medium.com/max/1200/1*vrnM2rZiNLG8EZ6QvMeiVg.jpeg" class="bookmark-image"/></a></figure><figure id="82402b59-88c3-4d67-891e-6e520229082a"><a href="https://www.agilealliance.org/glossary/definition-of-done" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Definition of Done</div><div class="bookmark-description">The team agrees on, and displays prominently somewhere in the team room, a list of criteria which must be met before a product increment &quot;often a user story&quot; is considered &quot;done&quot;. Failure to meet these criteria at the end of a sprint normally implies that the work should not be counted toward that sprint&#x27;s velocity.</div></div><div class="bookmark-href"><img src="https://www.agilealliance.org/favicons/favicon-16x16.png" class="icon bookmark-icon"/>https://www.agilealliance.org/glossary/definition-of-done</div></div><img src="https://www.agilealliance.org/wp-content/uploads/2015/12/Definition-of-Done-social-blue-440x220.jpg" class="bookmark-image"/></a></figure></div></div><p id="2083fd31-8aa0-4afc-a02a-fec4e736bb24" class="">
+</p><h2 id="f38cc497-bad7-44fe-a4a4-ea1e401225ee" class="block-color-pink">Kanban Work In progress limits <mark class="highlight-gray">(optional watching)</mark></h2><hr id="06638a13-3983-486e-9d9a-c2ebded8440b"/><p id="e4b61691-c69f-489a-bba9-48b5587a697e" class="">You&#x27;ll sometimes see teams using Kanban apply <strong>work in Progress</strong> limits to columns in their task boards. The video below explains how and why these work.</p><p id="264e0ce4-2dc0-473f-a8cd-abd3b2da8552" class="">
+</p><figure id="e115b620-0bb1-4ffc-a25c-54965d0230d4"><div class="source"><a href="https://youtu.be/G34BFjY7h5s">https://youtu.be/G34BFjY7h5s</a></div></figure><p id="6898fcbc-bf30-45df-95e2-7a5a6881a813" class="">
+</p><p id="d2471841-524b-4114-8228-c61f6623c440" class="">
+</p><h2 id="31680bf4-32d9-4dd6-af90-ae71936737e9" class="block-color-pink">Further Reading</h2><hr id="0569fbf0-0388-4bb3-b150-db93ccd43492"/><figure id="777d402d-42b5-4111-a987-a87b30a3baa3"><a href="https://www.planview.com/resources/articles/what-is-task-board" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">What is a Task Board? | Planview</div><div class="bookmark-description">Are you tired of rewriting your &#x27;to-do&#x27; list? A task board may be your solution. Task boards are a type of visual management tool that help busy people keep track of their work. Because task boards are so flexible, they are applied universally as one of the best project management tools today.</div></div><div class="bookmark-href"><img src="https://media.planview.com/favicon/favicon.ico" class="icon bookmark-icon"/>https://www.planview.com/resources/articles/what-is-task-board</div></div><img src="https://media.planview.com/wp-content/uploads/2020/01/social-planview-rebrand-min.jpg" class="bookmark-image"/></a></figure><figure id="f70d5821-889a-4563-bb05-881c4fe88468"><a href="https://kanbanize.com/blog/task-board/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">What is a Task Board and How to Use It Best</div><div class="bookmark-description">&quot;When you visualize, then you materialize.&quot; This quote of the American psychologist Denis Waitley perfectly summarizes one of the most effective tools used by modern leaders for managing their time, team process or even entire companies. Although there are different means to use for visualizing work, there&#x27;s hardly any tool capable of outperforming a task board.</div></div><div class="bookmark-href"><img src="https://kanbanize.com/blog/wp-content/themes/kanbanize/img/ico/favicon.png" class="icon bookmark-icon"/>https://kanbanize.com/blog/task-board/</div></div><img src="https://kanbanize.com/blog/wp-content/uploads/2018/08/What-is-a-Task-Board-and-How-to-Make-The-Most-of-It.png" class="bookmark-image"/></a></figure><figure id="9d847586-e3c6-432e-bf82-8c3ac8e4fc8e"><a href="https://www.eylean.com/blog/2018/09/5-agile-task-boards-choose-your-favorite/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">5 Types of Agile Task Boards - Choose Your Favorite - Eylean Blog</div><div class="bookmark-description">One of the most important tools for any Agile teams is the task board. This is where all the magic happens and thus it is important to have one that not only functions well, but that you like.</div></div><div class="bookmark-href"><img src="https://www.eylean.com/blog/wp-content/uploads/2019/08/logo_dark.png" class="icon bookmark-icon"/>https://www.eylean.com/blog/2018/09/5-agile-task-boards-choose-your-favorite/</div></div><img src="https://www.eylean.com/blog/wp-content/uploads/2018/09/7B8B4AB8-1F39-4DFD-9974-4633CFF614AC.jpeg" class="bookmark-image"/></a></figure><figure id="68d1f519-fc0f-4b67-87d9-98227866275d"><a href="https://medium.com/the-liberators/10-powerful-strategies-for-breaking-down-user-stories-in-scrum-with-cheatsheet-2cd9aae7d0eb" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">10 Powerful Strategies To Break Down Product Backlog Items in Scrum (with cheatsheet)</div><div class="bookmark-description">Teams that have mastered Scrum know that the key to success lies in a just-in-time, increasingly refined, breakdown of work on the Product Backlog. They prefer Sprint Backlogs with many small (functional) items instead of just a few large ones. Smaller items improve flow, and reduce the risk of failing the sprint.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/1*m-R_BkNf1Qjr1YbyOIJY2w.png" class="icon bookmark-icon"/>https://medium.com/the-liberators/10-powerful-strategies-for-breaking-down-user-stories-in-scrum-with-cheatsheet-2cd9aae7d0eb</div></div><img src="https://miro.medium.com/max/1200/1*mB-zh-OBVSun9LLFD166LA.jpeg" class="bookmark-image"/></a></figure><figure id="fe64528f-239b-49cd-97fe-a338dae28c30"><a href="https://www.invensislearning.com/blog/powerful-strategies-for-breaking-down-product-backlog-items-in-scrum/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">10 powerful strategies for breaking down Product Backlog Items in Scrum</div><div class="bookmark-description">Scrum is the most widely used Agile methodology. According to a recent study, over 72% of companies who use Agile have been using Scrum for their project management. All organizations that have mastered Scrum understand how well it works with completing projects on time.</div></div><div class="bookmark-href"><img src="https://www.invensislearning.com/blog/wp-content/uploads/2020/07/favicon-4.png" class="icon bookmark-icon"/>https://www.invensislearning.com/blog/powerful-strategies-for-breaking-down-product-backlog-items-in-scrum/</div></div><img src="https://www.invensislearning.com/blog/wp-content/uploads/2020/08/10-powerful-strategies-for-breaking-down-Product-1068x552-1.jpg" class="bookmark-image"/></a></figure><p id="d8ee2cab-e168-48a0-8e32-b9d996c656de" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

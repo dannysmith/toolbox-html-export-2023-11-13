@@ -1,0 +1,688 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Intro to FigJam</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="dcf8b3ac-909c-46a1-916a-226fa14a9830" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Intro%20to%20FigJam%20dcf8b3ac909c46a1916a226fa14a9830/figma.png"/></div><h1 class="page-title">Intro to FigJam</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="401bd206-968b-4375-9761-6f49d4520f13" class="">
+</p><p id="9186c2eb-91f4-4dd0-867f-f806613eb170" class="">FigJam is an excellent digital white-boarding tool made by the folks at Figma.</p><h2 id="efe4f8dc-01fe-47d5-80fa-a23e27de4e6d" class="block-color-pink">What is Figma?</h2><hr id="7ca6d6c8-4424-44f7-b8cf-b678865dc0f7"/><div id="d685b222-ecec-4590-96f1-6f051412cfaa" class="column-list"><div id="52dfff45-faa3-4a61-9151-e2712d192328" style="width:68.75%" class="column"><p id="c5d013f6-75d5-45a6-877c-8dd30c772d29" class="">Figma is a a modern, collaborative design tool that’s become an industry standard for a lot of software product teams. Designing with Figma is outside this doc, but it’s good to understand a few of the things that differentiate it from other design tools before we look at FigJam:</p><ul id="3d5d0da8-1520-4322-b00d-04386026d363" class="bulleted-list"><li style="list-style-type:disc">It’s specifically designed for user interface design, and has <strong><strong><strong><strong><strong><strong>a lot of features</strong></strong></strong></strong></strong></strong> aimed at creating shareable, structured <strong>design</strong> <strong>systems</strong> which make it easy for software teams to experiment and prototype fast <mark class="highlight-gray">(why so many teams love it)</mark>.</li></ul><ul id="f83e790b-ae99-4bcb-9e3e-fcde0db3c6a1" class="bulleted-list"><li style="list-style-type:disc">It’s entirely cloud based, which means all your files are stored <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>inside Figma</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> and you can use it in a browser as well as through the app.</li></ul><ul id="100a11f6-2cfb-4e07-831f-cae206922e6e" class="bulleted-list"><li style="list-style-type:disc">It’s multiplayer by default. A bit like google docs, multiple people can work simultaneously in the same file, and everyone can see what’a happening in realtime.</li></ul></div><div id="4defa08c-c9d7-4c95-b22d-19ce8ec412e2" style="width:31.25%" class="column"><figure id="8c34016e-5c6e-401e-811f-ee2dbe2525f1"><div class="source"><a href="https://youtu.be/Cx2dkpBxst8">https://youtu.be/Cx2dkpBxst8</a></div><figcaption>What is Figma (1:30)</figcaption></figure></div></div><p id="ba8eba4f-e165-4475-9e4e-a2850ee4373d" class="">The folks at Figma realised that a lot of teams weren’t just using it for design… they were using the collaborative features to run<strong> interactive, remote white-boarding sessions</strong>. So they created a   tool specifically designed for this… <strong>FigJam</strong>.</p><p id="0483aaf8-1509-432b-bcaf-112091381881" class="">
+</p><h2 id="ad78a0cd-690c-4a00-b41f-54339b9c8a99" class="block-color-pink">What is FigJam?</h2><hr id="610dec29-29bd-4f25-b679-9708bb821c7a"/><p id="2dfcb983-6e82-47cd-a2ce-534c79994b7b" class="">FigJam is Figma’s answer to digital whiteboarding tools like <a href="https://miro.com/">Miro</a>. It’s simple to use and is perfect for collaborating in a remote environment. Watch the video below to get an idea of how it works.</p><p id="83edbc8d-c893-42b4-adc3-7981867d330d" class="">
+</p><figure id="cb6bdc08-0789-498f-a13e-b598859eed58"><div class="source"><a href="https://youtu.be/axDzyLEfYgU">https://youtu.be/axDzyLEfYgU</a></div><figcaption>Welcome to FigJam (1 min)</figcaption></figure><p id="41059956-8206-4615-9bf4-c1b05b6159de" class="">
+</p><h2 id="314f462c-9501-4708-92c3-7220b7b2196b" class="block-color-pink">Why do we need an online whiteboarding tool?</h2><hr id="f528eaab-9be9-4576-a147-193b48e8f55f"/><p id="e992626a-406e-4e54-a175-0260ec07685d" class="">For many folks, visual thinking is the easiest way to come up with and organise thoughts, and in a group setting it’s often the <em>most efficient</em> way of ideating, sharing and organising ideas. There are lots of reasons for this, but put simply… </p><p id="575f0b36-64c6-42c7-b722-19d29494e461" class="">We form shared mental models faster when thinking &amp; communicating visually (”a picture paints a thousand words”). We also tend to be better at creatively organising (and reorganising) things when they’re represented visually. In an office environment, how often have you reached for a notebook or whiteboard in the middle of a conversation?</p><p id="50a8fd52-d443-47a0-ac62-3f395367fa1f" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>There’s a reason most workshop facilitators make heavy use of whiteboards, flip-charts and sticky notes!</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><p id="8aa2c3a9-4391-4828-acb4-f9cefebb435a" class="">In a remote environment we don&#x27;t have whiteboards and sticky notes, so we need a digital solution. In many ways, digital tools like Figma are <strong><strong><strong><strong><strong><strong>better</strong></strong></strong></strong></strong></strong> than real life. They allow us to include videos, text, code, images, designs etc alongside our sticky notes and whiteboard scribbles. They’re also better for large groups – so long as it’s well designed, it’s possible for a hundred people to collaborate on the same digital whiteboard at the same time.</p><p id="0c8ca09b-7951-4de5-8cd8-050415d260f7" class="">
+</p><h2 id="ae0f1f60-5419-43e6-a7de-8e41375afaba" class="block-color-pink">Learning FigJam</h2><hr id="74cb45ac-d114-4fe4-85aa-2ffc30cbac48"/><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="e21b1bc4-a30b-4794-8cc9-3c3d0821a70f"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise</strong>: Sign up for a free Figma account, download the desktop app on your computer and log in.</div></figure><p id="5ff37c1b-4c4b-44df-800a-fe4c707362b9" class="">
+</p><p id="05648f3a-b708-4641-b1d8-0eec490bfbc0" class="">The best way to learn FigJam is to explore it yourself. Watch the videos below to learn the basics and see how it can be used in collaborative workshops, then have a play on your own!</p><p id="6ea603d3-a9ab-416a-b6dc-c11ebd538243" class="">
+</p><div id="bc331f2e-c70d-48e6-a2cc-af27b5556d5b" class="column-list"><div id="44195c1f-2044-4616-9569-fc136c430140" style="width:50%" class="column"><figure id="19691092-08f0-4eb9-9907-efe6aca2d418"><div class="source"><a href="https://www.loom.com/share/0a20655f2ec14f29a38f4d03c1bf13e7">https://www.loom.com/share/0a20655f2ec14f29a38f4d03c1bf13e7</a></div><figcaption>FigJam Basics (8 mins)</figcaption></figure></div><div id="4209d000-99a1-4d67-8463-ae0c14e150f9" style="width:50%" class="column"><figure id="8f8c6588-f0c5-46a5-8f40-09d87d8ad182"><div class="source"><a href="https://www.loom.com/share/5480bf1cee6e419a97fcb5ae77caf5ee">https://www.loom.com/share/5480bf1cee6e419a97fcb5ae77caf5ee</a></div><figcaption>Video explaining how Danny uses FigJam in his workshops (10 mins)</figcaption></figure></div></div><p id="d445c044-0539-4f77-942b-68f566fc70a5" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="39ac427a-89f2-4fac-8026-c155d813f82f"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise</strong>: Spend 15 minutes in FigJam exploring the basic functionality. What useful features can you find? Any good keyboard shortcuts?</div></figure><p id="8cd40c44-d2b2-486d-9c70-46e449a9ab5e" class="">
+</p><h2 id="d8c62700-7e83-426b-a5f7-7d101df9a2cb" class="block-color-pink">Summary &amp; Key Points</h2><hr id="7ab1a03f-c00c-4c5c-93de-9235bc870b0f"/><p id="dcfee2b3-7880-46b6-b643-cc2fb44fb3f8" class="">Collaborative digital whiteboards are an important tool for distributed teams. It’s important you know how to use them effectively so you can participate in workshops and meetings.</p><p id="a2599400-1755-40a9-9dd5-2bf782b32178" class="">We’ll use FigJam during some of the synchronous sessions in this course, so you’ll get a bit of extra practice with it then.</p><p id="df76d5ef-cda8-45fc-8e1b-3f15173d25a6" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="a2fd0d8f-dd05-436d-b705-5c917b7489df"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise (optional)</strong>: Reflect on how FigJam might make your meetings more effective? How would it change the way you facilitate the meeting? How would you prepare your FigJam board? If you’re feeling brave, turn this 👆 into action! Offer to facilitate a meeting, prepare a FigJam board and use it with your team.</div></figure><p id="4d594857-7bc9-49f9-ab96-e0c32d747d2d" class="">
+</p><h2 id="e3058bd2-1bc3-4ced-9d52-e0bcc9d815a9" class="block-color-pink">Further Reading</h2><hr id="0494112f-004f-4b44-8618-821e9d4f0661"/><div id="6535967d-1d4e-4c8a-82cd-cc9c448bf2df" class="column-list"><div id="2824325d-6fed-4b4a-bd7a-7dd1d953852e" style="width:50%" class="column"><figure id="edeb4a56-4e32-4347-b0b1-53b561235e29"><div class="source"><a href="https://youtu.be/FxdoM1B7Wo8">https://youtu.be/FxdoM1B7Wo8</a></div><figcaption>Intro to FigJam (6 mins)</figcaption></figure></div><div id="9458fed1-6a72-4708-a3fe-b8aec65b001a" style="width:50%" class="column"><figure id="d73deef5-35a1-422d-b6b6-ccaf3c99d408"><div class="source"><a href="https://youtu.be/4NzlbkcgQqY">https://youtu.be/4NzlbkcgQqY</a></div><figcaption>Making diagrams with FigJam (6 mins)</figcaption></figure></div></div><div id="2c1feafb-2fcf-4638-9b05-e19a9c452e5f" class="column-list"><div id="63d35150-0589-4acb-bbac-333dd45be329" style="width:50%" class="column"><figure id="50ab3a59-9c5c-432d-80ce-a421ca93bbda"><div class="source"><a href="https://youtu.be/7TNIw6aSF6Q">https://youtu.be/7TNIw6aSF6Q</a></div><figcaption>Getting Started with FigJam Webinar (38 mins)</figcaption></figure></div><div id="b17f5b2c-9567-4cf6-8876-53239d510abd" style="width:50%" class="column"><figure id="d2c37158-d3af-4bd9-9c5b-b843ee4470bf"><div class="source"><a href="https://youtu.be/njRY2Nry5QM">https://youtu.be/njRY2Nry5QM</a></div><figcaption>How we Jam: How the Figma engineering team uses FigJam (44 mins)</figcaption></figure></div></div><p id="97494b96-4015-40c1-82f4-28d71c08d4e7" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

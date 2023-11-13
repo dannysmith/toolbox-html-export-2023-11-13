@@ -1,0 +1,687 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Example Team Meeting Template</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6a44a731-f90a-4c92-a027-72f13fdbd075" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjYzOTIxfQ" style="object-position:center 27.51%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📅</span></div><h1 class="page-title">Example Team Meeting Template</h1><p class="page-description"></p></header><div class="page-body"><p id="91bb933e-afad-471f-9ef7-f6d7399ab7ac" class="block-color-yellow_background"><div class="indented"><h3 id="1cfee8b2-e5cd-4162-a4e5-59b63ca7d521" class="">Before Meeting ☑️</h3><hr id="9ca6b26e-b699-4c3f-a71f-15e045649afc"/><p id="ae1c30d6-dbae-48a9-a514-e1a316fff35b" class=""><strong><mark class="highlight-orange">Facilitator</mark></strong><div class="indented"><ul id="b60a5b4f-29ac-4499-9fd2-f20aa978254a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check last week&#x27;s meeting notes and bring forward any outstanding issues or tasks.</span><div class="indented"></div></li></ul><ul id="1b5effde-4ed0-4e63-b738-634cce29bf7a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Remind everyone of the pre-work in <code>meetings</code>.</span><div class="indented"></div></li></ul></div></p><p id="1562c444-5068-4fc3-bd7c-93f964cf35ec" class=""><mark class="highlight-orange"><strong>Everyone</strong></mark><div class="indented"><ul id="e6ca4ed8-00f6-4851-b345-866a23695ebe" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">If you have a significant update to make, record a loom and add it to the Updates section below.</span><div class="indented"></div></li></ul><ul id="b5ab36ad-4ec6-459d-8264-0fa016ea5ef1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Review your tasks and projects documents and check they are up to date.</span><div class="indented"></div></li></ul><ul id="39e6e396-e541-4eb2-a781-ea61f8790c00" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Read the agenda and watch any update videos added by others.</span><div class="indented"></div></li></ul><ul id="f5ca52d5-9f2d-4917-bfe3-7e8726f33367" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Add your issues and questions to the issues list.</span><div class="indented"></div></li></ul></div></p><p id="08445118-8ee1-4df4-b6b5-bbc698d47d3c" class="">
+</p></div></p><p id="982af2b3-8866-40db-892a-568461d196f7" class="">
+</p><h2 id="4717fe71-0140-425f-a535-e999f6388186" class="block-color-gray_background">Updates</h2><p id="5ef969dc-ac8b-4b95-98f7-eb6cfa81c1e9" class="block-color-gray"><em>If you have any updates to share, record a short loom and embed it below. </em><mark class="highlight-orange"><strong><em>You must do this at least 6 hours before the meeting so everyone has a chance to watch them.</em></strong></mark></p><p id="7c632ae2-21f7-4b1c-8efe-a4431c948a32" class="">
+</p><div id="26a1e7f1-0822-44e2-a08a-28ee27ceb666" class="column-list"><div id="4f69470a-fdbc-4940-9abf-89d8fe20dc02" style="width:74.99999999999999%" class="column"><h2 id="ea89c3dd-84fa-4fa0-a387-e605ecd0f5d6" class="block-color-gray_background">Agenda</h2><p id="28ef29ca-3427-43c0-a155-6fc419317bac" class=""><mark class="highlight-gray"><em>The main goal of this meeting is </em></mark><mark class="highlight-gray"><em><strong>alignment </strong></em></mark><mark class="highlight-gray"><em>- getting us all on the same page and ensuring we don&#x27;t miss anything. We use the second part of this meeting to solve i</em></mark><strong><mark class="highlight-gray"><em>ssues that need everyone&#x27;s input </em></mark></strong><mark class="highlight-gray"><em>– we do it here because it helps us stay aligned on decisions being made.</em></mark></p><p id="f1556fce-6625-477b-8d70-fdb0fcc1132d" class="">
+</p><ul id="cec41e2e-a6eb-4696-a2ee-0408b41a7c23" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Check-in </strong>❤️</span><div class="indented"><p id="8a263969-a242-44be-a938-039bb3c1b63d" class=""><em>&lt; 5 seconds each:</em></p><ul id="8f432ebc-84ca-4f3a-a37c-8b140514589c" class="bulleted-list"><li style="list-style-type:disc"><em>Rating 0-10 - how are you feeling right now?</em></li></ul><ul id="3b2a3a3c-f57a-43cf-8a8d-3184ad2a51ae" class="bulleted-list"><li style="list-style-type:disc"><em>One word to describe how you are feeling now.</em></li></ul><ul id="1f4cf4b7-65a6-4e05-8740-c0618562c399" class="bulleted-list"><li style="list-style-type:disc"><em>Nominate the next person.</em></li></ul></div></li></ul><ul id="6c86d83a-9a56-4de4-b4f4-2fc0fe47e8ec" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Last Week&#x27;s Meeting Tasks</strong></span><div class="indented"><ul id="adf86e51-833d-47c4-b1be-3da5e931113f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">One word for each or last meeting&#x27;s tasks: <strong>done</strong> / <strong>not done</strong></span><div class="indented"></div></li></ul><ul id="2fede23e-39e6-493d-8e63-e5c927c6be99" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Decide</strong>: carry forward or discard.</span><div class="indented"></div></li></ul></div></li></ul><ul id="9efcad8e-c6c6-4fc6-baa0-14f689e7253a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Review Project Boards</strong></span><div class="indented"></div></li></ul><ul id="788b9fb7-88b5-4335-b25e-5c38169714db" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Crowdsource agenda</strong> (3 mins, mics and cameras off) - To make sure everyone has had a chance to add their items. </span><div class="indented"></div></li></ul><p id="9166c19e-906a-499f-9254-5a994995a981" class="">
+</p><ul id="52067c8a-60b5-4e67-9335-df6a4d5c2ef4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><mark class="highlight-orange"><strong>Main Issues List</strong></mark></span><div class="indented"><p id="adf531a9-b2e6-4e0d-98c2-82711766e46b" class="block-color-gray"><em>This should take up the majority of the meeting.</em></p><ul id="ee6a7bd4-c6f7-4fd1-83b5-ffa93e26c34d" class="block-color-gray to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Decide</strong>: based on time, which of the issues below are the ones we should discuss now?</span><div class="indented"></div></li></ul><ul id="0b8d72e5-e0e4-4d2e-9957-bd1105624c48" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><mark class="highlight-red">[Add issues for discussion or decision here.]</mark></span><div class="indented"></div></li></ul></div></li></ul><p id="88d6f92c-1eab-4997-9a9c-7299164977c5" class="">
+</p><ul id="105e2bee-8f65-4490-9bb0-3dc2b38f390c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Closing </strong>(1 min)</span><div class="indented"><ul id="acfae43f-b058-4889-954a-58039d68dad5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Next Actions Recap</span><div class="indented"></div></li></ul><ul id="81212254-67ab-42ba-9cef-78aad60425f6" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Nominate facilitator for next week.</span><div class="indented"></div></li></ul><ul id="356c1acc-b981-46ef-9609-984d04e9b2f1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Checkout ❤️</span><div class="indented"><p id="49accf58-44c1-4196-a061-dcd7492b64de" class=""><em>10 seconds - One thing you&#x27;re grateful for right now → nominate next person.</em></p></div></li></ul></div></li></ul><h2 id="53cfa5c5-379a-4263-9b09-d168d1549d97" class="block-color-gray_background">Notes</h2><p id="09a60073-5711-4c70-90bd-d7af5a3a1133" class=""><mark class="highlight-gray"><em>Use this area to keep notes during the meeting.</em></mark></p><p id="456b6298-2dcd-417a-bb1a-6587fb7049ca" class="">
+</p></div><div id="845e58a0-ea6b-4048-a2eb-416168f0ebe6" style="width:25%" class="column"><h2 id="3bddd815-03bb-4aca-9028-3ac4ff9683c1" class="block-color-teal_background">Tasks</h2><p id="43a3d609-a84d-446b-8191-dc3f17ad5918" class="block-color-gray"><em>Add This week&#x27;s tasks here. Be sure to </em><code><em>@mention</em></code><em> people and add due dates with </em><code><em>@date</em></code><em>.</em></p><ul id="55159633-9b8f-44d4-9afa-93323e9a28ea" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"></span><div class="indented"></div></li></ul><h2 id="347be49f-b118-4099-a39d-ee360addb8f2" class="block-color-red_background">Big Decisions</h2><h2 id="c638fb98-1175-4843-93fb-8c1d1c9dee1d" class="block-color-blue_background">Guidelines</h2><ol type="1" id="b7025ba5-3a13-4f36-bad7-5cda58189d5e" class="numbered-list" start="1"><li>Shout <mark class="highlight-red"><strong>Jellyfish</strong></mark> if we get offtrack.</li></ol><ol type="1" id="7786d7a0-9b4f-49f6-92ac-875ec18fb7b0" class="numbered-list" start="2"><li>Safe space.</li></ol><ol type="1" id="ff0c2472-dc3c-4f0c-862e-33db3947d74e" class="numbered-list" start="3"><li>All in attendance, inform if you cannot attend.</li></ol><ol type="1" id="27ffee4e-d6d1-48d3-a9e4-5cd9f7827f51" class="numbered-list" start="4"><li>Raise your hand if you want to speak.</li></ol><ol type="1" id="f906abc2-aedc-49a2-a48e-fc945bd44a79" class="numbered-list" start="5"><li>Clear action items with deadlines</li></ol><ol type="1" id="4ee14325-f578-40f1-a97b-1bfa4743759a" class="numbered-list" start="6"><li>No phones or programs open other than Zoom and Notion.</li></ol><h2 id="6d915e98-cf0d-46be-95d2-47c2526b8a44" class="block-color-yellow_background">After Meeting</h2><p id="e24a996f-dc70-48fe-bc53-823d7eaa1b8f" class=""><mark class="highlight-gray"><em>The facilitator should run through this checklist after each meeting.</em></mark></p><ul id="3deac696-76bb-4a82-82e2-47632810bcdf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">&lt; 5 min tasks <strong>done</strong>.</span><div class="indented"></div></li></ul><ul id="591cb21c-d06b-4e7c-a918-c6918b7711a4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Create next week&#x27;s meeting &amp; assign facilitator.</span><div class="indented"></div></li></ul><p id="32f02252-b9fb-4ddb-aa9b-907116068a2d" class="">
+</p><h2 id="e0cca0b7-ad74-4653-b2a3-67fd997c999f" class="block-color-yellow_background">Meta</h2><p id="85459396-4bdc-4571-bd20-eb0e3ed0ff3a" class="block-color-gray"><em>If the meeting was recorded, upload it here.</em></p><figure id="8c916c92-73fc-43d4-ac06-ae494ebb2ae1"><div class="source"><a href="https://www.notion.soundefined"></a></div></figure><p id="711a2e68-5a7c-452b-8a05-53ae02b68a7a" class="">
+</p></div></div><p id="f032b032-18bd-413a-9a6a-0e1917dc2b0d" class="">
+</p><p id="46ad4aff-b30b-4d85-82f8-3d24cac7bdf3" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

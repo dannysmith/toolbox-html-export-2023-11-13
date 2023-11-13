@@ -1,0 +1,689 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>All Hands Meetings</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="cc09365f-58e2-49d5-a389-23c9a1610611" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🙌</span></div><h1 class="page-title">All Hands Meetings</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="732f15a3-0c8e-444a-abbe-5d518623f7a2" class="">
+</p><p id="0c4ef65b-e73d-4822-a337-1c0473dafa30" class="">All-Hands meetings are a chance to get the <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>whole company </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>together on a regular cadence. They’re an important tool for keeping the company aligned and motivated.</p><p id="ba2016fa-538a-4825-a33f-7252c1f4ef0a" class="">For smaller companies, you should probably run these in exactly the same way you run <a href="Recurring%20Team%20Meetings%203da16d5e7b134c0c9e9fe9e9ea2378ef.html"><span class="icon">🔄</span>Recurring Team Meetings</a>. For larger companies, you might need a slightly different structure.</p><p id="ccc0a488-2831-477c-ad9f-0220922d346c" class="">
+</p><h2 id="fb5b4896-2125-44c4-bdfa-69357bf5ad04" class="block-color-pink">What are All Hands for?</h2><hr id="ac1d5fc8-73c4-4e79-b793-915affd9d753"/><p id="dd570811-c79e-4c9d-948b-a05b29723c3a" class="">All-Hands meetings are great for this sort of stuff…</p><ul id="2a819492-b0dc-4aa1-b3f3-b1b9c27396cc" class="bulleted-list"><li style="list-style-type:disc">Reminding and Reinforcing your company vision, goals and objectives.</li></ul><ul id="9eefa5d3-9d8f-49e2-a011-dbdf3909446e" class="bulleted-list"><li style="list-style-type:disc">Reinforcing your company values.</li></ul><ul id="3831a426-a8bb-4252-b940-433ca7ad8cc9" class="bulleted-list"><li style="list-style-type:disc">Making <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Big Announcements</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>.</li></ul><ul id="f0de72c4-1dd5-4b9d-a612-e65b6ab708c0" class="bulleted-list"><li style="list-style-type:disc">Providing context on strategic direction and how everyone’s work fits together.</li></ul><ul id="ca7f55f4-bc63-45a1-a643-632b79a75b02" class="bulleted-list"><li style="list-style-type:disc">Sharing updates and successes from each department.</li></ul><ul id="7daaf5f6-82a8-480d-9dfa-71a095872f3b" class="bulleted-list"><li style="list-style-type:disc">Shouting out successes and great work.</li></ul><ul id="130404ef-e2a5-4bb3-be5c-03ca44f6b90d" class="bulleted-list"><li style="list-style-type:disc">Introducing new joiners.</li></ul><ul id="d3bcefba-6f49-4dd0-9272-bd0750e2a277" class="bulleted-list"><li style="list-style-type:disc">Answering questions from across the company in a public forum.</li></ul><ul id="b0b144e6-45d3-4a4c-963f-b6f58ef6e5d1" class="bulleted-list"><li style="list-style-type:disc">Socialising or workshopping outside of your normal teams.</li></ul><p id="18bdea1e-95b5-43a6-b759-9fbc2434f634" class="">
+</p><h2 id="4bdd341d-6fd8-4a72-94db-ec9077614c10" class="block-color-pink">A Template for Asynchronous Updates</h2><hr id="afd444de-4e2b-49b7-b4d7-a0d5e85c3e50"/><p id="6c111c3f-f787-4505-a371-17ee600f37de" class="">As with all meetings, we should try to do anything which <strong><strong><strong>can</strong></strong></strong> be done asynchronously beforehand. This matters even more for all-hands – if you have 100 people on a call for an hour it’s <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>really important</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> that we don’t waste time on low-value stuff on the call.</p><p id="7e521356-89ad-4352-9785-9da0eed6fdc4" class="">The template below is designed to do as much asynchronously as possible. Leaders are expected to fill out their parts well ahead of time, and attendees are expected to read/watch them before the meeting.</p><p id="d6423b25-68e8-4f88-9e71-e88ec7fce35b" class="">The template includes the company mission, values, north star and current objectives, as well as progress against the current Key Results. Bar the KR progress, these should remain pretty much unchanged between meetings. <strong>It’s important to keep this stuff front and centre.</strong></p><p id="7cd52a10-51c8-4e2a-a36a-78bf5121f578" class="">There are then sections for leaders to fill out ahead of time so folks can read/watch before the call. These include…</p><p id="3d3595cf-36f6-476b-bf83-3dc62cd48eeb" class="">
+</p><ul id="5f2bdd5c-ced9-4ad0-ab84-2f1bad3e4055" class="bulleted-list"><li style="list-style-type:disc"><strong>CEO Update </strong>– This is the CEOs chance to reinforce their core messages and give a strategic update. It’s important to write this <em><em><em><em><em>well</em></em></em></em></em> (like you would a board update) and tie it back to the mission and objectives. The <strong><strong><strong><strong><strong><strong><strong><strong>Big Wins</strong></strong></strong></strong></strong></strong></strong></strong> section is a place to highlight major achievements from across the company since the last all hands.</li></ul><ul id="30ff7d39-8411-46f4-b6ba-0e68aaa6b5ad" class="bulleted-list"><li style="list-style-type:disc"><strong>Announcements and reminders</strong> – This is the place to highlight any important announcements, remind the whole company of stuff they should already have seen on slack and introduce any new starters.</li></ul><ul id="1bcceb4a-5e21-4416-90f8-22b96582eb8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Department updates</strong> – The sections here are for department leads to give a <strong><strong><strong><strong><strong>brief</strong></strong></strong></strong></strong> update on their progress against KRs, key numbers, links to external dashboards etc. You’ll probably find that some departments always share the same graphs along with their written update (financial numbers, sales figures etc). Consider adding these to the template if you can.</li></ul><p id="d3aa4fb5-9ea1-44d3-887e-ba7929221141" class="">
+</p><p id="9b356e55-fdb4-4210-af28-0382f0aaebce" class="block-color-gray_background"><div class="indented"><figure id="ee4f3889-d6d1-42dc-862c-d3c13466e762" class="link-to-page"><a href="All%20Hands%20Meetings%20cc09365f58e249d5a38923c9a1610611/All%20Hands%20Meeting%20Template%20ee4f3889d6d142dc862cd3c13466e762.html"><span class="icon">📅</span>All Hands Meeting Template</a></figure><p id="af417710-562c-4711-b68d-aac202a11189" class="">
+</p></div></p><p id="8b26ecb1-a215-4be5-8539-de65d3a6549c" class="">
+</p><p id="6a3fcff3-c03f-430b-80a2-4b06905b15c9" class="">
+</p><h2 id="f3ff38b6-8a69-4f9e-bf02-69f5709f786d" class="block-color-pink">The Actual Agenda</h2><hr id="eeb12346-205c-4f09-8ae1-5f141ee56334"/><p id="3a3c9e68-3751-467a-a796-50a35d2eaf71" class="">It’s a good idea to follow a set agenda for the first part of these meetings. Using the template above, it’d look something like this…</p><p id="450b9dad-2996-4d75-b40c-38cdede559b1" class="">
+</p><ul id="244e1c20-47bd-4437-bc60-477af2e518a1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Welcome <mark class="highlight-gray">(2 mins) – Everyone gets settled.</mark></span><div class="indented"></div></li></ul><ul id="9c975c62-8def-4d97-be91-0b84af4d76b2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">CEO Update <mark class="highlight-gray">(8 mins) - The CEO highlights the key points in their update. This should not just be a repetition of what they wrote in the doc.</mark></span><div class="indented"></div></li></ul><ul id="1a9bc44e-115c-4aa4-9ca6-a0eb17d26ba1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Announcements <mark class="highlight-gray">(2 mins) - Time for any big announcements or urgent reminders. Again, this should not just be a repetition of </mark><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><mark class="highlight-gray">everything</mark></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><mark class="highlight-gray"> in this section of the doc.</mark></span><div class="indented"></div></li></ul><ul id="be8f13af-92fb-47d1-ab51-dafeeb6ba0ac" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">New Starter Intros <mark class="highlight-gray">(2 mins) – New starters have 20 seconds each to say hello.</mark></span><div class="indented"></div></li></ul><ul id="b3942dbc-4926-4759-a2ff-50aea0d5045a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Q&amp;A On Updates <mark class="highlight-gray">(15 mins) - A chance for attendees to ask questions about what they read/watched in the doc.</mark></span><div class="indented"></div></li></ul><p id="6c039a9f-78aa-4e46-ad13-43c7b1b26e54" class="">
+</p><p id="73d223e9-ca47-48e0-bf6c-ff7f090cfe66" class="">The second part of the meeting should have a definite purpose too, thought it might change from meeting to meeting. In the template, the focus is on cross-team socialisation:</p><p id="e800938d-ca46-4864-947a-5e04972c0cb0" class="">
+</p><ul id="0d61ff91-c2ce-4fdc-adb4-1d5d9ba44391" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Game - Breakout Rooms <mark class="highlight-gray">(15 mins) - Split into random breakout rooms of 4-6 people and play a game (see </mark><mark class="highlight-gray"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db.html"><span class="icon">🕹️</span>Games for Remote Teams</a></mark><mark class="highlight-gray">)</mark></span><div class="indented"></div></li></ul><ul id="9f631928-fad2-43df-afee-ce650b5b23b4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Social Time - Breakout Rooms <mark class="highlight-gray">(15 mins) - Split into different random breakout rooms and have a non-agenda social chat for the rest of the meeting.</mark></span><div class="indented"></div></li></ul><p id="9e6772d3-aafc-49ec-b495-aa5cc271610f" class="">
+</p><p id="e9aca140-bf1b-47af-9c5d-f9d20a11638e" class="">But you could also use this time to do some <strong>workshopping</strong> on a company-wide issue (also in breakout rooms) or have someone present a <strong><strong><strong><strong><strong><strong><strong><strong><strong>deep dive</strong></strong></strong></strong></strong></strong></strong></strong></strong> into some topic that will be interesting to the whole firm.</p><p id="c00f3adf-d140-4dc6-95fa-8c14f6114417" class="">
+</p><h2 id="3827f8c7-3909-4999-8334-bdc9ed803ba8" class="block-color-pink">Encouraging Participation</h2><hr id="35698741-a23b-47b5-9800-2c7e062749cd"/><p id="52877112-99a7-4892-be3b-ad992f5c43f4" class="">All-Hands in large companies can often suffer from a lack of participation – it’s understandably scary to speak up in a zoom cal of 300 people! You can deal with this by:</p><ul id="c126d36e-4ebf-4881-8d5d-fdf4813732d4" class="bulleted-list"><li style="list-style-type:disc">Using breakout rooms lots.</li></ul><ul id="a8a8dca3-5659-4d26-9498-043b40b97e97" class="bulleted-list"><li style="list-style-type:disc">Asking for questions via the chat or a tool like <a href="https://www.slido.com/">Slido</a>.</li></ul><ul id="ac6c316d-11bf-4c45-946e-cd430a3ae4fa" class="bulleted-list"><li style="list-style-type:disc">Asking for volunteers to lead parts of the meeting (ahead of time, obviously).</li></ul><ul id="4bb24c14-6831-4b2b-9838-c353af54c386" class="bulleted-list"><li style="list-style-type:disc">Offering a prize for <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>best question to the leadership team.</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,692 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Lean Documentation</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="14247490-e3d4-4823-a14c-dd99dbc16798" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🗒️</span></div><h1 class="page-title">Lean Documentation</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="b70c21b6-93af-4953-a142-ee78bac7e954" class="">
+</p><p id="efe99261-172a-4fec-a022-882aca2caf8e" class="">One of the principles in <a href="Asynchronous%20Working%2001f374ebab6b4fc7ab9f2ff91e7563cf.html"><span class="icon">💡</span>Asynchronous Working</a> is <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Document Everything</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>.</p><p id="051eaf84-e48e-4592-a9ce-4ad5447cee88" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="38d3108b-246e-499a-bab0-18a250e54ad8"><div style="font-size:1.5em"><span class="icon">1️⃣</span></div><div style="width:100%"><strong>Document everything</strong><hr id="fe219580-353b-4333-96d7-f00c6ba196fb"/><p id="e364fa6d-eb14-431b-9ccc-c83f5ef99050" class="">When working synchronously – either in an office or remote – it&#x27;s very easy to ask other people for information. In a globally distributed team this isn&#x27;t always possible. So we need to ensure that other people have access to the information they need if you&#x27;re not around.</p><p id="8492a70b-1cb1-40ed-bb65-05867096e2d8" class="">The solution to this is <strong>documentation</strong>.</p><p id="ac58dffa-baea-4095-9b7e-6a70bf3f6330" class="">It&#x27;s <strong>really important</strong> that we clearly document our work, processes, decisions etc in a way that makes them accessible to other people <em>without</em> the need to speak to us.</p></div></figure><p id="64cd24a4-92a2-443d-aab7-876cc642bcbb" class="">
+</p><p id="e28eee6d-9ed8-4c8d-80d4-aafcc6d50aa4" class="">Let’s dive a little deeper into that…</p><h2 id="8938c9cc-63cd-4565-aa4c-3be4cd768152" class="block-color-pink">Why is documentation so important?</h2><hr id="d7bd8b1c-992d-44df-9726-7c1b91ec8024"/><p id="6e9a9561-ddd8-460d-af1e-6ab2fbd462fb" class="">If you&#x27;re like most people, you probably asked someone in person or picked up the phone. This works fine in synchronous teams, but in an async team there might not be anyone around to ask.</p><p id="9064bda0-9729-4ff5-98fe-1594156a9f50" class="">This is why it&#x27;s <strong>really important</strong> for async teams to write and maintain good internal documentation.</p><p id="63fef084-20ab-44fb-a31d-5e54b6db3085" class="">
+</p><h2 id="f60b2991-5e95-4ca4-b3db-01c5eb453da2" class="block-color-pink">What does good documentation look like?</h2><hr id="90190fca-eb0f-4efa-861f-d904218dfab0"/><p id="5e1be069-764f-409c-a757-2477f65822cc" class="">The internet is full of articles on how to write well. Much of the advice out there is good, but for our purposes we&#x27;ll stick to three properties of good internal documentation:</p><h3 id="0c68b7fd-ca8e-408f-a39c-0059b9c1c367" class="block-color-purple">1️⃣ Clear &amp; concise</h3><hr id="85ad433b-2391-41b8-a515-c03a7763ea08"/><p id="83656c78-9faa-4348-9707-d635a211869c" class="">Keep docs <strong>short</strong> and <strong>to-the-point</strong>. They are not meant to show your editorial skills – they&#x27;re there to convey information fast and clear.</p><p id="aaee2cfa-2b4b-460e-825a-ed3225a42869" class="">Avoid superfluous words that don&#x27;t add anything, and strive to make your meaning clear in as few words as possible. Keeping something clear <strong>and</strong> short can be quite hard, but you should try.</p><h3 id="bdf7752d-c446-4a8a-afd6-d602020ca6ac" class="block-color-purple">2️⃣ User-focused</h3><hr id="b05df3be-1633-4291-b5d2-0481645a009d"/><p id="2be1c3cb-4b32-486e-9a04-a76314e2db63" class="">Put yourself in the shoes of the person using your document. What will they need to know? What questions will they have? </p><p id="654a4bee-267d-4694-adcc-e5b6f7c8d40d" class="">Do your best to make it easy to use – headings, diagrams, bullets, checklists, videos etc.</p><h3 id="a0b0c005-2c4e-45fc-ab98-9a4134a66c35" class="block-color-purple">3️⃣ Interconnected</h3><hr id="cb686bc7-476a-46f1-a71a-b64bc9334a01"/><p id="651c6dbf-b98b-438e-937e-0ce8f1e93849" class="">Good internal documents should almost always be linked to other relevant places. If you mention a google doc, or notion page or slack channel <strong>link to it there and then</strong>. This makes it much easier for the user to understand your document.</p><p id="48925788-e5b3-46fc-9774-9e994a16fcb1" class=""><strong><mark class="highlight-gray">Note</mark></strong><mark class="highlight-gray">: It&#x27;s usually better to link to other documents, rather than copy/paste content from them.</mark></p><p id="c82000ad-6f81-4070-9053-28084e5480ad" class="">
+</p><h3 id="6fb5b5f9-be5c-4ab9-9f00-1052f05ccf56" class="block-color-purple">What should I include?</h3><hr id="298d8f8a-eeda-4b6f-bfeb-1a509fd959a1"/><p id="fe4f135c-0053-4b65-bb9b-7f23e0117de3" class="">Most good internal documents will include:</p><p id="293ff25b-13af-413f-87c4-1df77470de6e" class="">
+</p><ul id="6bada146-1832-48cb-942d-31e5ec994fc3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-pink"><strong>Why</strong></mark> - a brief explanation of why the document exists.</li></ul><ul id="fcd24a04-e3d0-4656-a933-00c7a3499327" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-pink"><strong>What / How</strong></mark> - The main contents of the document.</li></ul><ul id="aadae317-87df-4a82-8154-9766c211e449" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-pink"><strong>Where to find more </strong></mark>- Links to places where the user can find out more or ask questions. This might be as simple as: <em>Message Kirki on Slack if you have questions</em>.</li></ul><p id="dc90cbd8-193b-4559-b3bf-a9585a590afb" class="">
+</p><figure id="9de72d43-29f1-48ca-a7f0-2fc310de7eb4"><a href="https://adamfaliq.com/2020/10/28/write-well/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How to Write Well: 4 Steps to Improve Your Writing</div><div class="bookmark-description">&quot;There is nothing to writing. All you do is sit down at a typewriter and bleed.&quot; - Ernest Hemingway Introduction Looking back, I always struggled with writing. I felt pain every time I try to fill a blank page. I could bear the pain of writing in high school, but I almost gave up in...</div></div><div class="bookmark-href"><img src="https://s0.wp.com/i/favicon.ico" class="icon bookmark-icon"/>https://adamfaliq.com/2020/10/28/write-well/</div></div><img src="https://s0.wp.com/i/blank.jpg" class="bookmark-image"/></a></figure><p id="4cd1d861-3735-4313-b483-38e2135c78cd" class="">
+</p><h2 id="eb470fb1-98a3-4399-ae9d-22f0d381520a" class="block-color-pink">&quot;Lean&quot; Documentation</h2><hr id="17ecc1d6-3f2e-4e99-9c87-0d8398536352"/><p id="222ce531-b6d8-4e30-881b-6dba4adca614" class="">Creating new docs can seem daunting or time-consuming but it doesn&#x27;t need to be. Most documents <strong>evolve over time</strong>. We can think of this iterative process as &quot;lean&quot; documentation. We&#x27;ll start with something simple and gradually improve it as necessary over time.</p><p id="d7cbcef2-379e-40c8-be0f-9efc2ccbe6c1" class="">Here&#x27;s an example of a process you might go through when creating some internal documentation:</p><p id="1440e5f8-ca8a-4b74-ae47-c4f1b542a5af" class="">
+</p><ol type="1" id="e26bbc5b-b090-43d5-aa3e-cd9e8a81b1b1" class="numbered-list" start="1"><li><strong>Finish</strong> a piece of work.</li></ol><ol type="1" id="5938d20c-b501-4128-a1b4-0d93fbef56d7" class="numbered-list" start="2"><li>Record a <strong>Loom</strong> video explaining it.</li></ol><ol type="1" id="dcf72139-d142-4137-84c3-73f941f1972b" class="numbered-list" start="3"><li><strong>Embed</strong> it in a page in Notion with a one-paragraph explainer about <strong>why</strong>.</li></ol><ol type="1" id="c8e6e59b-dd3a-411b-b9b6-6ac5b5a8d86c" class="numbered-list" start="4"><li>Link any<strong> snippets, diagrams</strong>, <strong>other notion pages</strong> that might be useful.</li></ol><p id="19b0746a-80e7-4f96-9f0e-7a42c657bb55" class="">
+</p><p id="3a1e69e2-ab33-4ef5-be5d-18817fcdca18" class="">Here&#x27;s an examples of a document created like that...</p><figure id="1dcd3e65-53ba-49fa-8e32-66cd7564dfb6" class="link-to-page"><a href="Lean%20Documentation%2014247490e3d44823a14cdd99dbc16798/Booking%20Time%20Off%20-%20Version%201%201dcd3e6553ba49fa8e3266cd7564dfb6.html"><span class="icon">🌎</span>Booking Time Off - Version 1</a></figure><p id="5b49496a-cdc0-45bb-9752-6d2cc0b949cc" class="">
+</p><p id="f36b55fc-2e7d-480d-b9a2-6565b350bdb0" class="">This is a good first version, and is <strong>really quick</strong> to do. If a lot of people start using the document, we should consider expanding it a little by:</p><p id="d502d48f-0de4-4102-83e9-3f223a900192" class="">
+</p><ul id="474b3372-9cf1-4477-8c2d-822832d83c8a" class="bulleted-list"><li style="list-style-type:disc">Transcribing the loom video into written form, perhaps with some screenshots.</li></ul><ul id="00b129bb-873d-4193-9826-18839e58c2ee" class="bulleted-list"><li style="list-style-type:disc">Adding some headings, checklists etc.</li></ul><ul id="40258224-cc30-4737-9cd1-910f46561a44" class="bulleted-list"><li style="list-style-type:disc">Expanding the text to provide more context.</li></ul><ul id="2fe96d7a-296c-47fb-ab3c-e517268e7088" class="bulleted-list"><li style="list-style-type:disc">Including extra information, such as special cases.</li></ul><p id="1c114cab-df47-40c6-ab00-c1001b4b1589" class="">
+</p><p id="7e2b2715-f07b-4b8e-8743-52c08ebb2a16" class="">Here&#x27;s what the example might look like if we did that...</p><figure id="bbbbe7bf-d9aa-4abb-ad09-f9f77956a40a" class="link-to-page"><a href="Lean%20Documentation%2014247490e3d44823a14cdd99dbc16798/Booking%20Time%20Off%20-%20Version%202%20bbbbe7bfd9aa4abbad09f9f77956a40a.html"><span class="icon">🌎</span>Booking Time Off - Version 2</a></figure><p id="929cbd56-ebab-4e93-9774-38575da363c0" class="">
+</p><p id="f7ac61c9-be57-40f3-ad2b-1832c8459639" class="">We could continue to iterate on the document in the future. Here&#x27;s what it could end up looking like after a little while...</p><figure id="2412ac4e-effc-43b0-b6c4-43befcce2aec" class="link-to-page"><a href="Lean%20Documentation%2014247490e3d44823a14cdd99dbc16798/Booking%20Time%20Off%20-%20Version%203%202412ac4eeffc43b0b6c443befcce2aec.html"><span class="icon">🌎</span>Booking Time Off - Version 3</a></figure><p id="8f432e55-0fed-4040-855d-680a6cf5f422" class="">
+</p><p id="87be2e47-00a4-4ef4-a39e-04df32564876" class="">The key point here is that having a fairly short <strong>but useful </strong>document is much better than having no document at all. We can always iterate to make it even more useful in the future.</p><p id="4351ede0-5d31-4fbd-a52b-e6331e111d80" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

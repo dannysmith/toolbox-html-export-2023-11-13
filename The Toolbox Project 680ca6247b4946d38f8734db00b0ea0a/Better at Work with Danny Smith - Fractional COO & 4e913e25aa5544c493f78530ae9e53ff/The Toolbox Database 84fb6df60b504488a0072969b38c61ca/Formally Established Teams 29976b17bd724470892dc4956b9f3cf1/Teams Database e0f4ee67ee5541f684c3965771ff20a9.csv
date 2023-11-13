@@ -1,0 +1,6 @@
+﻿Name,Description,Membership Rule,Members,Lead/Coordinator,Slug,Notion Team Space,Slack Channel,Google Group,Slack Group/Channel,Notion Group,Notion Team Space?,Google Email
+Founders,The Founders.,All founders,,,founders,,#team-founders,Yes,Yes,Yes,No,founders@acme.com
+Leadership,The Company leadership team.,All C-Suite + all Heads of + anyone voted in by the group,,,leadership,,#team-leadership,Yes,Yes,Yes,Yes,leadership@acme.com
+Engineering,"All software engineers in the company. ",All employees in the Engineering function + All Designers,,,engineering,,#team-engineering,Yes,Yes,Yes,No,engineering@acme.com
+Slack Gardeners,Volunteer Group of Slack enthusiasts,COO + Volunteers,,,slack-gardeners,,#slack-gardeners,Yes,Yes,Yes,No,slack-gardeners@acme.com
+Front-End Product,The front-end product team,All employees assigned to the Front-End Product Team,,,feproduct,,#team-feproduct,Yes,Yes,Yes,Yes,feproduct@acme.com

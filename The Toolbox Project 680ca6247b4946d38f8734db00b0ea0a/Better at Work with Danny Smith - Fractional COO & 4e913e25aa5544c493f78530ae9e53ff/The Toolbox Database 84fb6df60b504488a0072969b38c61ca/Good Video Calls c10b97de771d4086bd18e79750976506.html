@@ -1,0 +1,689 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Good Video Calls</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c10b97de-771d-4086-bd18-e79750976506" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/></div><h1 class="page-title">Good Video Calls</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><div id="76de9b8d-cd4f-4079-984b-8277ae4ce619" class="column-list"><div id="50564d99-9a17-47b8-8b03-64e4d03992b6" style="width:62.5%" class="column"><p id="a6d4ab83-27c0-4022-baad-0b05eee9ce8f" class="">
+</p></div><div id="8c55d126-f89e-4a62-ae61-81c03b504d67" style="width:37.5%" class="column"><nav id="bab92c2c-e3c0-470e-b0a7-8df0397ec468" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5dbb5cca-5795-4daf-ac97-3180acc4c3f4">Video Quality 📹</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d41df491-251d-451e-89d2-1890864a38a8">Top Tips for Better Video Quality</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#84251570-44d0-4691-b0cf-bf8d78821d06">Group Calls 🖥️</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d4334c0d-a1ff-411a-a9b9-f0cab1b0b9ab">Use gallery mode</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#810152fd-cfa1-48e8-a895-24e3e70e8da9">Using an external monitor</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#84083712-4842-428a-b482-5bf6cbf42f32">Avoid hybrid calls</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f30303a3-062d-4b77-af57-86cfadef50e1">Further Reading</a></div></nav></div></div><p id="ef5043dd-cd4f-4371-ac75-312d7b68ca59" class="">Although asynchronous communication is generally preferred in remote teams, synchronous communication is still needed. Most companies use a video conferencing tool like <a href="http://zoom.us">zoom.us</a> or Microsoft Teams to handle this.</p><h2 id="5dbb5cca-5795-4daf-ac97-3180acc4c3f4" class="block-color-pink">Video Quality 📹</h2><hr id="88e02096-35e3-4bb3-afbb-0c2c3bd466c0"/><p id="3038b040-dbff-436c-b35a-eeff4eda9979" class="">We often think of conversations as being mostly about voice, but in any face-to-face interaction we are constantly communicating via facial expression, body language, eye contact etc. These types of communication are just as important in remote conversations because they <strong>make communication more effective</strong> and help us to build relationships.</p><p id="9bb9a4ff-0637-4f2d-bee2-3bfeb452c474" class="">Because of this you should a<strong>lways have your video on for zoom calls</strong> (there are some exceptions). If you&#x27;re not used to this it can feel uncomfortable at first, but the more you do it, the more comfortable it feels!</p><p id="d83e2378-8d41-483e-b5ad-18f6ca26ef80" class="">You should also think about the <em>quality</em> of your video.</p><p id="7c47778a-2c28-4c36-9869-e94f369c5b28" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="da09a5a7-cc60-4398-a149-3439e3e3c968"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise:</strong> Look at the images below and identify the problem with each of them. What do you think the cause is, and what could be done to make them better?</div></figure><div id="c08bb128-f85c-4a53-9826-a1bade99b383" class="column-list"><div id="03963bab-9529-44fd-84cc-b97e1f1e6a1f" style="width:50%" class="column"><figure id="976d1dfc-c091-455f-8d01-cd8a347f1fed" class="image"><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.02.58.png"><img style="width:1175px" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.02.58.png"/></a></figure><figure id="fec48452-8153-42ef-aec7-d457b65b52f2" class="image"><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.04.45.png"><img style="width:2350px" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.04.45.png"/></a></figure><figure id="8e02ba98-3b38-430f-8bfa-0ad32b0d641c" class="image"><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.04.18.png"><img style="width:1175px" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.04.18.png"/></a></figure><figure id="5d5c49eb-cd47-4a9a-a503-942529e2beb7" class="image"><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.03.43.png"><img style="width:1175px" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.03.43.png"/></a></figure><figure id="f7f3893f-c470-48a2-8366-7e08395cd115" class="image"><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.02.12.png"><img style="width:1175px" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.02.12.png"/></a></figure></div><div id="bb655198-73c8-43f7-a68b-10dece61f895" style="width:49.99999999999999%" class="column"><figure id="3cf57da2-f852-4694-b9cb-a5f1c0503a70" class="image"><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.03.56.png"><img style="width:1175px" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.03.56.png"/></a></figure><figure id="3317d04b-22b2-4608-a170-6ee7b0af2f4d" class="image"><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.05.32.png"><img style="width:2350px" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.05.32.png"/></a></figure><figure id="ca9ec58b-4ce2-4941-a165-f04bc0f48492" class="image"><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.03.18.png"><img style="width:1131px" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.03.18.png"/></a></figure><figure id="bea88f0e-9642-4b3a-aa98-7e6052946bfa" class="image"><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.03.35.png"><img style="width:1175px" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.03.35.png"/></a></figure><figure id="7c027b6a-c586-407f-8a6a-4b9063af5ae9" class="image"><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.02.46.png"><img style="width:1175px" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-11-11_at_16.02.46.png"/></a></figure></div></div><p id="aa2598bc-b9f4-411f-a0ac-8ea99036e57a" class="">
+</p><h3 id="d41df491-251d-451e-89d2-1890864a38a8" class="block-color-purple">Top Tips for Better Video Quality</h3><hr id="c79ece87-9cf2-4751-9e8f-dc3d154d0197"/><ul id="2c409607-f5b4-4faf-b042-76499b59446c" class="bulleted-list"><li style="list-style-type:disc">Have your <strong>video on</strong> by default.</li></ul><ul id="8bb26011-bcca-4969-9065-3ed382512587" class="bulleted-list"><li style="list-style-type:disc">Always use a <strong>laptop</strong> (not your phone).</li></ul><ul id="91c99b02-62c9-4135-b126-d518dfab1c12" class="bulleted-list"><li style="list-style-type:disc">Ensure your face is <strong>well lit</strong>.</li></ul><ul id="8777cd4f-a4de-4249-add0-2ac7b2a452b2" class="bulleted-list"><li style="list-style-type:disc">Have your webcam at <strong>eye level</strong> and <strong>directly in front of you</strong> (if you only have a laptop, raise it up on some books). This is <em>really important</em> for building a genuine connection with others.</li></ul><ul id="b07af656-7b19-4f1e-93f4-47973d023279" class="bulleted-list"><li style="list-style-type:disc">Keep your <strong>face</strong> in the <strong>centre</strong> of the frame.</li></ul><ul id="37103027-a278-4640-90c0-c15fcc9d1edb" class="bulleted-list"><li style="list-style-type:disc">Use a <strong>decent web cam</strong> if you have one - most laptop webcams are poor quality.</li></ul><ul id="30f1117f-9e3c-48d5-b54c-bb42ec776cd0" class="bulleted-list"><li style="list-style-type:disc">Don&#x27;t sit with a <strong>light source</strong> directly behind you.</li></ul><ul id="e0629c3f-cc74-4f46-985d-f69d0e0b07cf" class="bulleted-list"><li style="list-style-type:disc">If you can, give a little thought to your <strong>background</strong>.</li></ul><p id="4ed83e2e-1188-4f5e-9afd-7cf2048c47ac" class="">
+</p><p id="b5620cda-74c2-4635-8d98-dd9930f7d8d0" class="block-color-red"><strong>If you do most of these things, you&#x27;ll significantly improve the experience for other people who talk to you on Zoom.</strong></p><p id="d2a84aa1-11c1-4b56-ab93-7eab1bb65e59" class="">
+</p><h2 id="84251570-44d0-4691-b0cf-bf8d78821d06" class="block-color-pink">Group Calls 🖥️</h2><hr id="798ca65b-ce65-4d7f-9ff6-9c5c228205a9"/><p id="836442e5-9ebd-4d69-baca-98f9405e099f" class="">If you follow the advice above, you&#x27;re all set to have great one-to-one calls. But for group calls there are a few other bits of important advice...</p><p id="c07d2454-3c75-4ac2-8737-283e48ad1fc1" class="">
+</p><h3 id="d4334c0d-a1ff-411a-a9b9-f0cab1b0b9ab" class="block-color-purple">Use gallery mode</h3><hr id="c626e2ed-8499-45d1-9118-471517345b15"/><p id="6a0f7ab6-9252-426b-89ff-7934cbfd8ac7" class="">Zoom has a number of different video modes. For most group meetings, gallery mode is best because it allows you to see everyone else on the call and not just the person who&#x27;s speaking – just like in a real-life meeting.</p><figure id="ed2b69a5-0aee-4736-b5ca-d464e3c03cee" class="image"><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-09-22_at_20.16.10.png"><img style="width:1920px" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/Screenshot_2020-09-22_at_20.16.10.png"/></a><figcaption>Example of gallery mode.</figcaption></figure><p id="1f7022c2-5b41-4471-a4a3-b43d4faa9e29" class="">Although this is usually the best option for group meetings, in <strong>very large</strong> meetings this can sometimes be distracting as it&#x27;s hard to focus on the person who&#x27;s actually talking. In this case, use Active Speaker Mode.</p><p id="82c6ee20-af0c-4115-b192-6c6b852ff6e2" class="">You can learn more about Zoom&#x27;s view modes here...</p><figure id="3dfad87a-09cf-4ad2-a003-c1595f9154c5"><a href="https://support.zoom.us/hc/en-us/articles/201362323-Changing-the-video-layout-Active-Speaker-View-and-Gallery-View-" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Changing the video layout (Active Speaker View and Gallery View)</div><div class="bookmark-description">There are 3 video layouts when no one in the meeting is screen sharing: Active Speaker View, Gallery View, and floating thumbnail window. When someone is screen sharing, you can use Side-by-side Mode or view the screen share with Active Speaker View.</div></div><div class="bookmark-href"><img src="https://theme.zdassets.com/theme_assets/141844/d779a6df05dbcc2d24ca5f49a2975c05563a4c20.ico" class="icon bookmark-icon"/>https://support.zoom.us/hc/en-us/articles/201362323-Changing-the-video-layout-Active-Speaker-View-and-Gallery-View-</div></div><img src="https://theme.zdassets.com/theme_assets/141844/54b03f5a6fcedbfa6621c751d9bed891e78c7d3c.png" class="bookmark-image"/></a></figure><p id="9d105004-b3be-403f-9594-5a77d00a0348" class="">
+</p><h3 id="810152fd-cfa1-48e8-a895-24e3e70e8da9" class="block-color-purple">Using an external monitor</h3><hr id="9f3318dd-05eb-434e-a60e-31d43e6e7d78"/><p id="a4a9a751-9f8a-4b80-b7fc-bc564608a0b6" class="">If you have an external monitor, it&#x27;s a good idea to keep the faces of meeting participants on one, while using the other for notes and/or screen-sharing.</p><p id="2f0ef99e-e5fe-4479-9a43-6de708c8707b" class="">
+</p><figure id="0fc298e8-e9a0-42d5-88c9-e370cf6e562f" class="image"><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/IMG_9666.jpeg"><img style="width:4032px" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/IMG_9666.jpeg"/></a><figcaption>In this photo, Zoom is on the top monitor because it&#x27;s the screen closest to the webcam. This means I&#x27;ll make better eye contact when looking at someone else. My notes are on the bottom monitor.</figcaption></figure><p id="21b8be1c-221d-4144-a216-5b37ad8350d0" class="">
+</p><h3 id="84083712-4842-428a-b482-5bf6cbf42f32" class="block-color-purple">Avoid hybrid calls</h3><hr id="c5c0df40-d646-4f29-9d63-6335a4566f53"/><p id="43ceaab6-489f-4f45-a504-f29b3023f5cd" class="">If you&#x27;re working in the same physical location as someone else and both need to join a video call, don&#x27;t both join on the same laptop. Doing this can make other people on the call feel excluded.</p><p id="458cb78f-ad89-4cc0-9041-27e1d4b4063b" class="">Instead, join on separate laptops just like you would if you ware in different places.</p><p id="a0b40571-6eca-435e-a4d3-d7562c05638d" class="">
+</p><p id="5dc0d800-bdcc-4236-8873-c4bd0478c66e" class="">
+</p><h2 id="f30303a3-062d-4b77-af57-86cfadef50e1" class="block-color-pink">Further Reading</h2><hr id="88dd43c5-208c-477e-8bbb-3225f0922db6"/><div id="03a5e1a0-9665-419c-a22c-d05a1f777da1" class="column-list"><div id="73113999-42eb-4ce3-88f7-9e2df377cd8d" style="width:50%" class="column"><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="4eebb9ac-fb5d-4137-96f4-e310d360c3b6"><div style="font-size:1.5em"><span class="icon">🔗</span></div><div style="width:100%">Other pages on videoconferencing…<p id="ec2ed2bd-cb18-40fc-937e-d50ce5f049a2" class="">
+</p><p id="5956b01a-81e9-4090-9a4b-b8465ec5f39b" class=""><a href="Audio%20on%20Video%20Calls%202665978803b748b184dbb2cf6fe94bc7.html"><img class="icon" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/>Audio on Video Calls</a> </p><p id="7bc8354c-b97e-4f39-aa8a-b92a4c068536" class=""><a href="Eye%20Contact%20&amp;%20Speech%20on%20Video%20Calls%20a992874a85cc44fba0902a0eccb89b7c.html"><img class="icon" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/>Eye Contact &amp; Speech on Video Calls</a> </p><p id="48074b5e-030f-42e4-af72-46cb7df1f644" class=""><a href="Dealing%20with%20Interruptions%20to%20Video%20Calls%20cf7851a2be0d413581f1bb0b629253d8.html"><img class="icon" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/>Dealing with Interruptions to Video Calls</a> </p><p id="d706ada3-4022-40e2-9fbf-dcd2c0545da0" class="">
+</p></div></figure></div><div id="705c9e5d-0bf3-49cf-8fb1-94e62968bb90" style="width:50%" class="column"><figure id="36896c42-afa6-44af-a944-6e4ac92d1531"><div class="source"><a href="https://youtu.be/9HrYLEY3WAo">https://youtu.be/9HrYLEY3WAo</a></div></figure></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

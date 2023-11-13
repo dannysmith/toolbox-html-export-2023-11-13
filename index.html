@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>The Toolbox - Editing View</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="bc1fddc4-5581-4811-bc77-d27734517fb9" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/solid_red.png" style="object-position:center 40%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🧰</span></div><h1 class="page-title">The Toolbox - Editing View</h1><p class="page-description"></p></header><div class="page-body"><div id="25f9464a-d20d-4973-a5a5-c32ea44781b8" class="collection-content"><h4 class="collection-title">The Toolbox Database</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCheckbox"><path d="M3.85742 14.4561H12.1357C13.6123 14.4561 14.3779 13.6904 14.3779 12.2344V3.91504C14.3779 2.45215 13.6123 1.69336 12.1357 1.69336H3.85742C2.38086 1.69336 1.61523 2.45215 1.61523 3.91504V12.2344C1.61523 13.6973 2.38086 14.4561 3.85742 14.4561ZM3.93945 13.1162C3.30371 13.1162 2.95508 12.7812 2.95508 12.1182V4.02441C2.95508 3.36133 3.30371 3.0332 3.93945 3.0332H12.0537C12.6826 3.0332 13.0381 3.36133 13.0381 4.02441V12.1182C13.0381 12.7812 12.6826 13.1162 12.0537 13.1162H3.93945ZM7.26855 11.3115C7.51465 11.3115 7.72656 11.1885 7.87012 10.9697L10.9258 6.19141C11.0146 6.04785 11.0967 5.88379 11.0967 5.72656C11.0967 5.3916 10.7959 5.16602 10.4746 5.16602C10.2695 5.16602 10.085 5.27539 9.94141 5.50781L7.24121 9.8418L5.96973 8.22168C5.80566 8.00977 5.6416 7.93457 5.43652 7.93457C5.10156 7.93457 4.8418 8.20117 4.8418 8.54297C4.8418 8.70703 4.90332 8.85742 5.01953 9.00098L6.63281 10.9697C6.81738 11.209 7.01562 11.3115 7.26855 11.3115Z"></path></svg></span>Public?</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px"/></span>Category</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/thought_gray.svg" style="width:14px;height:14px"/></span>AI Summary</th></tr></thead><tbody><tr id="1bda6e53-eb96-453b-9e16-c9ace0027d30"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/The%20Keeper%20Test%201bda6e53eb96453b9e16c9ace0027d30.html"><span class="icon">📋</span>The Keeper Test</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-yellow">Leadership</span></td><td class="cell-A@mW">Use the Keeper Test to evaluate how important each person on your team is to the team&#x27;s success. By asking yourself if you would fight to keep each team member, you can identify areas where improvement is needed and make strategic decisions about personnel. However, this test is subjective and should be used with caution to avoid creating a culture of fear or bias.</td></tr><tr id="cf6d3817-5fcb-4da8-aeb8-6968eca5ff2e"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Feedback%20cf6d38175fcb4da8aeb86968eca5ff2e.html"><span class="icon">🔬</span>Feedback</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-yellow">Leadership</span></td><td class="cell-A@mW">This document provides insights and exercises on giving and receiving feedback. It emphasizes the importance of constructive feedback and the impact it can have on building a culture of openness and trust in remote teams. The document also offers practical tips on how to give and receive feedback, including choosing the right medium for delivery.</td></tr><tr id="14247490-e3d4-4823-a14c-dd99dbc16798"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Lean%20Documentation%2014247490e3d44823a14cdd99dbc16798.html"><span class="icon">🗒️</span>Lean Documentation</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-green">Async Collaboration</span></td><td class="cell-A@mW">This document explains the importance of clear and concise documentation for asynchronous teams. It outlines three properties of good internal documentation and provides an example of a process for creating &quot;lean&quot; documentation that can be improved over time.</td></tr><tr id="97b3df9b-1953-41d9-a67b-add455cf9754"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/A%20Working%20With%20Me%20Page%2097b3df9b195341d9a67badd455cf9754.html"><span class="icon">🤝</span>A Working With Me Page</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-green">Async Collaboration</span></td><td class="cell-A@mW">This is a guide on how to create a &quot;working with me&quot; page to help your team get to know you better. It includes a list of things to include and the benefits of having such a page. You can use the Notion template provided to customize your own page and make it useful for your colleagues.</td></tr><tr id="01f374eb-ab6b-4fc7-ab9f-2ff91e7563cf"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Asynchronous%20Working%2001f374ebab6b4fc7ab9f2ff91e7563cf.html"><span class="icon">💡</span>Asynchronous Working</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-green">Async Collaboration</span></td><td class="cell-A@mW">This document outlines the benefits and key principles of asynchronous working, which is a deliberate design of working methods with a minimum of synchronous communication. It also provides examples of asynchronous communication tools and highlights the importance of documentation and over-sharing.</td></tr><tr id="a47554b6-7afd-4b04-a886-1f3d5456d4d8"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Writing%20Proposals%20a47554b67afd4b04a8861f3d5456d4d8.html"><span class="icon">📝</span>Writing Proposals</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-green">Async Collaboration</span></td><td class="cell-A@mW">This document provides guidance on writing effective proposals in an asynchronous work environment. Learn how to make small proposals that are simple yet effective, and how to structure proposals for more complex decisions. Mastering proposal writing is an essential skill for distributed teams.</td></tr><tr id="7ee7a8b5-95e6-49b4-bed9-2170815cb5c5"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/The%20Async%20Week%207ee7a8b595e649b4bed92170815cb5c5.html"><span class="icon">🔄</span>The Async Week</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-green">Async Collaboration</span></td><td class="cell-A@mW">This document outlines the concept of an Async Week, a useful tool for remote teams to build their asynchronous communication habits. The rules are simple: no meetings, except for certain exceptions, and encourage the use of DND in Slack. Afterwards, a survey can be conducted to assess how the week went and identify areas for improvement.</td></tr><tr id="4995248e-3f0f-42d1-b2c1-878ea1016ce1"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Warning%20Orders%204995248e3f0f42d1b2c1878ea1016ce1.html"><span class="icon">📣</span>Warning Orders</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-green">Async Collaboration</span></td><td class="cell-A@mW">Use warning orders to give people advance notice of upcoming changes or operations, even when the details aren&#x27;t fully formed. This tool is useful in both military and business settings, allowing people to prepare and take action when necessary. A warning order should include a brief background, the change or options being considered, actions people need to take, and a timeline.</td></tr><tr id="c5a309e4-42eb-4f25-ae94-e1b4ecdfdcc5"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Making%20Decisions%20c5a309e442eb4f25ae94e1b4ecdfdcc5.html"><span class="icon">⚖️</span>Making Decisions</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-green">Async Collaboration</span></td><td class="cell-A@mW">This document provides three principles to guide decision-making in distributed teams. Treat decisions as reversible by default, make decisions at the lowest level possible, and identify a decision owner early to save time and avoid back and forth. Use these principles to make better decisions and streamline the decision-making process.</td></tr><tr id="29976b17-bd72-4470-892d-c4956b9f3cf1"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Formally%20Established%20Teams%2029976b17bd724470892dc4956b9f3cf1.html"><span class="icon">👨‍👩‍👦‍👦</span>Formally Established Teams</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-pink">Team Building</span></td><td class="cell-A@mW">This document provides guidelines on how to formally establish teams in a company, including defining what a team is, clarifying membership rules, creating a clear mission, selecting a team lead, and using a descriptive name. The document also offers a process for establishing a new team.</td></tr><tr id="29f5560b-a370-40ee-bc0b-74bb9624c655"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Building%20Relationships%20in%20Remote%20Teams%2029f5560ba37040eebc0b74bb9624c655.html"><span class="icon">🤼</span>Building Relationships in Remote Teams</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-pink">Team Building</span></td><td class="cell-A@mW">This document provides insights on building and maintaining strong relationships in remote teams, emphasizing the importance of trust, respect, self-awareness, inclusion, and open communication. It also presents practical tips and further reading resources for developing effective work relationships.</td></tr><tr id="a46dc54c-bcfc-46fc-bc79-061173d9c4d0"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Team%20Forming%20Workshops%20a46dc54cbcfc46fcbc79061173d9c4d0.html"><span class="icon">🌱</span>Team Forming Workshops</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-pink">Team Building</span></td><td class="cell-A@mW">Team Forming Workshops are a useful tool for establishing new teams in a remote environment. These workshops help team members understand each other&#x27;s needs, establish team principles, and define a team vision and mission. This document outlines a suggested workshop format and activities to achieve these goals.</td></tr><tr id="b11a45a4-4bb1-443a-98c7-909403679cd7"><td class="cell-z[v="><div class="checkbox checkbox-off"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/IRL%20Socialising%20for%20Remote%20Teams%20b11a45a44bb1443a98c7909403679cd7.html"><span class="icon">📸</span>IRL Socialising for Remote Teams</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-pink">Team Building</span></td><td class="cell-A@mW">This document provides guidance on how remote teams can socialize in-person to build camaraderie and strengthen relationships. It includes tips for organizing events and activities, as well as considerations for team dynamics and communication.</td></tr><tr id="e8aa0301-d78c-412c-a53f-f0d802ae963b"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Loom%20Pals%20e8aa0301d78c412ca53ff0d802ae963b.html"><span class="icon">💌</span>Loom Pals</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-pink">Team Building</span></td><td class="cell-A@mW">Loom Pals is a modern take on the classic pen pal concept, but instead of letters, you send short Loom videos to connect with friends and colleagues. Simply record a 2-5 minute video, ask some questions, and wait for their response. It&#x27;s a great way to stay in touch when you don&#x27;t have time for a synchronous call.</td></tr><tr id="1131e149-db52-4201-a458-e24187bca2f5"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Socialising%20in%20Remote%20Teams%201131e149db524201a458e24187bca2f5.html"><span class="icon">👨‍👩‍👧‍👧</span>Socialising in Remote Teams</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-pink">Team Building</span></td><td class="cell-A@mW">Learn how to intentionally create opportunities for remote teams to socialize and build strong connections in this document. The guide provides tips for synchronous and asynchronous socializing, including the use of Slack channels and crew chats.</td></tr><tr id="3c3ea23a-8b51-45a2-be62-1e933d9351cf"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Decision%20Meetings%203c3ea23a8b5145a2be621e933d9351cf.html"><span class="icon">⚖️</span>Decision Meetings</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">Decision Meetings are a valuable tool for making thoughtful decisions in a short amount of time. This document provides a process for conducting Decision Meetings and highlights the benefits of up-front preparation. By using this tool, teams can save time and ensure that decisions are documented and communicated effectively.</td></tr><tr id="b57eefb9-40dd-49d6-a771-c41083cf3819"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Using%20Your%20Calendar%20Effectively%20b57eefb940dd49d6a771c41083cf3819.html"><span class="icon">📅</span>Using Your Calendar Effectively</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">This document provides guidance on effectively managing calendars in a remote work setting, including tips on scheduling meetings, blocking out personal time, and using agendas. It also explains the importance of exposing and subscribing to calendars in order to facilitate collaboration among team members in different time zones.</td></tr><tr id="b65231f4-0ce2-49db-bc49-1417dc4c1779"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Choosing%20a%20Time%20for%20Meetings%20b65231f40ce249dbbc491417dc4c1779.html"><span class="icon">🧮</span>Choosing a Time for Meetings</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">This document provides tips for scheduling meetings, especially in distributed teams. It includes advice on who needs to be there, when to schedule, and how to send an invitation. The &quot;8-18-1800&quot; rule is discussed, along with considerations for recurring meetings and working across time zones.</td></tr><tr id="3107d4c4-8947-4044-a8ac-03d9545a0eb7"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Pair%20Working%203107d4c489474044a8ac03d9545a0eb7.html"><span class="icon">🤝</span>Pair Working</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">Pair working can be a powerful tool for solving problems and fostering collaboration, especially for remote teams. This document provides tips for effective pair working, including tools to use and best practices for communicating and working together.</td></tr><tr id="4d8870a2-b94d-44f9-9d2e-c23c28ce4896"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Unblock%20Me%20Sessions%204d8870a2b94d44f99d2ec23c28ce4896.html"><span class="icon">🆘</span>Unblock Me Sessions</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">This document provides guidance on how to quickly unblock yourself and your team by holding ad-hoc meetings, also known as &quot;Unblock Me Sessions&quot;. With the right people and a short video call, you can replace longer conversations on other platforms and keep your team moving forward efficiently. The document includes tips on how to make the most of these sessions and avoid disrupting others&#x27; workdays.</td></tr><tr id="b8a7137e-6a60-495e-ab65-1c773efc0e1d"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Social%20Calls%20b8a7137e6a60495eab651c773efc0e1d.html"><span class="icon">☕</span>Social Calls</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">This document provides guidance on how to build social connections remotely, including tips on booking social calls, suggested conversation topics, and tools like Donut that can help arrange social calls between team members. Social calls are an important way to build trust and strong teams in a remote environment.</td></tr><tr id="ff23d0ce-5475-41e4-accd-dd92d641f275"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Asynchronous%20Status%20Meetings%20ff23d0ce547541e4accddd92d641f275.html"><span class="icon">🕝</span>Asynchronous Status Meetings</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">This document provides guidance on using asynchronous status meetings to free up synchronous meeting time and allow for well-structured updates, spotlights and guest contributions. It outlines the benefits of this approach and provides tips for structuring and scheduling these meetings.</td></tr><tr id="3da16d5e-7b13-4c0c-9e9f-e9e9ea2378ef"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Recurring%20Team%20Meetings%203da16d5e7b134c0c9e9fe9e9ea2378ef.html"><span class="icon">🔄</span>Recurring Team Meetings</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">This document provides best practices for conducting effective and productive remote team meetings. It includes key principles and guidelines for structuring team meetings, as well as suggestions for building agendas, assigning facilitators, and recording calls. The document also offers tips for scheduling meetings across time zones and provides links to additional resources for further reading.</td></tr><tr id="498acde2-3e07-4bf5-897d-52590a7b8b08"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Workshops%20&amp;%20Brainstorming%20Sessions%20498acde23e074bf5897d52590a7b8b08.html"><span class="icon">🧠</span>Workshops &amp; Brainstorming Sessions</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">This document provides guidelines for facilitating successful workshops and brainstorming sessions. Collaboration and visual tools are key, and having a clear goal and structure is essential. A facilitator should lead the session, and pre-read materials can help ensure everyone is prepared.</td></tr><tr id="510588f2-1cba-4bff-9038-24539d0cf5db"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db.html"><span class="icon">🕹️</span>Games for Remote Teams</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">This document provides tips and resources for incorporating remote-friendly games into team meetings, workshops, and all-hands meetings. These games can help improve team collaboration, critical thinking, and decision-making, while also fostering camaraderie and a sense of team. Use this document as a tool to enhance your team-building activities.</td></tr><tr id="cc09365f-58e2-49d5-a389-23c9a1610611"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/All%20Hands%20Meetings%20cc09365f58e249d5a38923c9a1610611.html"><span class="icon">🙌</span>All Hands Meetings</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">This document outlines how to run effective All-Hands meetings, which are an opportunity to bring the entire company together to reinforce company vision, values, and objectives, and to share updates and successes from each department. The document provides a template for asynchronous updates and a suggested agenda for the meeting. Additionally, the document provides tips for encouraging participation and engagement in large company meetings.</td></tr><tr id="971126a9-694f-4a22-8696-4214472924fe"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Focus%20Fridays%20971126a9694f4a2286964214472924fe.html"><span class="icon">🧘‍♀️</span>Focus Fridays</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">This document outlines the concept of &quot;Focus Fridays&quot; - a strategy for creating uninterrupted time for deep work by declaring one day a week free of internal meetings. The rules are simple, and the benefits include better focus, improved communication habits, and a more productive workweek.</td></tr><tr id="2c4bd8d7-ba31-427c-b129-4a008a9df21f"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Meetings%202c4bd8d7ba31427cb1294a008a9df21f.html"><span class="icon">📅</span>Meetings</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">This document provides advice on how to run effective meetings in remote organizations. It emphasizes the importance of maximizing the value of every minute of synchronous meeting time and offers tips on establishing conventions, setting goals, and defining different types of meetings. Asynchronous communication is also discussed as an alternative to meetings when possible.</td></tr><tr id="b53c2408-d1ff-4744-8878-3732fec1aaf1"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Meeting%20Checkins%20b53c2408d1ff474488783732fec1aaf1.html"><span class="icon">💙</span>Meeting Checkins</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-red">Meetings</span></td><td class="cell-A@mW">This document provides guidance on how to start meetings with a checkin, particularly useful for larger groups. The document includes a standard checkin format and explains why it’s useful. Additionally, it offers alternative checkin ideas and further reading suggestions.</td></tr><tr id="d894cb82-5355-4de8-b704-f46db2cf8128"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Fundamental%20Workshopping%20Tools%20d894cb8253554de8b704f46db2cf8128.html"><span class="icon">🪢</span>Fundamental Workshopping Tools</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-brown">Facilitation &amp; Coaching</span></td><td class="cell-A@mW">Learn the two fundamental tools for effective workshop facilitation: individual thinking leading to collective thinking and divergent thinking leading to convergent thinking. Combining these tools with an online whiteboarding tool like FigJam can make for surprisingly effective workshops.</td></tr><tr id="78356daa-bf43-4563-8e7e-c4b125088ed7"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/The%20Seven%20Essential%20Coaching%20Questions%2078356daabf4345638e7ec4b125088ed7.html"><span class="icon">💡</span>The Seven Essential Coaching Questions</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-brown">Facilitation &amp; Coaching</span></td><td class="cell-A@mW">The Seven Essential Coaching Questions is a collection of practical, easy-to-use questions that Michael Bungay Stanier outlines in his book, The Coaching Habit. They&#x27;re designed to help managers and team members alike to effectively and confidently coach each other. This document provides an overview of the questions and offers some general advice on how to use them.</td></tr><tr id="c10b97de-771d-4086-bd18-e79750976506"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/>Good Video Calls</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-blue">Video Calls</span></td><td class="cell-A@mW">This document provides tips for conducting effective video calls, including optimizing video quality, using gallery mode for group calls, and avoiding hybrid calls. It also emphasizes the importance of using video to communicate via facial expressions and body language in order to build relationships.</td></tr><tr id="26659788-03b7-48b1-84db-b2cf6fe94bc7"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Audio%20on%20Video%20Calls%202665978803b748b184dbb2cf6fe94bc7.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/>Audio on Video Calls</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-blue">Video Calls</span></td><td class="cell-A@mW">This document provides tips and tricks for improving audio quality on video calls, whether you&#x27;re working from a home office or on the go. It includes advice on choosing the right microphone, using noise-cancelling headphones, and adjusting volume and etiquette.</td></tr><tr id="a992874a-85cc-44fb-a090-2a0eccb89b7c"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Eye%20Contact%20&amp;%20Speech%20on%20Video%20Calls%20a992874a85cc44fba0902a0eccb89b7c.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/>Eye Contact &amp; Speech on Video Calls</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-blue">Video Calls</span></td><td class="cell-A@mW">This resource provides tips for improving eye contact and speech during video calls. Topics covered include the importance of eye contact, rate of speech, pauses, tone, hand gestures, and facial expressions. The goal is to help remote workers make a positive and engaging impression on video calls.</td></tr><tr id="cf7851a2-be0d-4135-81f1-bb0b629253d8"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Dealing%20with%20Interruptions%20to%20Video%20Calls%20cf7851a2be0d413581f1bb0b629253d8.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/>Dealing with Interruptions to Video Calls</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-blue">Video Calls</span></td><td class="cell-A@mW">This document offers tips for dealing with interruptions during video calls, such as those caused by children or pets. It emphasizes that these interruptions can be seen as a positive way to build relationships in remote teams.</td></tr><tr id="2f75c630-ccd9-4c00-b4e0-8d33d40db8b0"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Screen%20Sharing%202f75c630ccd94c00b4e08d33d40db8b0.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/>Screen Sharing</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-blue">Video Calls</span></td><td class="cell-A@mW">This document provides tips for presenting via screen-sharing during video calls or recordings. It emphasizes the importance of considering the same skills and techniques as in-person presenting, while also outlining a few additional things to keep in mind.</td></tr><tr id="b2b91c82-f0b5-4d89-a411-1350ae0a1474"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Google%20Workspace%20b2b91c82f0b54d89a4111350ae0a1474.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Google%20Workspace%20b2b91c82f0b54d89a4111350ae0a1474/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png"/>Google Workspace</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-default">Software Tools</span></td><td class="cell-A@mW">This document provides a brief overview of Google Workspace, including its commonly used applications and tips for working with Google Docs. It also includes a checklist for configuring your Google account and links to helpful tutorials provided by Google.</td></tr><tr id="13a0dc8e-b800-49d0-84dc-64b423983fdb"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Office%20365%2013a0dc8eb80049d084dc64b423983fdb.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Office%20365%2013a0dc8eb80049d084dc64b423983fdb/microsoft-365-2022-logo-7B23759A49-seeklogo.com.png"/>Office 365</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-default">Software Tools</span></td><td class="cell-A@mW">This document provides an overview of Office 365 and its apps, as well as tips for setting up and working with documents. It covers topics such as configuring your Microsoft 365 account, creating and storing documents, and using Word for collaboration.</td></tr><tr id="4a6ebae0-1549-4adb-bec0-7bf3f7912b03"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Loom%204a6ebae015494adbbec07bf3f7912b03.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Loom%204a6ebae015494adbbec07bf3f7912b03/loom.png"/>Loom</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-default">Software Tools</span></td><td class="cell-A@mW">Loom is a video recording and sharing tool that allows users to easily capture, edit, and share videos with others. With its simple and intuitive interface, Loom is ideal for creating quick and engaging video content for a variety of purposes, from tutorials and product demos to team meetings and customer support.</td></tr><tr id="dcf8b3ac-909c-46a1-916a-226fa14a9830"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Intro%20to%20FigJam%20dcf8b3ac909c46a1916a226fa14a9830.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Intro%20to%20FigJam%20dcf8b3ac909c46a1916a226fa14a9830/figma.png"/>Intro to FigJam</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-default">Software Tools</span></td><td class="cell-A@mW">FigJam is a digital white-boarding tool by Figma that is perfect for remote collaboration. It allows teams to work simultaneously in the same file and is designed for interactive white-boarding sessions. FigJam is a useful tool for distributed teams and can help increase the efficiency and effectiveness of meetings and workshops.</td></tr><tr id="9261ec15-da5e-4b73-9a8d-371469e9e68f"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Slack%20Statuses%209261ec15da5e4b739a8d371469e9e68f.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Slack%20Statuses%209261ec15da5e4b739a8d371469e9e68f/slack.png"/>Slack Statuses</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-purple">Slack</span></td><td class="cell-A@mW">Slack statuses are a useful way to communicate your availability and status without sending messages. This document provides a guide to creating and documenting Slack statuses, with examples and tips for use. It also includes links to resources for further information.</td></tr><tr id="0065968a-a76f-497b-a2d5-9d4e9ca522c1"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/slack.png"/>Creating, Managing and Archiving Slack Channels</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-purple">Slack</span></td><td class="cell-A@mW">This document provides guidelines for creating, managing, and archiving Slack channels in an organization. It emphasizes the importance of allowing everyone to create and archive channels while maintaining some rules and conventions to avoid chaos. The document outlines the steps to create a channel, add bookmarks and pinned messages, manage the channel, and archive it when necessary.</td></tr><tr id="de32dd53-dca0-4be5-b51d-86708871b472"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Ask%20Channels%20in%20Slack%20de32dd53dca04be5b51d86708871b472.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Ask%20Channels%20in%20Slack%20de32dd53dca04be5b51d86708871b472/slack.png"/>Ask Channels in Slack</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-purple">Slack</span></td><td class="cell-A@mW">This document outlines the benefits of creating &quot;ask channels&quot; on Slack for larger teams. By creating specific channels for external inquiries, teams can keep their internal channels clear for important communication. The document also provides tips on how to name and manage these channels effectively.</td></tr><tr id="24c055fa-7294-413e-b4ec-8d6394b4d2f1"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Slack%20%E2%80%93%20Setting%20Expectations%2024c055fa7294413eb4ec8d6394b4d2f1.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Slack%20%E2%80%93%20Setting%20Expectations%2024c055fa7294413eb4ec8d6394b4d2f1/slack.png"/>Slack – Setting Expectations</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-purple">Slack</span></td><td class="cell-A@mW">This document outlines best practices for using Slack effectively, including expectations around responding to messages, following good etiquette, and being mindful of noise. It emphasizes the importance of communication and collaboration while promoting respect, kindness, and consideration in all interactions.</td></tr><tr id="8469eee9-3d3f-40e8-9f9b-902680eaab07"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Writing%20Good%20Slack%20Messages%208469eee93d3f40e89f9b902680eaab07.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Writing%20Good%20Slack%20Messages%208469eee93d3f40e89f9b902680eaab07/slack.png"/>Writing Good Slack Messages</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-purple">Slack</span></td><td class="cell-A@mW">This document provides guidelines for writing effective Slack messages, with tips on formatting, using links, and tagging people. It emphasizes the importance of clear requests and deadlines, as well as acknowledging receipt of messages. The document also advises using one message per topic and editing messages when necessary.</td></tr><tr id="f4e55d38-c132-437b-8a76-11feb259b393"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Slack%20Channel%20Prefixes%20f4e55d38c132437b8a7611feb259b393.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Slack%20Channel%20Prefixes%20f4e55d38c132437b8a7611feb259b393/slack.png"/>Slack Channel Prefixes</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-purple">Slack</span></td><td class="cell-A@mW">This document provides guidelines for naming and categorizing Slack channels to help organizations better manage their channels. The recommended channel naming conventions aim to make channel purposes clear, simple, and consistent, with standardized, descriptive prefixes to aid filtering and searching. The document also outlines the categories of channels, including core, team-specific, project-specific, and more, to help organizations keep their channels organized.</td></tr><tr id="d28b730f-8bde-4489-b06c-3eb2c6dc24e7"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Core%20Channels%20in%20Slack%20d28b730f8bde4489b06c3eb2c6dc24e7.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Core%20Channels%20in%20Slack%20d28b730f8bde4489b06c3eb2c6dc24e7/slack.png"/>Core Channels in Slack</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-purple">Slack</span></td><td class="cell-A@mW">This document provides suggestions for establishing core Slack channels, including their purpose and example messages. These channels, prefixed with <code>core-</code>, are meant for company-wide announcements, random chatter, shoutouts, and more.</td></tr><tr id="dc28e136-ca3c-4cf5-b1f3-fff5de99ba82"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Emoji%20Conventions%20in%20Slack%20dc28e136ca3c4cf5b1f3fff5de99ba82.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Emoji%20Conventions%20in%20Slack%20dc28e136ca3c4cf5b1f3fff5de99ba82/slack.png"/>Emoji Conventions in Slack</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-purple">Slack</span></td><td class="cell-A@mW">This document outlines the importance of using Emoji reactions in Slack and provides a list of conventions that some companies have established for certain Emoji. By using these Emoji reactions, distributed teams can provide non-verbal feedback and quickly communicate agreement, disagreement, completion, and more.</td></tr><tr id="dd06d475-949a-4613-b246-746cfe8a1031"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Slack%20Basics%20dd06d475949a4613b246746cfe8a1031.html"><img class="icon" src="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Slack%20Basics%20dd06d475949a4613b246746cfe8a1031/slack.png"/>Slack Basics</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-purple">Slack</span></td><td class="cell-A@mW">Slack is a channel-based messaging platform used by distributed teams to communicate effectively. With Slack, users can connect all their software tools and services, find the information they need, and work together more efficiently. This document provides an overview of the basics of using Slack, including messaging, public and private channels, threads, mentions, and profile settings.</td></tr><tr id="9b659c77-4fd7-407e-b905-04054528be53"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Daily%20Standups%209b659c774fd7407eb90504054528be53.html"><span class="icon">💁</span>Daily Standups</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-gray">Agile</span></td><td class="cell-A@mW">This document provides an overview of daily standups, a common Agile practice for team alignment. It discusses the purpose and format of standups, as well as different approaches for synchronous and asynchronous teams. The document includes further reading for those interested in implementing daily standups in their own team.</td></tr><tr id="16cccbe6-06b9-4f00-a3d5-581b8b08c976"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976.html"><span class="icon">📋</span>Task Boards</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-gray">Agile</span></td><td class="cell-A@mW">This document provides an introduction to task boards, a tool commonly used by agile teams to manage their workload. It explains what task boards are, why they work well, and how to use them effectively. The document also includes tips for breaking down tasks, definitions of done, and further reading resources.</td></tr><tr id="00f4a603-3c9a-4068-8818-405801f2d46a"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Introduction%20to%20Agile%2000f4a6033c9a40688818405801f2d46a.html"><span class="icon">🏃</span>Introduction to Agile</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-gray">Agile</span></td><td class="cell-A@mW">Agile is a development process that helps teams deliver projects faster and with fewer defects. It offers a way to quickly identify and adjust for issues, making it a great fit for organizations looking to transform their project management and operations in the digital workplace.</td></tr><tr id="481c4df9-5dc1-44a2-a713-db4459a3e3ae"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Managing%20Attention%20and%20Time%20481c4df95dc144a2a713db4459a3e3ae.html"><span class="icon">🧠</span>Managing Attention and Time</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-orange">Personal Productivity &amp; Care</span></td><td class="cell-A@mW">This document provides guidance on managing attention and time when working in a distributed team environment. It covers topics including task and time management, prioritizing tasks, and optimizing focus and attention. The document also offers tips for effective communication with team members and includes additional resources for further reading.</td></tr><tr id="3b75dd2f-784b-4b83-8c8c-bfdb6e5b016a"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Personal%20Routines%203b75dd2f784b4b838c8cbfdb6e5b016a.html"><span class="icon">🔄</span>Personal Routines</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-orange">Personal Productivity &amp; Care</span></td><td class="cell-A@mW">This document provides guidance on designing personal routines for remote work to help promote health and happiness. It outlines different approaches to designing routines, what to consider when doing so, and provides additional ideas and resources for crafting the perfect remote workday.</td></tr><tr id="928760a3-8617-4bd9-aef7-499aeb379d80"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Taking%20Care%20of%20Yourself%20928760a386174bd9aef7499aeb379d80.html"><span class="icon">❤️</span>Taking Care of Yourself</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-orange">Personal Productivity &amp; Care</span></td><td class="cell-A@mW">This document provides advice on how to take care of yourself while working remotely. It covers topics such as setting expectations, managing notifications, dealing with isolation and loneliness, and staying fit and healthy. The advice is not exhaustive, but it can help you maintain your health and well-being while working remotely.</td></tr><tr id="f747feaf-9bb4-4d25-ab8f-9e96172f959a"><td class="cell-z[v="><div class="checkbox checkbox-on"></div></td><td class="cell-title"><a href="The%20Toolbox%20Project%20680ca6247b4946d38f8734db00b0ea0a/Better%20at%20Work%20with%20Danny%20Smith%20-%20Fractional%20COO%20&amp;%204e913e25aa5544c493f78530ae9e53ff/The%20Toolbox%20Database%2084fb6df60b504488a0072969b38c61ca/Your%20Physical%20Environment%20f747feaf9bb44d25ab8f9e96172f959a.html"><span class="icon">🏋️</span>Your Physical Environment</a></td><td class="cell-YJEd"><span class="selected-value select-value-color-orange">Personal Productivity &amp; Care</span></td><td class="cell-A@mW">This document provides guidance on creating an effective physical work environment, with a focus on remote work. It includes tips on setting up a home office, working on the go, and taking advantage of the benefits of working from home.</td></tr></tbody></table><br/><br/></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

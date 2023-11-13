@@ -1,0 +1,692 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Personal Routines</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3b75dd2f-784b-4b83-8c8c-bfdb6e5b016a" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🔄</span></div><h1 class="page-title">Personal Routines</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="6b01d15a-c7fe-453a-9f3e-7ca8714f2093" class="">
+</p><p id="d2f85832-cf86-49ed-9cbb-41cfe4ecc3c4" class="">The <a href="Taking%20Care%20of%20Yourself%20928760a386174bd9aef7499aeb379d80.html"><span class="icon">❤️</span>Taking Care of Yourself</a> guide outlines some of the things we might need to keep ourselves healthy and happy in a remote environment. One of the best ways to help with this is to develop some effective personal routines.</p><p id="3af5e228-a25e-4736-9215-ec057490521e" class="">Going to the office every day gives us a solid routine to base our day around. In a remote team, this structure doesn&#x27;t exist. So<strong> we need to spend some time intentionally designing a routine that works for us</strong>. </p><p id="c9a31022-46f1-491f-8e96-0d7ba10fe6ff" class="">
+</p><h2 id="db195dfd-5b09-4242-a4d8-f9cc71b2bc93" class="block-color-pink">Approaches to Designing Personal Routines</h2><hr id="dc87da7a-d57b-4ff7-bc34-37706ebb198a"/><p id="f05af0df-4803-4717-95ed-86cd0f3ddb10" class="">Some people are creatures of habit and are very used to working in rigid routines. If this is you, consider designing a routines with fixed times. For example:</p><p id="a0236ab8-5856-4c77-8d32-bba80a81b9bd" class="">
+</p><p id="e23761fc-9bd6-4473-a491-86303bde8135" class="block-color-yellow_background"><div class="indented"><p id="0ee705b2-4ac6-4e0b-9604-7e74cef79cf4" class=""><strong>Morning</strong></p><ul id="263b1ca8-b656-4c46-83c2-51986bdef532" class="bulleted-list"><li style="list-style-type:disc">0730 Wake up (after at least 8 hours sleep).</li></ul><ul id="a423c32e-297f-41d3-9b60-988bd0b3f95e" class="bulleted-list"><li style="list-style-type:disc">0740 Get ready for the day.</li></ul><ul id="f36c15c3-7bc7-4bea-8302-02b8562673c1" class="bulleted-list"><li style="list-style-type:disc">0800 Walk the dog while listening to an audiobook.</li></ul><ul id="4a458d29-7393-43b4-b7de-d320c4c681a3" class="bulleted-list"><li style="list-style-type:disc">0830 Make coffee and have breakfast</li></ul><ul id="e8b7c17d-6eea-440f-82a9-886c3ac1d756" class="bulleted-list"><li style="list-style-type:disc">0900 Handle Slack and Emails <mark class="highlight-gray">(say &quot;good morning&quot; on slack)</mark></li></ul><ul id="df7e2e48-583a-45ad-916a-a6b77273c1df" class="bulleted-list"><li style="list-style-type:disc">0930 Plan tasks for the day &amp; turn notifications on</li></ul><ul id="5721ec1b-4129-45e1-858f-2d3175cfd820" class="bulleted-list"><li style="list-style-type:disc">0945 Focus time for two hours</li></ul><ul id="d0fcd3a7-c88e-4c9b-b512-1ad48d2ac173" class="bulleted-list"><li style="list-style-type:disc">1145 Break - social call with a friend/colleague</li></ul><ul id="a466fa96-7048-4eba-b6f0-94db3c358487" class="bulleted-list"><li style="list-style-type:disc">...</li></ul><p id="a02d09fb-2332-49f1-b004-efbb795005d4" class="">
+</p></div></p><p id="f0ba427e-bd02-43d4-8fda-0887692abd68" class="">
+</p><p id="9b1b0719-99af-48a1-a9af-dc38aba05cd2" class="">However, not everybody is good a sticking to rigid routines like this. For those people it can be better to design a set of &quot;micro-routines&quot; triggered by a certain action. For example:</p><p id="4f66c7ac-9bfd-4fd9-86c7-dcbe308420b0" class="">
+</p><p id="a02debc7-9cbf-459a-a602-54c3d903ee4e" class="block-color-yellow_background"><div class="indented"><p id="1680be3e-1b38-4c31-bfe5-31fdbd9c1f8f" class=""><strong>When I wake up I will...</strong></p><ul id="739b03a1-da1b-4697-b312-abe2ac4dcab0" class="bulleted-list"><li style="list-style-type:disc">Get ready for the day</li></ul><ul id="40c4ec68-69a7-492b-a9c8-1c1b2eb86dc8" class="bulleted-list"><li style="list-style-type:disc">Walk the dog for 30 minutes.</li></ul><ul id="a4c82940-e7a6-419a-856e-54ae7658cc51" class="bulleted-list"><li style="list-style-type:disc">Make coffee.</li></ul><p id="2501368d-5d6d-40ed-9980-a9b85c682157" class=""><strong>When I sit first sit down at my desk I will...</strong></p><ul id="05942881-ed38-42c5-858c-5ea4dd79139d" class="bulleted-list"><li style="list-style-type:disc">Spend 30 minutes handling only slack notifications and emails <mark class="highlight-gray">(say &quot;good morning&quot; on slack)</mark></li></ul><ul id="8485fe95-1817-4909-9d79-f788e785ac85" class="bulleted-list"><li style="list-style-type:disc">Spend 15 minutes planning my tasks for the day &amp; turn notifications on</li></ul><ul id="883c7450-0aa2-4b4b-b3bc-d4b1d4729f9c" class="bulleted-list"><li style="list-style-type:disc">Focus on my most important task for two hours, in focus mode.</li></ul><p id="84caeed1-a434-4766-a4a3-9412127b06c1" class="">
+</p></div></p><p id="9cbb1d90-a228-453d-9733-13cc3a1d568f" class="">
+</p><p id="593ff35c-16d3-431f-a49b-81a09bd55629" class="">Whichever approach to routines works best, you might also want to consider creating a set of principles or rules. For example:</p><p id="d001d439-acb9-4646-9ce8-85cbb926defd" class="">
+</p><p id="9ae5b0a9-ee41-47c5-8365-b9d96570edc9" class="block-color-yellow_background"><div class="indented"><ol type="1" id="c4fc437e-318e-4d78-ae99-4e38bcfd4f52" class="numbered-list" start="1"><li>Keep Tuesdays meeting-free.</li></ol><ol type="1" id="7c41badc-37ab-44fa-bb1a-6c8da97d739a" class="numbered-list" start="2"><li>Run every Thursday or Friday after work.</li></ol><ol type="1" id="be0c2455-1db3-4872-9ce0-5981ca2b410a" class="numbered-list" start="3"><li>Book one-to-one meetings on Thursday afternoon.</li></ol><ol type="1" id="184d5bac-06b3-44dd-bac2-ae69f3c8b4c1" class="numbered-list" start="4"><li>Have a long lunch with my partner and kids every Tuesday.</li></ol><ol type="1" id="b4adb29d-69d0-43cb-8509-2c33c2352122" class="numbered-list" start="5"><li><em>Never</em> work past 5pm local time on a Wednesday.</li></ol><p id="2431dc5f-582d-4d0e-8185-a3ef68143cb0" class="">
+</p></div></p><p id="522ce407-9ba4-460d-a86e-1288e8e48575" class="">
+</p><p id="e2b4bc42-5d70-40b0-afb4-7f270a7ad58e" class="">However you choose to approach this, the most important thing is that <strong>it works for you</strong>. If you design a super-complex routine and sticking to it is draining you probably need a slightly different approach.</p><h2 id="8d9b2774-18ee-4527-b69b-05fc860931e8" class="block-color-pink">What to consider when designing routines</h2><hr id="b9373ec5-4810-470e-8318-e4320e8ee997"/><p id="fe69323f-2aaa-4099-9448-3eb772add849" class="">Focus on the things that are likely to have the greatest impact for you. You should probably consider:</p><p id="b7891844-4241-46b2-8114-63bb8022d45a" class="">
+</p><ul id="b41a442e-3df9-465f-86bd-c0b9c26064fc" class="bulleted-list"><li style="list-style-type:disc">Sleep</li></ul><ul id="8f685066-811e-4a9f-a91d-b98a949dbf8c" class="bulleted-list"><li style="list-style-type:disc">Eating, cooking (and shopping)</li></ul><ul id="45fa27f1-56c9-4840-b928-a6ff24986a55" class="bulleted-list"><li style="list-style-type:disc">Socializing and spending time with your family</li></ul><ul id="06b8946e-23c4-491a-9c4a-a947824d3544" class="bulleted-list"><li style="list-style-type:disc">Your energy levels at different times during the day.</li></ul><ul id="82956700-298e-4147-9030-5c033ccb8d92" class="bulleted-list"><li style="list-style-type:disc">Alignment with family/partners/health.</li></ul><p id="4981408f-ceb2-4cea-8be2-1f1e574f44f2" class="">
+</p><h2 id="570c40f8-8781-4ebd-9608-098e4faef6e4" class="block-color-pink">Some other ideas</h2><hr id="15c92045-6f9b-4482-90c7-e15e52a492d1"/><p id="26711683-dd1a-4641-a7da-1e74ce867c9a" class="">In addition to the stuff we covered in <a href="Taking%20Care%20of%20Yourself%20928760a386174bd9aef7499aeb379d80.html"><span class="icon">❤️</span>Taking Care of Yourself</a> , here are a few other ideas...</p><p id="b63f624e-0d0d-421a-b1db-506dd60f8abd" class="">
+</p><ul id="c16aadab-5d39-40b5-87af-01a13883e10e" class="bulleted-list"><li style="list-style-type:disc">Get dressed and put some shoes on. Working in your pyjamas is one of the great things about remote working, but not if you do it all the time.</li></ul><ul id="438fb307-21a9-4e33-b3b8-dcc6327cc714" class="bulleted-list"><li style="list-style-type:disc">Take a short walk before and after work. This is good for your health and helps create a clean break between work and home time. Think of it like a mini circular commute.</li></ul><ul id="3e587601-4020-4178-9f3a-e0c6d615e940" class="bulleted-list"><li style="list-style-type:disc">Block out a schedule for your days - start time, lunch, check emails, focus time finish time etc</li></ul><ul id="10941791-a81a-403e-a7d1-47b255899f54" class="bulleted-list"><li style="list-style-type:disc">Define weekly and daily priorities and tasks in standup - make them actionable, not open-ended.</li></ul><ul id="2c9cb804-94d9-4e3a-a90d-dfb47814ceee" class="bulleted-list"><li style="list-style-type:disc">Mentally wrap up at the end of the day - take a minute to reflect on the day and &quot;put work to bed&quot;.</li></ul><ul id="a708fe59-f068-4e59-b59d-33b14b52a0be" class="bulleted-list"><li style="list-style-type:disc">Schedule out-of-work appointments at the end of your day - this forces you to get out of the house on time.  (Eg. visiting friends/family, going to the gym.)</li></ul><p id="d50f777e-1472-42ce-be61-79b9feaa54f2" class="">
+</p><h2 id="da2197d9-70b8-4a5a-a379-7de1450b1ccc" class="block-color-pink">Exercise</h2><hr id="9aeaa657-e07c-416b-b9e5-42c47679685b"/><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ef3d4df8-ef8a-48f6-be66-c51cd3136861"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise</strong>: Use this guide and a FigJam board to design some routines to help with remote working. Use any tool you want, but share some screenshots in Slack.</div></figure><p id="4e1db24c-cf5a-48c4-bf14-3e537ebc7668" class="">
+</p><h2 id="eaf581cd-1cea-4d92-b95b-e86dd54f9a07" class="block-color-pink">Further Reading</h2><hr id="0e6d7208-48af-4c9f-8549-8fc101815031"/><figure id="196077a8-0028-4c56-a581-ea81775392cf"><a href="https://www.fastcompany.com/90408535/how-to-design-a-productive-routine-when-you-work-remotely" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How to design a productive routine when you work remotely</div><div class="bookmark-description">The biggest difference between remote work and co-located offices is where work happens. According to our State of Remote Work survey for 2019, 84% of remote workers work from their home. That means that most of us work and live in the same place. This results in the biggest struggle remote workers have: unplugging after work.</div></div><div class="bookmark-href"><img src="https://www.fastcompany.com/favicon.ico?v=5" class="icon bookmark-icon"/>https://www.fastcompany.com/90408535/how-to-design-a-productive-routine-when-you-work-remotely</div></div><img src="https://images.fastcompany.net/image/upload/w_1280,f_auto,q_auto,fl_lossy/wp-cms/uploads/2019/09/p-1-how-to-design-a-productive-routine-when-you-work-remotely.jpg" class="bookmark-image"/></a></figure><figure id="1eb94a86-b62b-4460-a422-364308c6de16"><a href="https://blog.doist.com/remote-work-habits/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">5 Habits for Crafting the Perfect Remote Work Day</div><div class="bookmark-description">When people find out that I work from home and set my own schedule, the conversation is often met with an upbeat, &quot;Wow you&#x27;re so lucky&quot; quickly followed by, &quot;You must have so much self-control. I would end up watching Netflix all day.&quot;</div></div><div class="bookmark-href"><img src="https://25r4fj22vjh18a4i91qamh06-wpengine.netdna-ssl.com/wp-content/themes/ab-2018/assets/root/favicon.ico" class="icon bookmark-icon"/>https://blog.doist.com/remote-work-habits/</div></div><img src="https://blog.doist.com/wp-content/uploads/2019/02/Y_What-You-Think-Itll-Be-Like.png" class="bookmark-image"/></a></figure><figure id="1d05415c-f929-4321-9d64-2a087d6b0492"><a href="https://www.toptal.com/remote/how-to-make-remote-working-work-for-you" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How to Make Remote Working Work for You</div><div class="bookmark-description">Read the Spanish version of this article translated by Yesica Danderfer One of the best parts of working remotely is the flexibility it provides. Perhaps the most obvious benefit of remote working for the employee or contractor is that you can work in a way that suits you.</div></div><div class="bookmark-href"><img src="https://bs-assets.toptal.io/blackfish-assets/public/base/images/favicons/toptal-blog-favicon32x32_c2c2ba.png" class="icon bookmark-icon"/>https://www.toptal.com/remote/how-to-make-remote-working-work-for-you</div></div><img src="https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/14123/default-social-1-8644cb76eb27911e855db3b3e58503fc.png" class="bookmark-image"/></a></figure><figure id="c65ab0ac-d4b1-455b-86b6-d509619b6547"><a href="https://buffer.com/resources/remote-work-routine/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How to Create A Remote Work Routine That Works</div><div class="bookmark-description">The biggest difference between remote work and co-located offices is where work happens. According to our State of Remote Work survey for 2019, 84% of remote workers work from their home. That means that most of us work and live in the same place. This results in the biggest struggle remote workers have: Unplugging after work.</div></div><div class="bookmark-href"><img src="https://buffer.com/resources/favicon.png" class="icon bookmark-icon"/>https://buffer.com/resources/remote-work-routine/</div></div><img src="https://buffer.com/resources/content/images/wp-content/uploads/2015/08/sitting-at-desk.jpg" class="bookmark-image"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

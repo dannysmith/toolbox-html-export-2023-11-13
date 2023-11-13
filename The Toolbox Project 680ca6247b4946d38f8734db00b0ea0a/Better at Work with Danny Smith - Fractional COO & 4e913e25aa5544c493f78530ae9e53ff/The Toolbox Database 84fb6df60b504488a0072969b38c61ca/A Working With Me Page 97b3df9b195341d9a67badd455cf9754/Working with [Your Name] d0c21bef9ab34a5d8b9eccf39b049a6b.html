@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Working with [Your Name]</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d0c21bef-9ab3-4a5d-8b9e-ccf39b049a6b" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/solid_beige.png" style="object-position:center 40%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Working%20with%20%5BYour%20Name%5D%20d0c21bef9ab34a5d8b9eccf39b049a6b/profile-image-placeholder.png"/></div><h1 class="page-title">Working with [Your Name]</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="0c662bd3-1ec9-48be-a72a-eda99217851f"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">This is intended for people who work with me at <strong>[Your Company]</strong>, though it might be useful for others.</div></figure><div id="1dbf2ef0-724b-44d0-a42e-c55de7e8f35f" class="column-list"><div id="6804033b-a0f7-4bbd-bf9f-4d5fbb7b33b2" style="width:56.25%" class="column"><h1 id="6b5e9c4b-afe0-4354-842b-b127f15acd01" class="">The Basics</h1><hr id="0b26563d-eb3e-4651-a097-719d100d8e40"/><p id="7820792f-21c9-4348-b406-0d1238409ad7" class="">[Include a Loom video introducing yourself]</p><figure id="97cff696-bef2-4dec-8f8f-bda4a6a86f46"><div class="source"><a href="https://www.notion.soundefined"></a></div></figure><h2 id="a800e886-6a42-4413-86f3-b4b0368011e3" class="">When I work...</h2><p id="6efbac2e-8244-485e-ab45-fa2e18fc12e2" class="">[Explain when you work]</p><h2 id="57f4505f-58b1-409a-8a93-121b37c90b81" class="">How to contact me...</h2><p id="3c698a69-6cc6-4cd4-84bd-e5463883f4de" class="">[Explain how you like to work]</p><h2 id="c0c252b0-b25b-4cb7-921f-052f26a3e4b1" class="">What I do...</h2><p id="a6ffd887-a4de-4470-a0ef-a10e56e0f38a" class="">My work is kinda split across xxxxxx areas:</p><ul id="be311e7e-5dd6-438a-a52b-bf72dcc2084b" class="toggle"><li><details open=""><summary><strong>🎬 Area One</strong></summary><ul id="1944fa64-750a-4d0f-95b3-74b060acce77" class="bulleted-list"><li style="list-style-type:disc">Stuff</li></ul><ul id="e167c278-7cf0-45d2-8b15-0f83c25df025" class="bulleted-list"><li style="list-style-type:disc">Here</li></ul></details></li></ul><ul id="8ec6665a-1b0c-4ef8-96a4-3e4139820887" class="toggle"><li><details open=""><summary>💻 <mark class="highlight-orange"><strong>Area Two</strong></mark></summary><ul id="89af9925-6dd0-428b-aaf9-87446362f8a1" class="bulleted-list"><li style="list-style-type:disc">Stuff Here</li></ul></details></li></ul><ul id="d0f558fe-ee22-464d-afd4-5ce7fa6823e5" class="toggle"><li><details open=""><summary>🌍 <mark class="highlight-teal"><strong>Area Three</strong></mark></summary><ul id="5802a1ea-c3ba-414a-9a55-1f63fbbc1851" class="bulleted-list"><li style="list-style-type:disc">stuff Here</li></ul></details></li></ul><p id="1eb85136-796c-4e1c-8cd4-a1f962ac54ea" class="">
+</p></div><div id="3b04ddf6-ee5d-4c74-8e23-670d6d7375ae" style="width:43.75000000000001%" class="column"><h2 id="ea00a108-26bc-4c93-a0b9-aa5b5de25d58" class="">Upcoming Trips</h2><hr id="2e6275d8-f61c-49d7-b265-74cbab093e78"/><p id="eb3538ec-1510-4473-84e8-ec6963a6e761" class=""><em>None</em></p><h2 id="7fed9df0-f990-4f53-b59c-5f079ae7ea6e" class="">Quick Links</h2><hr id="1bb32366-8401-4ea2-ac99-3d09cf1cf008"/><ul id="65314c0e-d56b-44b6-b039-45a8c0562cd9" class="bulleted-list"><li style="list-style-type:disc">⏰  <a href="https://time.is/London">Current Time in [Your Location]</a></li></ul><ul id="6011cc7a-f77e-4fb1-bf21-cdfb63818150" class="bulleted-list"><li style="list-style-type:disc">🌐  Website</li></ul><ul id="52e53728-62ca-46ba-8c6a-6f88b8cccb2d" class="bulleted-list"><li style="list-style-type:disc">🗣️  Give Anonymous Personal Feedback [Link to Typeform feedback form like <a href="http://c.danny.is/qPXI">this</a>]</li></ul><ul id="5e8834e3-caa7-4af1-bd4f-5ea1898f0c42" class="bulleted-list"><li style="list-style-type:disc">🤔  <a href="https://www.16personalities.com/entj-personality">Personality Type: [ENTJ</a>]</li></ul><h2 id="b1227037-3595-493b-85a2-515e58c46bac" class="">Usernames</h2><hr id="71a91cfa-fb2b-4947-9ab4-4266fc3b7b1f"/><ul id="e6159302-ffd0-4b65-bd89-47205b1fe894" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Slack</strong></mark><mark class="highlight-gray">:</mark> @xxxx</li></ul><ul id="15b72167-0013-4f3f-a301-4d8165eec1d0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Twitter/Medium/GitHub</strong></mark><mark class="highlight-gray">: </mark>@xxxxx</li></ul><ul id="dafa55c7-62dd-412e-8ec5-1a23245d7b5a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Trello</strong></mark><mark class="highlight-gray">:</mark> xxxxx</li></ul><ul id="9367bd59-32d6-4ff1-942e-c67900d6e8dd" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>LinkedIn</strong></mark><mark class="highlight-gray">: </mark>xxxxx</li></ul><ul id="3c9a6dec-d45e-4845-a0b5-5e459509a5f1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Skype</strong></mark><mark class="highlight-gray">: </mark>xxxxx</li></ul><ul id="3f02517f-b3fd-440c-bf3c-494c731ee96e" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Email</strong></mark><mark class="highlight-gray">: </mark>xxxxx@xxxxx.com</li></ul><p id="5810b89f-fdcb-4c47-9cb8-fc52fa48246a" class="">
+</p><figure id="03276a3b-cb7a-443f-be10-fb96c4e29aae" class="image"><a href="Working%20with%20%5BYour%20Name%5D%20d0c21bef9ab34a5d8b9eccf39b049a6b/profile-image-placeholder%201.png"><img style="width:192px" src="Working%20with%20%5BYour%20Name%5D%20d0c21bef9ab34a5d8b9eccf39b049a6b/profile-image-placeholder%201.png"/></a></figure><p id="93faaa47-2646-48b9-8754-8c7b61b57938" class="">
+</p></div></div><h1 id="3355e388-01dc-4b97-81b8-51df823926f1" class="">Can I ask a few favours, please?</h1><hr id="44e1f54d-4469-483d-9e13-208d07b10153"/><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="e1efb85e-85f9-4042-9fdd-531cdd45b9d1"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">I&#x27;m not a big fan of really long <a href="https://managerreadme.com/">Manager or Colleague READMEs</a>, but in the interests of speeding things up... here are some favours I ask of everyone I work with. These aren&#x27;t <strong>immutable</strong> <strong>rules</strong>, they&#x27;re <strong>favours I&#x27;m asking</strong>.</div></figure><p id="3bda32c8-45a9-4963-a341-0ba7b06c4499" class="">
+</p><ul id="64bd30d0-3170-4f1d-b4c5-d0cb9799c630" class="bulleted-list"><li style="list-style-type:disc"><strong><mark class="highlight-gray_background">Requests and Questions</mark></strong><ul id="62a92d6b-2ff2-481b-8c8f-3788edc5a41f" class="bulleted-list"><li style="list-style-type:circle">Stuff</li></ul></li></ul><ul id="8af93d59-9e4b-47f3-8c83-63144fbfaf1f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background"><strong>Slack</strong></mark><ul id="73e5cb2f-2e8c-4ff8-8a86-afa8d33e94a8" class="bulleted-list"><li style="list-style-type:circle">Stuff</li></ul></li></ul><ul id="78e7b7d4-8240-4c38-8359-9f0e0c6e52b7" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background"><strong>Email</strong></mark><ul id="605a58bb-f153-48c4-9dbf-ba8fa0c6fecd" class="bulleted-list"><li style="list-style-type:circle">Stuff</li></ul></li></ul><ul id="480dd68f-1468-422c-b980-aa4f314b9a6a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background"><strong>Meetings</strong></mark> (or zoom calls)<ul id="ae62645d-8c94-4738-9842-4a00734afa60" class="bulleted-list"><li style="list-style-type:circle">Stuff</li></ul></li></ul><p id="2a2dd8b6-e6b4-47f4-acf1-ff4242ea4eb7" class="">
+</p><h2 id="933d4485-d101-4b8c-a78c-4e976faa2593" class="">👱‍♀️ Other stuff</h2><hr id="191b90b1-dd5b-45ff-8b1d-94fca5dff0f4"/><p id="698fd258-c7b5-461f-9c48-0f5cb9955301" class="">Any other information here.</p><p id="24f80b7c-98d8-4087-b6cc-4068a68de712" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

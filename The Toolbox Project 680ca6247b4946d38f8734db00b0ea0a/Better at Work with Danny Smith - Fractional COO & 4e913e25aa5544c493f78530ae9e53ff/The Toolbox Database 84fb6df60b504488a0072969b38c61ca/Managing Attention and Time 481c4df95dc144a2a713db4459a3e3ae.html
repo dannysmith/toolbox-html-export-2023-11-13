@@ -1,0 +1,721 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Managing Attention and Time</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="481c4df9-5dc1-44a2-a713-db4459a3e3ae" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🧠</span></div><h1 class="page-title">Managing Attention and Time</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="79f08c97-6160-4992-bec4-9c5f651d572a" class="">
+</p><p id="b7f20676-3c11-494d-9142-84a6c84d579d" class="">One of the benefits of working in a distributed team is the extra freedom and flexibility it provides. But with this comes the extra responsibility of managing your own schedule and workload. This guide touches on...</p><ul id="715308d9-273e-4b08-b195-7e35130f7048" class="bulleted-list"><li style="list-style-type:disc">Managing and prioritising your tasks and workload.</li></ul><ul id="d1900fce-0f77-4c02-9ee5-8356e21ea786" class="bulleted-list"><li style="list-style-type:disc">Managing your time effectively.</li></ul><ul id="cb76cf51-652f-4351-acbc-222a4e90428f" class="bulleted-list"><li style="list-style-type:disc">Optimising your focus and attention to make the best best use of your time.</li></ul><p id="28ca91b6-0b57-4a4d-ac76-d21dbbb92726" class="">
+</p><h2 id="d576a6b8-998b-43b7-bad4-ece486df2459" class="block-color-pink">Time management</h2><hr id="b548c640-bb41-40d1-932e-b0dfce81a87e"/><p id="cd25c4d7-e3e8-471f-b63b-044a9b92806a" class="">When most people hear the phrase <em>Time Management</em> they think about <strong>being on time for meetings</strong>, <strong>starting work at a set time</strong> and <strong>being prepared for events</strong>.</p><p id="97c972c5-8ae7-49cc-a991-650c91ef42fc" class="">While it&#x27;s obviously important to arrive punctually for meetings, good time management isn&#x27;t really about being on time for things. It&#x27;s about <mark class="highlight-purple"><strong>using the time you have available in the most useful and effective way</strong></mark>.</p><p id="bdb120cb-d246-4e6c-bccc-a395f1a0dd1d" class="">Here&#x27;s one definition of <em>Time Management</em>...</p><p id="ee1b8831-31e2-40f1-9dae-04bfce602cb2" class="">
+</p><blockquote id="7bf7befa-40e1-42de-bd61-e929ff8a6ff3" class="block-color-teal">The range of <mark class="highlight-orange"><strong>skills</strong></mark>, <mark class="highlight-orange"><strong>tools</strong></mark> and <mark class="highlight-orange"><strong>techniques</strong></mark> utilized to accomplish specific <mark class="highlight-orange"><strong>tasks</strong></mark>, <mark class="highlight-orange"><strong>projects</strong></mark> and <mark class="highlight-orange"><strong>goals</strong></mark></blockquote><p id="c56e294a-ca99-4e1a-9547-4604c9a3c26f" class="">
+</p><p id="26cbb2bb-1408-44a1-b957-4e15e2c983fb" class="">Notice how it doesn&#x27;t mention <strong>time</strong>. Instead, it talks about having the skills and tools to accomplish specific <strong>work</strong>. If you want to improve your time management, the best thing you can do is make the skills and tools you use to get your work done as effective as possible.</p><h2 id="4c6d7e48-1774-4fb3-b18d-3484dcad2b69" class="block-color-pink">Task management</h2><hr id="84c36d0a-ca11-4301-b3a7-69a10cc6b0b9"/><p id="3519366e-86f9-4fc2-b687-3f892fab48f4" class="">Let&#x27;s look at one definition of <em>Task Management</em>...</p><p id="2dbd1b58-7441-4289-b32d-f77347ff9a8f" class="">
+</p><blockquote id="192f14dd-418e-439e-8692-605ba886907d" class="block-color-teal">The process of managing a task during its lifecycle, including <mark class="highlight-orange"><strong>planning</strong></mark>, <mark class="highlight-orange"><strong>tracking</strong></mark> and <mark class="highlight-orange"><strong>reporting</strong></mark>.</blockquote><p id="2310eef7-9c28-4055-b5fc-243510e0c943" class="">
+</p><p id="a9b36a69-970f-42e0-8c0b-9db1fef07d44" class="">The key words here are planning, tracking and reporting...</p><ul id="56f6188d-d277-4f79-984b-9fde0e6f881f" class="bulleted-list"><li style="list-style-type:disc"><strong>Planning</strong> - Good task management requires planning. You need to break down your work into small do-able tasks and prioritize them.</li></ul><ul id="ca6f202b-d086-4ce4-baca-e8525fea3322" class="bulleted-list"><li style="list-style-type:disc"><strong>Tracking</strong> - Good task management requires tracking. You need to keep track of how your work is progressing so you can re-plan as needed.</li></ul><ul id="05d339b7-0185-48cd-819d-37e7bd93a928" class="bulleted-list"><li style="list-style-type:disc"><strong>Reporting</strong> - Good task management requires communication. You need to let others now how things are going.</li></ul><p id="a603e4f9-2a68-4c71-bb0d-bd7255baa62b" class="">
+</p><p id="e162d769-90b7-4762-95c5-5805d797fd3b" class="">Good task management is a <strong>huge</strong> topic, so we can only scratch the surface here. Below are a few tips to get you started...</p><p id="2c2b4cb6-9db9-48de-b132-e7b02d8cae91" class="">
+</p><h3 id="0cce5c76-6031-49dc-bff3-538ae1f9c573" class="block-color-purple">Defining tasks well</h3><hr id="4b81cf04-8bea-4809-af54-01553d45497f"/><p id="16344752-2d8e-4977-a960-fbd4366b12d7" class="">Imagine you need to find a new place to live. You might add something like this to your to-do list:</p><p id="e1e0d259-ff39-438e-9d1f-23c1cc31fb2d" class="">
+</p><p id="bf7aef68-3a4c-464c-9e52-5e5730abbdf2" class="block-color-yellow_background"><div class="indented"><p id="b1cbd083-be8a-4501-a8a0-6f41ac593fba" class=""><strong>Todo List </strong>✅</p><hr id="ab6bd640-83d0-4a57-9a74-c9c20ad8c352"/><ul id="45252f9f-3846-42d2-9929-a2a88c045e57" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Find a new place to live</span><div class="indented"></div></li></ul><p id="7cf0001d-e750-4337-b39a-58d924362928" class="">
+</p></div></p><p id="7039b855-6a82-4d70-ad6b-8c61dfbf0139" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="6a69fe3a-523c-4417-9130-9b163b91c5da"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise: </strong>Reflect... what&#x27;s wrong with a task like this? How easy is it to complete? How likely are you to actually do this when you look at your todo list?</div></figure><p id="d9aa0a50-abf9-4aeb-83be-7a1757996e42" class="">
+</p><p id="caa41ae4-96b3-4901-9312-a7665b68a311" class="">The big problem with tasks like this is that they aren&#x27;t really tasks – it&#x27;s not at all obvious what we <em>actually need to do</em> to move things forward. When faced with a list that includes tasks like this, most people will avoid these unclear tasks and focus on smaller more granular tasks instead.</p><p id="4bcfa8dc-e612-446b-a8af-2c511f7f7924" class="">The solution here is to make this task more granular. We should <strong>invest some time and thought in planning</strong> before we add a task to our list.</p><p id="fd994c60-bffe-4821-a6b3-e6f813e5bfc8" class="">After a little thinking, we might add some constraints to our task...</p><p id="8f0479a5-9a0b-447f-b1e9-a4365e0418f6" class="">
+</p><p id="07d89baf-03df-48b6-87c8-62a4ff056747" class="block-color-yellow_background"><div class="indented"><p id="95c7f30f-6acc-4464-928e-7c3563437bdc" class=""><strong>Todo List </strong>✅</p><hr id="008fdb5c-b2da-4c4a-80ce-9980205d8fe4"/><ul id="6b0de47c-9316-4220-824b-85a33011fb81" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Find a new apartment within an hour of central London that costs &lt; £1000 a month.</span><div class="indented"></div></li></ul><p id="48a8ba1f-c5c5-41fc-9e92-7c896a309289" class="">
+</p></div></p><p id="f19e117f-0050-42d5-889e-6143b9851266" class="">
+</p><p id="31eae855-9af1-42d7-b90e-c99729b8c731" class="">This is useful, but our task is still quite hard to actually <em>do</em>. A useful question to ask yourself here is <strong>what&#x27;s the next action here?</strong> After a bit more thought, we might decide that the next concrete action is to call a rental agency...</p><p id="efbaf0a1-f8dd-495c-b1d1-cb4de5d475f7" class="">
+</p><p id="1bd7eddf-3253-4c2e-a570-4ba0fb797532" class="block-color-yellow_background"><div class="indented"><p id="17d83c3c-8a5a-49d5-b9e5-d81b8c2f3ffa" class=""><strong>Todo List </strong>✅</p><hr id="291a932d-b3ea-48ee-97e1-d52d2118ac4d"/><ul id="4fbb2c75-5aa8-40e4-8276-95b93769500c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Call ABC Lettings on +4420123456 and set up a meeting.</span><div class="indented"></div></li></ul><p id="d43014fd-e8e5-4bcd-8a9c-0f3f9b83dc87" class="">
+</p></div></p><p id="1cc52934-adeb-4e81-aaa2-4bacac894687" class="">
+</p><p id="146cc362-4ba4-454c-a82a-b5ba55e1aa0e" class="">Compared to our original task, this one is pretty easy to do. We don&#x27;t have to make any decisions or do any planning beforehand because we&#x27;ve already done that work. We can just <strong>do the thing on our to do list</strong>.</p><p id="075abe08-4457-4837-80c5-d506c84e8112" class="">Taking the time to plan and think before you add tasks to your list helps ensure your todo list only contains <strong>actually actionable things</strong>. The conceptual separation between <em>planning</em> and <em>doing</em> can also help to make both more effective.</p><p id="47d87bb3-1342-44b4-8741-16526a45f00f" class="">
+</p><h3 id="6ccf769a-f9c7-431d-97b6-8e8e792d17f4" class="block-color-purple">Projects vs Tasks</h3><hr id="19f99cfa-c3d9-4e5b-85c0-dcbcf140d634"/><p id="36a78cdb-bd73-4358-ab8d-e2b14f21ca28" class="">It&#x27;s often useful to differentiate between projects and tasks. In the example above <strong>Find a new place to live</strong> isn&#x27;t really a task – it&#x27;s a small project which needs multiple tasks completing before it&#x27;s finished.</p><p id="4e64f7ab-7673-490c-a49f-601a0229e8bc" class="">It&#x27;s sometimes better to think about very simple tasks as projects – imagine we have a to-do list like this:</p><p id="40c17780-f34a-4ef6-95bf-5778414ef2a2" class="">
+</p><p id="684e67e8-0838-4c7a-9a5c-06bd710101a3" class="block-color-yellow_background"><div class="indented"><p id="428b97a3-ded6-4c7b-bd55-3640485b8076" class=""><strong>Todo List </strong>✅</p><hr id="b122f393-0ac1-4e79-aa90-6f0a1e5e0e54"/><ul id="dedb5385-f0ac-456a-a12d-ef4274867168" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Wash car</span><div class="indented"></div></li></ul><p id="cb08d76e-e34b-4e15-9614-c3b9509f1c77" class="">
+</p></div></p><p id="26bd6674-51dc-4fb3-a9bf-3afcf35d9288" class="">
+</p><p id="4a6fcdad-77f5-4d57-9068-950c27f9b1f3" class="">This is fine if we have a bucket and a sponge to hand. If not, this is actually a <em>small project</em> and our to-do list should probably look more like this:</p><p id="a58562d6-b350-44c2-af57-e4ecab6118a4" class="">
+</p><p id="3f4da069-ce9d-4341-965f-c8b6a77d03ae" class="block-color-yellow_background"><div class="indented"><p id="900f01b4-c201-436a-8265-0e076dad679c" class=""><strong>Todo List </strong>✅</p><hr id="a29eae5b-59ee-4943-bbc1-cc9cca7116a0"/><ul id="fce550c0-85ae-400e-91ce-34d79995a2c4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Buy bucket <mark class="highlight-gray">(shopping)</mark></span><div class="indented"></div></li></ul><ul id="6e31d829-7a89-4a07-89e5-8c478b50e5f0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Buy sponge and car soap <mark class="highlight-gray">(shopping)</mark></span><div class="indented"></div></li></ul><ul id="c7c5194f-d8fc-488d-b768-f42bd5e13cc0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Wash car <mark class="highlight-gray">(home)</mark></span><div class="indented"></div></li></ul><p id="edb3ae15-ce9d-4f6d-9614-ca3c9d25f7b6" class="">
+</p></div></p><p id="3fa3b776-e5ad-4f99-9b39-f793bcb17ab8" class="">
+</p><p id="fa1953de-07e1-408c-a46f-74c0604b53ac" class="">If you&#x27;d like to learn more about this approach to task management, David Allen&#x27;s <em>Getting Things Done</em> covers it in great detail...</p><figure id="e62f8a9f-a7a0-4766-a500-7419c74c6e6d"><a href="https://gettingthingsdone.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Getting Things Done® - David Allen&#x27;s GTD® Methodology</div><div class="bookmark-description">David Allen&#x27;s Getting Things Done® (GTD®) is the work-life management system that alleviates overwhelm, and instills focus, clarity, and confidence.David Allen&#x27;s Getting Things Done®</div></div><div class="bookmark-href"><img src="https://gettingthingsdone.com/favicon-16x16.png" class="icon bookmark-icon"/>https://gettingthingsdone.com/</div></div><img src="https://gettingthingsdone.com/wp-content/uploads/2017/07/2017_GTD_BookCover_500x767.jpg" class="bookmark-image"/></a></figure><p id="848b6de3-8aff-4f84-a73f-5fea8bc4eccf" class="">
+</p><h3 id="52826b80-2f5b-4379-a3b5-d4ed301ecfd1" class="block-color-purple">Tasks and Calendars</h3><hr id="06ab968d-14e1-41b2-8af3-0ee32dd57750"/><p id="65b42e90-81e7-4adc-9051-92e21b4d6c48" class="">It can sometimes be tempting to schedule your tasks in your calendar. This has the advantage that each task has a set amount of time allocated, and this can provide a feeling of control – especially when you&#x27;re really busy.</p><p id="77603163-2fb4-4d2e-8c22-432fd854992a" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="bd6df180-03b2-4d3f-8ecd-12ec5291f0a6"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise:</strong> Take 30 seconds to consider the disadvantages do scheduling tasks in your calendar.</div></figure><p id="932cd78e-be8d-426b-8278-283dae50845e" class="">
+</p><p id="1430fe03-9460-4d9b-9b11-365a483936ed" class="">Some possible downsides to scheduling tasks in your calendar...</p><p id="3c23f1c3-5028-4b59-98b0-3d94d863d971" class="">
+</p><ul id="176afa19-740b-4567-816a-8b503b273751" class="bulleted-list"><li style="list-style-type:disc"><strong>Low flexibility</strong> - it&#x27;s hard to adapt to changing priorities and situations.</li></ul><ul id="3bd6f08b-e4c7-4632-8e16-7639f4619261" class="bulleted-list"><li style="list-style-type:disc"><strong>Relies on accurate estimates</strong> - if a task takes more or less time than expected you&#x27;ll have to rearrange things. (Most of us are terrible at estimating how long tasks will take.)</li></ul><ul id="fb11ead5-5ec6-4cd1-b83d-fe3d534e39af" class="bulleted-list"><li style="list-style-type:disc"><strong>It&#x27;s stressful</strong> - If your calendar looks like the one below every week, you&#x27;re likely to feel pretty stressed!</li></ul><p id="c9763476-46d0-43d9-9038-de98e77caca6" class="">
+</p><figure id="f2070998-73b2-49be-b219-7f225f0752fb" class="image"><a href="Managing%20Attention%20and%20Time%20481c4df95dc144a2a713db4459a3e3ae/Untitled.png"><img style="width:720px" src="Managing%20Attention%20and%20Time%20481c4df95dc144a2a713db4459a3e3ae/Untitled.png"/></a><figcaption>A calendar showing both time-specific events and scheduled tasks.</figcaption></figure><p id="fb07bf0c-1901-4d11-afaf-3948bb727ce7" class="">
+</p><p id="77fae3cb-b04f-4204-af2c-da110d0f50b7" class="">This approach works well for some people but unless you <strong>know</strong> it works for you, it&#x27;s probably best to use your calendar exclusively for time-specific events (like meetings) and manage your tasks elsewhere.</p><p id="bdd26aa6-65b1-4d32-b0e2-095110eeb037" class="">
+</p><h3 id="29958604-c1a8-48cb-ab05-e0d2568edc1a" class="block-color-purple">Task management tools</h3><hr id="6cb3b49b-434d-4a9c-939a-35412eb017ab"/><p id="37891904-577f-4267-8cf4-a3b14706e0fc" class="">There are hundreds of task management tools to choose from – the most important thing is to pick one that <strong>works for you</strong>. You might want to consider:</p><ul id="cac32bf6-0b97-4579-8b9c-29ab6ca966bf" class="bulleted-list"><li style="list-style-type:disc"><strong>Ease of adding tasks</strong> - it should be really easy to add a new task.</li></ul><ul id="aa2dc6f5-ab51-4b6a-baae-6ab7a3c55f08" class="bulleted-list"><li style="list-style-type:disc"><strong>Collaboration</strong> - how easy is it to add and assign tasks to other people? Is this important for you?</li></ul><ul id="88092da4-9f4b-4b97-9887-9325e50bbedb" class="bulleted-list"><li style="list-style-type:disc"><strong>Multiple devices</strong> - how easy is it to access your todo-list from your phone or tablet?</li></ul><p id="dce76ef9-a1b5-4da0-88cd-f9ec3d8072d0" class="">
+</p><p id="088233ec-cd4b-48ea-be33-15afbffaac91" class="">
+</p><h2 id="b984085d-3c17-4281-9592-941792428c38" class="block-color-pink">Prioritizing tasks</h2><hr id="3ce8f6ac-072d-4794-bf52-9a4ab07d3e76"/><div id="833e12d0-067a-4d2b-ae8b-695904cdbd91" class="column-list"><div id="da004e5c-00d1-4ddb-a025-5c794e21b2e7" style="width:50%" class="column"><p id="3eaae9e7-8388-4133-9a01-73e350702b19" class="">A well-managed todo list with granular, do-able tasks will do a lot to help you work more effectively. But if you have a lot on your plate you&#x27;ll also need to prioritise your tasks somehow.</p><p id="6ddf22ad-3e68-4261-ba5b-c033e4141704" class="">The Eisenhower model is a simple way to do this. Watch the video below for a brief explanation...</p><p id="0b408d23-3c62-42e5-b30f-7061736c6a69" class="">
+</p></div><div id="eedc15ab-b057-435a-ab41-66e3344d42dc" style="width:50%" class="column"><figure id="aee372f9-c164-4816-9370-730dd9695a0c" class="image"><a href="Managing%20Attention%20and%20Time%20481c4df95dc144a2a713db4459a3e3ae/Untitled%201.png"><img style="width:640px" src="Managing%20Attention%20and%20Time%20481c4df95dc144a2a713db4459a3e3ae/Untitled%201.png"/></a></figure></div></div><p id="3329e214-0010-494c-a86e-3e281260b755" class="">
+</p><figure id="56803548-2ad3-401d-a543-74720530ebc6"><div class="source"><a href="https://youtu.be/tT89OZ7TNwc">https://youtu.be/tT89OZ7TNwc</a></div></figure><p id="b8de8d68-3e4e-4c83-9b9d-aa7e523f1138" class="">
+</p><h2 id="0aedb4e9-b4bf-4785-b961-d11e7d314a3b" class="block-color-pink">Attention cycles</h2><hr id="0a1ec4f7-a7cb-428f-9b9f-7a3503d1df5a"/><p id="3f0f2381-4596-4359-a7b6-e8fa6a124a90" class="">When planning your work, it&#x27;s always worth considering your energy and attention.</p><p id="7f0c3724-bd1f-4f47-9d31-116aa9f46ab1" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="cbe7b645-4a3d-4920-ac2c-7e8888d78a8b"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise:</strong> Think about your energy levels during the day. When do you have the most energy? When do you do your best focused work? When do you most enjoy meetings? When do you have low energy?</div></figure><p id="ed08a365-5d5c-4f71-9ab0-7e4526165fb5" class="">
+</p><p id="30a76c50-9b7f-46d2-94fa-5422cc6340b0" class="">If you know that you work best in the mornings, consider blocking out some&quot;focus time&quot; in your calendar then. If you have a slump after lunch, maybe you can book social calls then to help pick you up?</p><p id="85b848ef-3599-4a16-9550-2afc3da97879" class="">You can also apply this approach to your week – perhaps you want to keep Mondays meeting-free because you have lots of energy to work on focused stuff. Or maybe you want to schedule most of your meetings on a particular day when you know you&#x27;re likely to feel more sociable.</p><figure id="b4ecf19b-dad9-47c5-9304-5c6e844d04d6" class="image"><a href="Managing%20Attention%20and%20Time%20481c4df95dc144a2a713db4459a3e3ae/Screenshot_2020-11-25_at_15.40.26.png"><img style="width:1640px" src="Managing%20Attention%20and%20Time%20481c4df95dc144a2a713db4459a3e3ae/Screenshot_2020-11-25_at_15.40.26.png"/></a><figcaption>You could try blocking out specific time in your calendar.</figcaption></figure><p id="167bd7a2-599e-43eb-8737-415fd57edc68" class="">
+</p><p id="063f5c1b-a869-4688-83b7-7adfd2b5bdcd" class="">You might also consider blocking out certain personal activities in your calendar to help manage your energy and attention. It&#x27;s often a good idea to schedule a morning walk, for example. Or lunch with your family. (See <a href="Personal%20Routines%203b75dd2f784b4b838c8cbfdb6e5b016a.html"><span class="icon">🔄</span>Personal Routines</a>  for more on this).</p><p id="ab4b4b81-50d7-4b72-b2ca-2cc7800abf1f" class="">
+</p><figure id="df83c683-e648-49da-9474-1f5809f456c7"><a href="https://www.nytimes.com/2019/03/28/smarter-living/productivity-isnt-about-time-management-its-about-attention-management.html" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Productivity Isn&#x27;t About Time Management. It&#x27;s About Attention Management. (Published 2019)</div><div class="bookmark-description">&quot;Time management&quot; is not a solution - it&#x27;s actually part of the problem. A few years ago during a break in a leadership class I was teaching, a manager named Michael walked up looking unsettled. His boss had told him he needed to be more productive, so he had spent a few hours analyzing how he spent his time.</div></div><div class="bookmark-href"><img src="https://www.nytimes.com/vi-assets/static-assets/favicon-d2483f10ef688e6f89e23806b9700298.ico" class="icon bookmark-icon"/>https://www.nytimes.com/2019/03/28/smarter-living/productivity-isnt-about-time-management-its-about-attention-management.html</div></div><img src="https://static01.nyt.com/images/2019/03/25/smarter-living/25sl_attention_promo/25sl_attention_promo-facebookJumbo.jpg?year=2019&amp;h=549&amp;w=1050&amp;sig=0x95d3e8d1a8fd5e42e31dcb140ff20fdb" class="bookmark-image"/></a></figure><figure id="3744eedb-5bc4-47ad-bd41-f1429516658f"><a href="https://medium.com/@dagnijalejia/take-your-productivity-to-the-next-level-managing-attention-and-energy-d9d5d6b74460" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Take Your Productivity to the Next level: Managing Attention and Energy</div><div class="bookmark-description">Lately I&#x27;ve received numerous public speaking invitations asking me to share my tips and tricks for managing work-life balance, while also maintaining productivity. It&#x27;s an honour to be recognised as somebody who can share this sort of inspiration, but I also feel very humbled.</div></div><div class="bookmark-href"><img src="https://medium.com/favicon.ico" class="icon bookmark-icon"/>https://medium.com/@dagnijalejia/take-your-productivity-to-the-next-level-managing-attention-and-energy-d9d5d6b74460</div></div><img src="https://miro.medium.com/max/1200/1*3ubUMBShJdVTZLwbjQnzeQ.jpeg" class="bookmark-image"/></a></figure><figure id="1bbeab0b-781e-4426-9d9c-edf7757fc779"><a href="https://medium.com/thrive-global/how-to-better-manage-your-energy-time-and-attention-for-peak-performance-22b20b96ebc7" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How to Better Manage Your Energy, Time And Attention to Achieve Peak Performance</div><div class="bookmark-description">You can only do effective and productive work if you know how best to manage your energy, time and attention. All three are absolutely essential if you want to be productive on a daily basis and succeed in your endeavors. Tony Schwartz, author of &quot; The Power of Full Engagement &quot;, recommends that we manage our energy for peak performance.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/fit/c/256/256/1*jYaoY4sA55fiXzAgvFx7Aw.png" class="icon bookmark-icon"/>https://medium.com/thrive-global/how-to-better-manage-your-energy-time-and-attention-for-peak-performance-22b20b96ebc7</div></div><img src="https://miro.medium.com/max/1200/1*5fH09o4hh8fPzLyzYTkzEQ.jpeg" class="bookmark-image"/></a></figure><p id="e914f3e1-8d85-4ece-bd17-5005ade55df3" class="">
+</p><h2 id="41ed6416-6882-4769-9bc7-eede6dace3bd" class="block-color-pink">Communicating</h2><hr id="762e4531-cd32-4861-bbeb-6f9cbc126d92"/><p id="07e30175-ebcf-4859-b08b-9e54a38f32e1" class="">It&#x27;s important that you clearly communicate when you&#x27;re working and what you&#x27;re working on with your teammates. You can do this in various ways (usually some  combination)...</p><ul id="7f1e9fdf-663f-4de0-b9a6-a9a326ecdedd" class="bulleted-list"><li style="list-style-type:disc">Make your calendar public so people can see what&#x27;s in it (see <a href="Using%20Your%20Calendar%20Effectively%20b57eefb940dd49d6a771c41083cf3819.html"><span class="icon">📅</span>Using Your Calendar Effectively</a> )</li></ul><ul id="9dda0ee0-5cb7-4270-b17f-cf4eed14ce67" class="bulleted-list"><li style="list-style-type:disc">Use Slack statuses (see <a href="Slack%20Statuses%209261ec15da5e4b739a8d371469e9e68f.html"><img class="icon" src="Slack%20Statuses%209261ec15da5e4b739a8d371469e9e68f/slack.png"/>Slack Statuses</a>)</li></ul><ul id="c03350ce-e6e0-4942-a38c-1f91d95fb19b" class="bulleted-list"><li style="list-style-type:disc">Make the tasks you&#x27;re working on visible</li></ul><ul id="1f1c362f-d184-45fe-9318-ecdc5f1eee6f" class="bulleted-list"><li style="list-style-type:disc">Send a regular slack messages to update your team</li></ul><p id="35f92202-d1fe-4033-bcdb-0ff69627f4ca" class="">
+</p><h2 id="d9db547f-9797-410f-bfe7-1c7abcfad228" class="block-color-pink">Summary</h2><hr id="03c47be1-601a-4979-ab36-82a0ffbc890f"/><p id="a10e23f2-86b7-43dd-9c4e-182faa020f68" class="">One of the benefits of working in a distributed team is the extra freedom and flexibility it provides. But with this comes the extra responsibility of managing your own schedule and workload. By thinking about your energy and attention levels and taking the time to make your tasks &quot;do-able&quot;, you can create an effective system for doing this. But you need to be <strong>intentional</strong> about it – this will not happen by accident.</p><p id="afac931c-81a1-495e-8960-941c58e423d6" class="">
+</p><h2 id="a35cc073-e37d-42eb-97aa-cb42222e4971" class="block-color-pink">Further Reading</h2><hr id="59e80696-a64a-4178-84b0-e0498339788f"/><figure id="419b44fa-37da-4a8b-824b-bcb8adb54d6d"><a href="https://www.toptal.com/remote/how-to-make-remote-working-work-for-you" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How to Make Remote Working Work for You</div><div class="bookmark-description">Read the Spanish version of this article translated by Yesica Danderfer One of the best parts of working remotely is the flexibility it provides. Perhaps the most obvious benefit of remote working for the employee or contractor is that you can work in a way that suits you.</div></div><div class="bookmark-href"><img src="https://bs-assets.toptal.io/blackfish-assets/public/base/images/favicons/toptal-blog-favicon32x32_c2c2ba.png" class="icon bookmark-icon"/>https://www.toptal.com/remote/how-to-make-remote-working-work-for-you</div></div><img src="https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/14123/default-social-1-8644cb76eb27911e855db3b3e58503fc.png" class="bookmark-image"/></a></figure><figure id="25bf1836-5e2e-4246-aa4b-2a086b5b551e"><a href="https://gettingthingsdone.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Getting Things Done® - David Allen&#x27;s GTD® Methodology</div><div class="bookmark-description">David Allen&#x27;s Getting Things Done® (GTD®) is the work-life management system that alleviates overwhelm, and instills focus, clarity, and confidence.David Allen&#x27;s Getting Things Done®</div></div><div class="bookmark-href"><img src="https://gettingthingsdone.com/favicon-16x16.png" class="icon bookmark-icon"/>https://gettingthingsdone.com/</div></div><img src="https://gettingthingsdone.com/wp-content/uploads/2017/07/2017_GTD_BookCover_500x767.jpg" class="bookmark-image"/></a></figure><figure id="17146db9-56b0-4380-8563-0e1feedf704e"><a href="https://youtu.be/suGXZ1869qc" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Using the Eisenhower Matrix</div><div class="bookmark-description">The Eisenhower Matrix is a decision-making model focused on time management. The method was supposedly used by former President Dwight D. Eisenhower. This vi...</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/a386e432/img/favicon.ico" class="icon bookmark-icon"/>https://youtu.be/suGXZ1869qc</div></div><img src="https://i.ytimg.com/vi/suGXZ1869qc/hqdefault.jpg" class="bookmark-image"/></a></figure><p id="d79ec776-e2b4-4199-a058-21a720ea662d" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

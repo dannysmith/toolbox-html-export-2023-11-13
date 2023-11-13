@@ -1,0 +1,696 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Using Your Calendar Effectively</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b57eefb9-40dd-49d6-a771-c41083cf3819" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📅</span></div><h1 class="page-title">Using Your Calendar Effectively</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="0c23d818-96c4-4ed7-805e-54db5289250d" class="">
+</p><p id="9c5dc2b8-9fa0-413a-8a2e-f3c8fd18724b" class="">Even in distributed teams that work asynchronously, managing calendars is incredibly important. In an office, everyone knows that everyone else is there between 9am and 5pm – it&#x27;s easy to book meetings at short notice, or grab someone for a quick coffee.</p><p id="f43ce6ac-8248-40ec-acf2-e5e6bd2e63ce" class="">In a remote setting, things are a little different:</p><ul id="7664be38-afb6-42be-b555-718db9abefbf" class="bulleted-list"><li style="list-style-type:disc">People can be in different timezones – there may only be very small windows for synchronous meetings.</li></ul><ul id="34a54bc5-22b8-42c1-a4f7-7e82d205fba2" class="bulleted-list"><li style="list-style-type:disc">People are free to schedule their time in a way that suits them – you may find some folks start work early or late. Some will head to the gym during the normal working day, have a long lunch with their family, or take a nap in the afternoon.</li></ul><ul id="1c3a8aa5-35cb-4888-ac48-cdcbe501f232" class="bulleted-list"><li style="list-style-type:disc">Asynchronous working enables people to dedicate long stretches to uninterrupted work, where they&#x27;ll often have notifications disabled.</li></ul><p id="78efe8e2-5b05-4f1d-9b38-1461051cf9a4" class="">To make this work, we need to be a little more disciplined with calendars than we would in an office. This lesson will look briefly at some of the things we can do that make calendaring work well.</p><p id="061a50b4-34a8-4f7a-b97b-e01384b23260" class="">
+</p><h2 id="1464c288-d710-4858-babd-3345bafdad2e" class="block-color-pink">Setting Things Up</h2><hr id="e4c458b2-760c-462f-b16b-4f38f164fc76"/><p id="d6cf7789-74e5-405d-8274-6fe6c202cb17" class="">There are three things we can do to make calendaring easier for us:</p><p id="93576d22-3e4e-4796-8831-c8172e323a42" class="">
+</p><h3 id="e220bae1-af06-4bb0-bb2b-4d235277fc83" class="">Expose your calendar</h3><hr id="a95483d8-5bbc-4e6b-90fe-c7700a470b63"/><p id="a2bbba3d-b394-4ee5-98cd-b53de04468ee" class="">Other people should be able to subscribe to your calendar and see what you have on. This helps them decide when&#x27;s best to book meetings with you. It&#x27;s helpful if you expose the full details of your meetings (rather than just busy/free) so people can take a guess at the state of mind you&#x27;re likely to be in.</p><p id="d55b1806-23ab-4847-83e2-e23a2906b19e" class="">
+</p><figure id="764454a7-30bf-47fd-aacf-67dad1b2fd02"><div class="source"><a href="https://www.loom.com/share/8434bd025e55494e8e3f12493e3dbbb0">https://www.loom.com/share/8434bd025e55494e8e3f12493e3dbbb0</a></div><figcaption>Exposing an Outlook Calendar</figcaption></figure><p id="525bd0d4-3e57-4429-ba82-791ee9cefb68" class="">
+</p><h3 id="f86a5c1d-4ee1-44be-b2dc-cd7bc960a436" class="">Subscribe to other people&#x27;s calendars</h3><hr id="2b6d260e-57f3-4494-9c0f-241a9c319b6d"/><p id="89e6d48a-c96d-45ec-8b57-95e54104ad24" class="">It&#x27;s a good idea to subscribe to your team-mates calendars so you can toggle them on and off in the sidebar.</p><p id="b75c195d-e105-4c03-965e-6d1381d47949" class="">
+</p><figure id="18ae2fdd-d15a-494e-b2b3-dca960295616"><div class="source"><a href="https://www.loom.com/share/998200b411f8494b982cfb6d869c1d35">https://www.loom.com/share/998200b411f8494b982cfb6d869c1d35</a></div><figcaption>Subscribing to others calendars in Outlook</figcaption></figure><p id="14f273a8-b8cd-49f1-9ddf-6b5d1bff25ca" class="">
+</p><h3 id="5bfcc829-99f6-47e7-a361-575dfe68520c" class="">Show multiple timezones in your calendar</h3><hr id="e1092f87-bf45-4618-97b4-e4589cfc6455"/><p id="ef89c82b-954c-4b4e-9b9d-fba1a3c4c7ca" class="">If you work with people in multiple timezones, you should add the ones you use most frequently to you calendar.</p><p id="5610c14f-5cf9-49e5-9f1f-a42d293181c5" class="">
+</p><div id="84afebd9-4972-406d-bb70-66f5c297c0f4" class="column-list"><div id="ce9fe6ba-bd6a-40fb-81c0-3d0b442f363b" style="width:33.333333333333336%" class="column"><figure id="5d5a3b61-7ee3-4708-ad3f-10edcaa6c015"><div class="source"><a href="https://www.loom.com/share/2d59c3f80a3c4c1eafd6e1bb6d84cb33">https://www.loom.com/share/2d59c3f80a3c4c1eafd6e1bb6d84cb33</a></div><figcaption>Multiple timezones in Outlook</figcaption></figure></div><div id="5f2004a3-e5f8-4ab5-93c7-b4118ecb71f4" style="width:33.33333333333333%" class="column"><figure id="ce9185e7-18e4-4b57-b483-68c3b37fefdb"><div class="source"><a href="https://www.youtube.com/watch?v=2q72abY_5D0">https://www.youtube.com/watch?v=2q72abY_5D0</a></div><figcaption>Multiple timezones in Google Calendar</figcaption></figure></div><div id="f75d56e4-f690-4fbb-bd02-bf5fa7bda8a3" style="width:33.333333333333336%" class="column"><figure id="4fe6aac8-ee90-48cb-abce-742433d2d429"><div class="source"><a href="https://www.youtube.com/watch?v=rJ2ogMBX6Ks">https://www.youtube.com/watch?v=rJ2ogMBX6Ks</a></div><figcaption>The World Clock Widget in Google Calendar</figcaption></figure></div></div><p id="f3803656-1982-48cb-8427-5c6332d74e84" class="">
+</p><h2 id="7adfaeb2-57de-4cd4-b0bc-9260dec01b26" class="block-color-pink">Scheduling Meetings</h2><hr id="dd4b775b-55ac-4512-b0fa-aa625ac84efc"/><p id="b7570142-75ec-46c5-bfb1-32b35175ad3e" class="">To schedule a meeting:</p><ol type="1" id="f224ce9b-fb59-4a3b-a912-95a71889ee57" class="numbered-list" start="1"><li>Add the people you want to attend in the invitees field, marking anyone who doesn’t <strong><strong><strong><strong>need</strong></strong></strong></strong> to be there as optional.</li></ol><ol type="1" id="5de6ee39-0065-4af1-81ac-e4bf40620370" class="numbered-list" start="2"><li>Look for a slot that suites all attendees.</li></ol><ol type="1" id="56c6abae-752d-474d-91fc-e0da66d232c4" class="numbered-list" start="3"><li>Add an event to your calendar and give it a <strong>descriptive name </strong>and brief <strong>agenda</strong> (in the notes). Ensure it has a <strong>videoconferencing link </strong>attached.</li></ol><p id="97ae28b3-beac-47d1-917b-8a8be243de16" class="">
+</p><figure id="cb161ca8-251f-4b87-9c06-4cda88152b09"><div class="source"><a href="https://www.loom.com/share/220f68c6462c4f2e97120169d657c244">https://www.loom.com/share/220f68c6462c4f2e97120169d657c244</a></div><figcaption>Scheduling a meeting in Outlook</figcaption></figure><p id="513cab69-7a68-46ba-895b-bbae18ec6fd3" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f4ed94f3-03d5-45e7-af2a-fc111f77bef8"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Pro Tip</strong>: Outlook and Google Calendars let you set a default meeting length. If you have a lot of back-to-back meetings, consider setting this to 50 mins (rather than 60) or 25 mins (rather than 30) so you have a break between calls. <a href="https://support.microsoft.com/en-us/office/end-meetings-early-or-start-late-ebb4c4c9-6992-4ea7-9772-8b5883df8500">Outlook docs</a> | <a href="https://support.google.com/calendar/answer/6084644">Google Cal docs</a></div></figure><p id="9788f00b-0f22-4e0e-804b-946d61d1b344" class="">
+</p><h2 id="24d502d5-8f4f-4d2c-a9f7-cd7f01d0ba96" class="block-color-pink">Blocking out personal time</h2><hr id="54576ee2-d954-4a2f-a96a-45f209b2b955"/><p id="318c1f63-340b-4635-9f43-e5080d1fe7d6" class="">If you have personal events where you’ll be unavailable to join meetings, add them to your calendar so other people in the company can see them. This might include one-off stuff like hospital appointments, or regular events like picking the kids up from school.</p><p id="2a3c90d2-d5be-4389-9096-b640c8dfac4c" class="">You could also consider blocking out a few chunks of <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>focus time</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> every week, where you are not never available for calls. Bear in mind that the more focus time you block out, the harder it will be fore other folks to find times that work for everyone.</p><p id="c549c7b7-ca0e-4586-9ee5-f09480011c7f" class="">
+</p><figure id="3db8b1f9-c6b7-452b-9056-710b78ef1448" class="image"><a href="Using%20Your%20Calendar%20Effectively%20b57eefb940dd49d6a771c41083cf3819/1666969929874.jpg"><img style="width:714px" src="Using%20Your%20Calendar%20Effectively%20b57eefb940dd49d6a771c41083cf3819/1666969929874.jpg"/></a><figcaption>Example of personal events blocked out in a work calendar.</figcaption></figure><p id="7cb3b6bc-d819-440b-9eb5-51cc5c0b5139" class="">
+</p><h2 id="8a24aff9-528a-444d-80d2-0b03fdea47df" class="block-color-pink">Meeting invites</h2><hr id="23a8bd7f-2ea9-4073-9646-3a131e4b035b"/><p id="8410f879-fb07-4096-bc69-6fc428815744" class="">If you want to ask if someone&#x27;s available, check their calendar and <strong>just send a calendar invite</strong> - they can <strong>decline</strong> if they need to. This is usually much more efficient than having a long conversation about timings over slack or email.</p><p id="c5962f7d-84df-4e49-9f5c-c10a4e2f0e1a" class="">When you receive a meeting invite, <strong>make sure you accept or decline it</strong>. If you accept, people will <strong>expect</strong> you to attend. If you decline, people will know you can&#x27;t make it and can act accordingly. If you don&#x27;t respond at all, people will have <em>no idea</em> of your intentions.</p><p id="869b56f3-e1da-4fd1-9eaa-4c011ac6d68f" class="">It&#x27;s perfectly fine to accept an invite and then decline it later, though it&#x27;s always a good idea to tell the organizer on Slack if you do this.</p><p id="7d300ebb-894d-4e87-b9ac-fa98fc6103cd" class="">Wherever possible, avoid declining meetings shortly before they start – especially if you know your attendance is necessary for that meeting!</p><p id="464faa97-e8ea-4350-8bf3-89cc4f2b23b5" class="">
+</p><p id="b40bfc19-5ea9-49dc-843f-c8eccb9424d8" class="">Some more tip tips if you use Google Calendar…</p><div id="aef4eeb8-d794-4b9b-835a-7f116585de7e" class="column-list"><div id="192d0613-59e0-413d-b7a4-d55c9837b600" style="width:62.5%" class="column"><p id="2fda75b4-9932-4af8-b790-a8308dc7bb8b" class="">If you are declining a meeting, always <mark class="highlight-teal"><strong>propose a new time</strong></mark> or reach out to the person who scheduled it and try to find a slot that works for everyone. </p></div><div id="ee313768-affc-4229-a92a-7b1e30ef7fd1" style="width:37.5%" class="column"><figure id="68218a13-af83-458b-9119-faae34dfdfb5" class="image"><a href="Using%20Your%20Calendar%20Effectively%20b57eefb940dd49d6a771c41083cf3819/Screenshot_2022-05-31_at_11.30.35.png"><img style="width:1102px" src="Using%20Your%20Calendar%20Effectively%20b57eefb940dd49d6a771c41083cf3819/Screenshot_2022-05-31_at_11.30.35.png"/></a><figcaption>Propose new time option.</figcaption></figure></div></div><div id="d9e63c9f-a090-4557-812c-f94b444e3130" class="column-list"><div id="7c4ce49b-136a-4110-8489-3e3c0d349522" style="width:62.5%" class="column"><p id="a5ca8f0b-4fe3-4f4c-bec2-67a8d183ca9f" class=""><strong><mark class="highlight-teal">Allow others to modify your events</mark></strong> by default.</p><ul id="a3995522-be06-4334-ad09-a8e7c96aff2d" class="bulleted-list"><li style="list-style-type:disc">Navigate to <strong>guest permissions</strong> section when editing your event.</li></ul><ul id="c7a847ef-4f01-4f1f-88dd-fb77613a63e4" class="bulleted-list"><li style="list-style-type:disc">Check the box next to the <strong>modify event</strong></li></ul></div><div id="21b9d403-1633-4587-a452-c75c4c805043" style="width:37.50000000000001%" class="column"><figure id="f5b30249-a078-45dc-a365-e6cc9a155b7b" class="image"><a href="Using%20Your%20Calendar%20Effectively%20b57eefb940dd49d6a771c41083cf3819/Screenshot_2022-05-31_at_11.26.35.png"><img style="width:854px" src="Using%20Your%20Calendar%20Effectively%20b57eefb940dd49d6a771c41083cf3819/Screenshot_2022-05-31_at_11.26.35.png"/></a><figcaption>Setting guest permissions.</figcaption></figure></div></div><p id="f9670bc6-7b74-4c2f-8cd1-e8de12702063" class="">
+</p><h2 id="0ca6fdbf-9762-4129-9e0f-fa821d855aac" class="block-color-pink">Moving or cancelling meetings</h2><hr id="c46debb8-d11a-43a7-a7a5-90b1000c65a5"/><p id="9216b6a4-d7a3-4f58-b48e-edcb258fc13a" class="">If you want to move a meeting just move the calendar appointment instead of reaching out via other channels like slack. If you move a meeting with short notice, it might be a good idea to drop a message in Slack.</p><p id="8ee5d6aa-3c53-4f06-b58f-820974604361" class="">When you need to cancel a meeting, delete/decline the event and choose the option &#x27;Delete and update guests&#x27; so everyone knows you can&#x27;t attend.</p><p id="bea3d04f-01bb-4652-85be-fecbf2643867" class="">
+</p><h2 id="0cae785e-7794-456c-9b74-311aacb70d5a" class="block-color-pink">Agendas</h2><hr id="119fdb73-37a5-4905-a580-6498c86ecdce"/><p id="2abe5b9f-994b-4d57-804d-247b24bb8764" class="">We&#x27;ll look at a few different types of meeting and the agendas they require later in the course, but as a general rule <strong>every meeting should have some sort of agenda</strong> so everyone involved knows what&#x27;s on the table. <mark class="highlight-gray">(Except social meetings)</mark></p><p id="2c96fabc-cedd-42fb-9008-7df01d6edb0d" class="">For an ad-hoc one-to-one meeting, this might just be a slack message like this:</p><p id="53c10fbc-57ea-4b2a-8374-213ac5d1fbb2" class="">
+</p><figure id="1211dc53-f406-45c1-87d9-af4ea6ccb764" class="image"><a href="Using%20Your%20Calendar%20Effectively%20b57eefb940dd49d6a771c41083cf3819/Screenshot_2020-11-12_at_01.06.23.png"><img style="width:459px" src="Using%20Your%20Calendar%20Effectively%20b57eefb940dd49d6a771c41083cf3819/Screenshot_2020-11-12_at_01.06.23.png"/></a></figure><p id="53cb57e0-9fb5-45c1-8bae-4e724a138637" class="">
+</p><p id="383ad4cc-ded5-4ad1-ae75-3242e287f55d" class="">For a larger meeting, it should be a document that all the attendees can contribute to beforehand.</p><p id="37c99018-5835-4f21-8a90-34ec69c99454" class="">
+</p><h2 id="f131ce13-8b37-4def-b8d8-95765ab9ae67" class="block-color-pink">Summary &amp; Key Points</h2><hr id="7f7ef851-6990-4b5f-bb41-9059d96b5522"/><p id="e30cb836-b381-45e9-9380-842da4727062" class="">Using calendars well is especially important in distributed companies. By following the advice in this lesson you&#x27;ll go a long way towards getting this right.</p><p id="c637e406-c95f-4a03-bfd0-729dbec336c4" class="">We&#x27;ll dig more into meetings later in the course 🙂</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

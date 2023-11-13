@@ -1,0 +1,698 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Your Physical Environment</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f747feaf-9bb4-4d25-ab8f-9e96172f959a" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🏋️</span></div><h1 class="page-title">Your Physical Environment</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="fa82e92f-8d98-4592-8111-ee8478837f21" class="">
+</p><p id="583699c8-9898-4a88-83f6-0fa5940871c1" class="">The right physical environment can help us become happier and more productive. The wrong one can have the opposite effect.</p><p id="31d8b1b2-c7f8-4097-8545-484a16f78653" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="cf76b0d1-dc0a-468e-94c2-8427e2715f6a"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise</strong>: Reflect on the differences between your physical environment in the office, and your physical environment when working at home. Write two lists:
+
+1. Things which are better at <strong>work</strong>.
+2. Things which are better at <strong>home</strong>.</div></figure><p id="a9a825db-386d-4bfb-bbf6-1ae03dfe673f" class="">
+</p><p id="72b8f9aa-c419-4041-ac70-f6a17211515f" class="">Perhaps the single biggest change for most new remote workers is to their physical work environment, and most people don&#x27;t give nearly enough thought to it.  <em>Physical Environment </em>includes:</p><ul id="3ffc8932-ab2d-4ffc-889c-718d66d0ed36" class="bulleted-list"><li style="list-style-type:disc">The building and room you work in and what you look at.</li></ul><ul id="d7cadf4d-7fb3-49c6-b862-5caad5f61217" class="bulleted-list"><li style="list-style-type:disc">Where you sit to work, and the equipment you have.</li></ul><ul id="03da0905-30bc-46f3-9665-ce007e5bc81d" class="bulleted-list"><li style="list-style-type:disc">Environmental factors like temperature and background noise.</li></ul><p id="cc74bd7e-33e2-44ba-a7bc-e8a4e2f95e3a" class="">
+</p><p id="5d325525-2cf4-41e7-8fde-7a431552ae6b" class="">We need to be <strong>intentional</strong> about designing a work environment that suits us best.</p><p id="df2a7b66-9727-4747-a383-354742a093e3" class="">
+</p><h2 id="9c0b15a7-f9ad-439b-b649-9decdeee9301" class="block-color-pink">Taking advantage of being at home</h2><hr id="f6fabde1-af14-41c6-b736-c994576257be"/><p id="2057bf99-561a-4c4f-ba9e-824183ceb829" class="">Working from home comes with some fairly obvious physical advantages and it&#x27;s worth making the most of them. These might include:</p><ul id="6d89b448-ced3-4595-96fa-246773bc840d" class="bulleted-list"><li style="list-style-type:disc"><strong>No commute </strong>- commuting by car or public transport can be physically draining.</li></ul><ul id="c675fc4b-e846-4407-90c1-ef1001edabe4" class="bulleted-list"><li style="list-style-type:disc"><strong>Your own environment </strong>- You can work in an environment that you&#x27;ve designed. For example: if you enjoy being around plants, you have the freedom to surround yourself with them 🌿</li></ul><ul id="29f60b3a-4223-4a41-a05e-299ba3571024" class="bulleted-list"><li style="list-style-type:disc"><strong>Time with family</strong> - Physical proximity to your family, pets and friends means you can spend more time with them.</li></ul><ul id="c6f810be-b1ff-4d15-a31e-40528005f849" class="bulleted-list"><li style="list-style-type:disc"><strong>Better food</strong> - If you have a kitchen, it&#x27;s much easier to plan and prepare meals during the day. And you can eat when you want.</li></ul><ul id="1aa283d2-46ef-4db2-b4a2-3f70d1cb8615" class="bulleted-list"><li style="list-style-type:disc"><strong>Home workouts</strong> - As with eating, if you have the right equipment you can exercise whenever you want. Or you can visit a nearby gym at a time when it&#x27;s fairly empty.</li></ul><p id="17f96121-b1c3-4fcf-acb0-55fbc50af5a8" class="">
+</p><h2 id="fd94d5f2-f8d4-48f5-90df-94dad371b01a" class="block-color-pink">Setting up a home office</h2><hr id="180aaed3-b6dc-406b-984c-3a2f2249c0da"/><p id="a12ea7ec-155f-413b-9e3d-9b6ac239013d" class="">In many countries employers are legally required to ensure your work environment won&#x27;t damage your health. And so most office equipment is specifically designed with this in mind.</p><p id="8941c04d-bb7c-4c3e-9ed6-fd3862bb66da" class="">This is rarely top of mind for new remote workers, but the long term effects of working on a tiny laptop hunched over your kitchen table can be pretty serious.</p><p id="504525d5-1e8b-4372-8896-591c458d195f" class="">If you mostly work from one place (like your home), you should set up a home office. This need not be complicated or expensive: not everyone has the luxury of a dedicated room to work in, but most people can find space for a small dedicated desk somewhere in their home.</p><p id="eeaf47a2-83d5-4381-b15e-5745355b61ae" class=""><mark class="highlight-purple"><strong>Most distributed companies will provide a stipend to help pay for your home office setup.</strong></mark></p><p id="0f1a3d82-d05f-40d0-9829-2569d528d88e" class="">Here are some things you should consider...</p><h3 id="d24913dc-2e2f-4dc6-a8f1-6918034ff4ca" class="block-color-purple">A dedicated space 🏠</h3><hr id="54db559d-d364-49f9-acf5-00b48042ed44"/><p id="f53db3e4-57a4-481e-a08c-31b1486bb39d" class="">You should aim to have a <strong>dedicated working area</strong>. This helps keep work and home life separate and makes it easy to transition between &quot;work mode&quot; and &quot;home mode&quot;. If you work at your kitchen table it can be hard to do this.</p><p id="7c4d0b92-bb4d-457d-8799-74cfcb2ee684" class="">It also makes it easy for the people you live with to know when you&#x27;re working... if you&#x27;re at your work desk then you&#x27;re working, otherwise you&#x27;re not.</p><p id="7ed9deee-25e6-4419-8586-6989e9ad5313" class="">If you have the space, a dedicated room is great for this.</p><p id="afb34447-88ce-44b8-94db-df5b024758b7" class="">
+</p><h3 id="6a451dec-6b83-4bf7-969f-27d792954651" class="block-color-purple">Desk</h3><hr id="52ab1ad3-019c-4b6d-879b-f248967ef1e7"/><div id="f7e18b30-ed88-4591-9855-fbb4b93a1a46" class="column-list"><div id="b3cf856e-3ae5-4eb5-b2d3-4440fb48d671" style="width:50%" class="column"><p id="b3bcc911-aaef-4d06-aaba-7490d3fc283d" class="">You don&#x27;t need a big, expensive desk. But you do need a desk that&#x27;s just for work.</p><ul id="930c9a43-ef10-4c4b-a169-0d2733add9e6" class="bulleted-list"><li style="list-style-type:disc">Make sure it&#x27;s at the right height for you. <mark class="highlight-gray">(Watch the video on the right for an explanation of a healthy, ergonomic desk setup)</mark></li></ul><ul id="33bc40e6-efed-4efa-af67-f3002e075047" class="bulleted-list"><li style="list-style-type:disc">Consider an adjustable desk so you can sit or stand when working.</li></ul><ul id="a5b8a1d3-e243-4a43-82da-9357b209de16" class="bulleted-list"><li style="list-style-type:disc">If you don&#x27;t have much room, get a small desk and mount your monitors, lamps and microphone on boom arms so they don&#x27;t take up any desk space.</li></ul></div><div id="6ff31485-0e54-4da2-9e1b-e1d2bf9629de" style="width:49.99999999999999%" class="column"><figure id="b9cc7add-4b3d-4f33-9d87-72f702f44a79"><div class="source"><a href="https://youtu.be/F8_ME4VwTiw">https://youtu.be/F8_ME4VwTiw</a></div></figure><figure id="6ddfa032-a3c2-4165-837b-410a057a2481" class="image"><a href="Your%20Physical%20Environment%20f747feaf9bb44d25ab8f9e96172f959a/ergonomic-workspace-guide.png"><img style="width:945px" src="Your%20Physical%20Environment%20f747feaf9bb44d25ab8f9e96172f959a/ergonomic-workspace-guide.png"/></a><figcaption><a href="http://ergonomictrends.com/creating-perfect-ergonomic-workspace-ultimate-guide/">Source</a></figcaption></figure></div></div><h3 id="e1b7d6d2-c805-4a62-872a-43ebc089fba1" class="block-color-purple">Chair 🪑</h3><hr id="f3b55e08-80f7-42b9-a6f9-bdbe7d78de41"/><p id="2069373e-e166-4784-9982-79396351657b" class="">If you mostly sit down to work, get a good quality adjustable chair with <strong>good back support</strong> and <strong>arm-rests</strong>. Your health will suffer if you don&#x27;t.</p><p id="21a2fb15-436b-4e88-bb56-703bfa62dc73" class="">
+</p><h3 id="de9ee661-3f7f-4385-9c38-f483bb2901a6" class="block-color-purple">External monitor 🖥️</h3><hr id="24d4e33a-12a2-4ce9-975c-42be0da3d36f"/><p id="7b557187-f1d9-4bbb-8b2e-2fcf54560018" class="">As a minimum, you should aim to have a single large <strong>external monitor</strong> set at the right height. This will reduce eye strain and also make it easier to work while on video calls.</p><ul id="b4ef5b4d-98d9-4b38-a220-bb008aa14e05" class="bulleted-list"><li style="list-style-type:disc">The monitor should be directly in front of you - not at an angle.</li></ul><ul id="b427738b-4874-4c82-8bcd-3ffcd2c74bed" class="bulleted-list"><li style="list-style-type:disc">The top should be level with your eyes.</li></ul><p id="b1194ec0-70a9-4488-b802-3aad51568d24" class="">
+</p><h3 id="c82f957e-ce47-43d9-96a6-a0ddbfe155a4" class="block-color-purple">Keyboard &amp; mouse  ⌨️🖱️</h3><hr id="e14c81be-96cc-4696-a1b4-b1784a420f6e"/><p id="468a334b-4832-4358-9ac4-317656026844" class="">If you are sitting properly in an ergonomic position it&#x27;s unlikely that your laptop keyboard will be in the correct place for your hands. So invest in a separate keyboard and mouse.</p><p id="90023a06-1118-490f-b278-021166081ea2" class="">
+</p><h3 id="1a2d1312-3d83-4149-9588-82e19dc3632c" class="block-color-purple">Plants 🌱</h3><hr id="8aafb319-112e-47be-b8da-fe9ad72f2ace"/><p id="71bcc094-3643-42d4-b1f3-f635dd48b3de" class="">Desk plants are great. But if you&#x27;re not into plants you should still give some thought to making your work desk feel like a pleasant place to be. </p><p id="253ca5b0-a15c-41a8-acab-6b78f25eef86" class="">
+</p><h3 id="c9990c8f-268d-478c-89fb-08936f624f70" class="block-color-purple">Camera 📸</h3><hr id="f9a34f2f-c920-4d07-bc02-4dcb24e62269"/><p id="928391c2-3684-44ea-b012-44702be0cbc3" class="">I It&#x27;s well worth investing in a reasonable one as most laptop cameras are terrible. A good USB webcam will hugely improve the quality of your video feed when using tools like Zoom and Loom. Attach it to the top-centre of your main monitor – this should put it level with your eyes.</p><p id="95b6d8c5-c98c-4200-9550-0022a3b2df20" class="">You can read more about this in <a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506.html"><img class="icon" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/>Good Video Calls</a>.</p><p id="f8c2dbe6-5207-4202-b558-933893002ca4" class="">
+</p><figure id="b9ef5177-f94a-4599-9ae1-8d00c2c98738" class="image"><a href="Your%20Physical%20Environment%20f747feaf9bb44d25ab8f9e96172f959a/IMG_9677.jpg"><img style="width:384px" src="Your%20Physical%20Environment%20f747feaf9bb44d25ab8f9e96172f959a/IMG_9677.jpg"/></a><figcaption>And if your camera doesn&#x27;t seem friendly enough you could always give it some eyes 👀</figcaption></figure><p id="a6479b3e-219b-478b-9f7b-d1f35c4fda6e" class="">
+</p><h3 id="41e33603-8a6f-4e57-9249-8f5a6ee4e0db" class="block-color-purple">Microphone or headset 🎙️</h3><hr id="11f9f122-47c3-4edc-97f0-cd3dd043d4ca"/><p id="adbc149e-6299-4185-b966-4372eebca771" class="">If your home office is fairly quiet, consider using an external USB microphone on a boom arm. Otherwise, use a good-quality pair of headphones with a built-in microphone.</p><p id="fa47c66a-3a95-4714-8aad-aec260f82c33" class="">See <a href="Audio%20on%20Video%20Calls%202665978803b748b184dbb2cf6fe94bc7.html"><img class="icon" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/>Audio on Video Calls</a> for more on this.</p><p id="14ccb674-9543-4e4c-a62d-2ba2bbd00168" class="">
+</p><h3 id="79d064db-c8e7-4859-9982-d6b73585383c" class="block-color-purple">Other considerations 🤔</h3><hr id="36783b68-274c-4d59-a02e-aae68846ad3b"/><p id="8c917a30-659a-4af5-bfe1-48d8a3d30a99" class="">You might want to also consider</p><ul id="70e763ec-2bfa-49da-99ca-4e23c4734c32" class="bulleted-list"><li style="list-style-type:disc"><strong>View</strong> - Think about the view from your desk. Is is as pleasant as you can make it? Are there too many distractions?</li></ul><ul id="94e7f400-8536-4d29-9b97-85e7912c644b" class="bulleted-list"><li style="list-style-type:disc"><strong>Lighting</strong> - Have you got enough light to work without straining your eyes? Is there enough light on your face for video calls? Is there a bright light or window behind you that might spoil video calls?</li></ul><ul id="793c9ef6-e1c3-4f08-94ab-f847e7b42d52" class="bulleted-list"><li style="list-style-type:disc"><strong>Temperature</strong> - Is it warm/cool enough to work comfortably all year round? If not, what can you do about that? </li></ul><ul id="b442bb16-d1cd-4b3f-bccd-76fc5a914a02" class="bulleted-list"><li style="list-style-type:disc"><strong>Other &quot;office&quot; stuff </strong>- Depending on how you work, you might want to keep some other office-type stuff to hand: post-it notes, pens, notebooks, waste paper bin 🗑️  etc.</li></ul><p id="ea7f9094-7186-41d0-ae38-670c869a1332" class="">
+</p><h2 id="8ef7d4cc-3990-416b-b7ac-a20698b81c34" class="block-color-pink">Working on the go ✈️</h2><hr id="3baa9dcd-ee1b-47b5-9bb2-0d92a8a4717f"/><p id="bffaf6f2-9512-49f0-b67e-872276967f0a" class="">Not everybody works from one place all the time. Many remote workers are <a href="https://en.wikipedia.org/wiki/Digital_nomad">digital nomads </a>and work on-the-go. If this is you, you&#x27;ll need to give some thought to how you&#x27;ll maintain a healthy work environment. Here are some pointers:</p><ul id="ce8bb9df-9708-43b2-8c67-7f6ca08b0d5d" class="bulleted-list"><li style="list-style-type:disc">Get some <strong>great</strong> noise-cancelling headphones with a built-in mic.</li></ul><ul id="102dfbae-b13b-4b2b-8f32-903c518b72cf" class="bulleted-list"><li style="list-style-type:disc">Use an external keyboard, mouse and portable laptop stand (like the <a href="https://www.therooststand.com/">Roost</a>) to raise your laptop to eye-height.</li></ul><ul id="75dc1c4b-78d9-4eae-9878-5dec4e3aa56c" class="bulleted-list"><li style="list-style-type:disc">Wherever possible, sit at a table and chair that&#x27;s the right height for you.</li></ul><ul id="6a2f6fd2-d579-4dc6-8ef4-fc1dace71575" class="bulleted-list"><li style="list-style-type:disc">Carry a small external webcam if you do a lot of video calls.</li></ul><ul id="0d2eb885-2521-4c6c-b2a6-04b4e8b12537" class="bulleted-list"><li style="list-style-type:disc">Think about your internet connection – if you&#x27;re traveling somewhere with poor internet, is there any way to deal with that? <mark class="highlight-gray">(Some countries have poor wired internet but pretty good cellular networks if you&#x27;re on the right network).</mark></li></ul><p id="6cdc4903-c9a2-43e8-92e3-c194bbc0534b" class="">
+</p><h2 id="30a131bb-64c7-494b-8754-a3f2cd2f90e3" class="block-color-pink">Summary</h2><hr id="d2cf533a-3120-4c5a-ac55-7b1a9cbeb5ac"/><p id="0cfc73e0-0686-4468-a4fc-7c3fcaf88080" class="">In a distributed team, <strong>you are responsible</strong> for creating an environment that helps you work best. Remember:</p><ul id="d657c218-2885-49a9-8574-b22c48fe9fb0" class="bulleted-list"><li style="list-style-type:disc">Your physical environment can have a huge impact on your physical and mental health.</li></ul><ul id="8d96458a-3fd7-4895-a584-6138131d28ec" class="bulleted-list"><li style="list-style-type:disc">You need to give <strong>intentional thought</strong> to designing your work environment.</li></ul><ul id="e7ec5e83-1191-441e-8386-a6abd6f6d2e2" class="bulleted-list"><li style="list-style-type:disc">You don&#x27;t need much fancy, expensive equipment – and most companies will pay for what you <em>do</em> need.</li></ul><p id="1ccc72da-b4a0-4ac8-b141-8c276a557374" class="">
+</p><h2 id="87f55fa1-a831-488d-bc88-7f28536864f1" class="block-color-pink">Further Reading</h2><hr id="d2bfcb43-d1d0-4251-9254-984ffb02f034"/><p id="8227b705-c09d-4bcc-b62d-6499cbcc1e1c" class="">And here are a few resources that might be interesting...</p><figure id="60db4741-173c-4d47-9489-cd2517a99800"><a href="https://m.signalvnoise.com/remote-working-the-home-office-desks-of-basecamp/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Remote Working: The home office desks of Basecamp</div><div class="bookmark-description">People are always curious about work-from-home (WFH), remote working setups. So, I posted a Basecamp message asking our employees to share a photo of their home office, desk, table, whatever. Here&#x27;s what came in.</div></div><div class="bookmark-href"><img src="https://i1.wp.com/m.signalvnoise.com/wp-content/uploads/2019/01/cropped-svn-icon.gif?fit=192%2C192&amp;ssl=1" class="icon bookmark-icon"/>https://m.signalvnoise.com/remote-working-the-home-office-desks-of-basecamp/</div></div><img src="https://149363410.v2.pressablecdn.com/wp-content/uploads/2020/03/image-scaled.jpeg" class="bookmark-image"/></a></figure><figure id="c174bb2e-475c-4e08-841e-ec637918dfe8"><a href="https://www.owllabs.com/blog/anywhere-office-setup-ideas" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">10 Home Office Setup Ideas to Help You Work From Anywhere</div><div class="bookmark-description">The modern office of the remote worker or flexible employee is not a cubicle or even a floor-to-window corner office, it&#x27;s wherever they happen to be working that day. For many hybrid employees , those who alternate between working remotely and working from an office, they are often on the move and carry the essentials between a home office, a coworking space, and anywhere in between.</div></div><div class="bookmark-href"><img src="https://www.owllabs.com/hubfs/favicon.png" class="icon bookmark-icon"/>https://www.owllabs.com/blog/anywhere-office-setup-ideas</div></div><img src="https://www.owllabs.com/hubfs/Blog%20Images/home%20office.jpg#keepProtocol" class="bookmark-image"/></a></figure><div id="3109eeba-e43b-4213-b1ca-666af5f1f45b" class="column-list"><div id="b7ec6507-c9d4-48e4-a4c3-94a23dc4c295" style="width:50%" class="column"><figure id="1a2304e1-27bc-4f96-aeff-29549049d023"><a href="https://blog.trello.com/remote-office-tours-a-look-into-10-home-setups-of-remote-workers" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Remote Office Tours: A Look Into 10 Home Setups Of Remote Workers</div><div class="bookmark-description">Remote office setups come in all shapes and sizes. As more companies are giving their employees the autonomy to work remotely to better harness their time management, the ability to setup a remote office has become a fun exploration in the remote work world. Here are 10 remote offices for inspiration.</div></div><div class="bookmark-href"><img src="https://blog.trello.com/hubfs/Trello_July2016_Theme/trello-mark-blue.png" class="icon bookmark-icon"/>https://blog.trello.com/remote-office-tours-a-look-into-10-home-setups-of-remote-workers</div></div><img src="https://blog.trello.com/hubfs/2018-07-27_RemoteOfficeGear_02_TP.png#keepProtocol" class="bookmark-image"/></a></figure><p id="6ec38222-93bb-48d4-8a10-a21f261c0cb0" class="">
+</p></div><div id="042615f2-1f22-41cf-91c3-56999c926707" style="width:50%" class="column"><figure id="ac22b90d-dcf5-46d5-800c-a1bd9bc27618"><div class="source"><a href="https://youtu.be/WedG8LKO6ks">https://youtu.be/WedG8LKO6ks</a></div></figure></div></div><figure id="8eff9f8d-ead1-4224-86fa-c8eeba9bced6"><a href="https://www.wired.com/story/work-from-home-home-office-gear-guide/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Everything You Need to Work From Home Like a Pro</div><div class="bookmark-description">Long before I was forced to stay indoors earlier this spring, I spent most of my time ... indoors. I built a PC back in college (with the help of some friends), and ever since then I&#x27;ve continued perfecting my home office setup-switching desks, keyboards, monitors, and more.</div></div><div class="bookmark-href"><img src="https://www.wired.com/verso/static/wired/assets/favicon.ico" class="icon bookmark-icon"/>https://www.wired.com/story/work-from-home-home-office-gear-guide/</div></div><img src="https://media.wired.com/photos/5e84e23ca231050008135fd3/191:100/w_1280,c_limit/Gear-LG-34UM69G-34-Inch-Monitor-SOURCE-LG.jpg" class="bookmark-image"/></a></figure><p id="d77832c5-e757-498a-b854-03f8f053bc19" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

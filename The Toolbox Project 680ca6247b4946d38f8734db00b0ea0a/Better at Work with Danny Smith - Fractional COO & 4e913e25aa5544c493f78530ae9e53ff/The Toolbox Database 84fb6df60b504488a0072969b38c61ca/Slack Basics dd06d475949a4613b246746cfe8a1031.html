@@ -1,0 +1,695 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Slack Basics</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="dd06d475-949a-4613-b246-746cfe8a1031" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Slack%20Basics%20dd06d475949a4613b246746cfe8a1031/slack.png"/></div><h1 class="page-title">Slack Basics</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="f5086b8c-083c-4e7f-aec5-5bb550dc4f61" class="">
+</p><blockquote id="5cac5a92-32f7-405d-a588-ca078f4b5648" class="">Slack is a channel-based messaging platform. With Slack, people can work together more effectively, connect all their software tools and services and find the information that they need to do their best work.</blockquote><p id="de93a6bf-9534-4e71-a032-3b91cb813dd1" class="">
+</p><p id="5ff6fc73-2827-4181-a429-6457e6ed3d72" class="">A huge number of distributed teams use Slack as their primary messaging platform, and those that don&#x27;t will inevitably use a similar tool like Microsoft Teams. As a distributed worker, it&#x27;s not only important that you learn how to use Slack – it&#x27;s also important that you learn how to use it <strong>like a pro</strong>. It&#x27;s likely to be your primary means of communication with other people on your team.</p><p id="41b70e72-5a5b-4ad8-bf50-a7b085334e6a" class="">
+</p><p id="554a7b6a-a927-4451-916d-3057906ef847" class="">If you&#x27;ve never used Slack before, here&#x27;s a quick overview...</p><p id="60fe69d4-8c1b-4a37-b4de-4dc8dcad8ff4" class="">
+</p><figure id="eab79297-be69-48e3-8382-2be2252b91b5"><div class="source"><a href="https://youtu.be/yHaLOoXA0vU">https://youtu.be/yHaLOoXA0vU</a></div></figure><p id="5eaf30d9-9b8c-42b9-a618-a7de3fe855a9" class="">
+</p><div id="09f2cd21-f7db-4ce2-8bd8-aa3f3d7a90ec" class="column-list"><div id="6d905be8-eb65-430a-b9a3-1f6944b22c07" style="width:50%" class="column"><p id="696bf893-102a-45e2-9514-a405f9de8a48" class="">Tools like Slack make it easy for teams to communicate in the open. This is <strong>really important</strong> in distributed teams because it helps create a culture of <strong>openness</strong> and <strong>trust</strong>.</p><p id="50529c87-040a-4f01-97b6-dc0067bfe50f" class="">It also helps to avoid silos of knowledge and keeps everyone aware of what&#x27;s going on in other parts of the company. In an office, these things are usually achieved through physical proximity and chance conversations.</p></div><div id="dc3add13-95ab-47a3-bad2-c499cb128728" style="width:50%" class="column"><figure id="b6808e85-c338-4dd1-9cf0-355b12992a92" class="image"><a href="Building%20Relationships%20in%20Remote%20Teams%2029f5560ba37040eebc0b74bb9624c655/Screenshot_2019-04-09_at_00.57.45.png"><img style="width:384px" src="Building%20Relationships%20in%20Remote%20Teams%2029f5560ba37040eebc0b74bb9624c655/Screenshot_2019-04-09_at_00.57.45.png"/></a></figure></div></div><p id="37b365d7-e64e-478f-9fa3-55b26e21441a" class="">Slack also brings some other advantages:</p><p id="61853ff1-09ca-4b82-a7e1-1099d2a3e5c3" class="">
+</p><ul id="8c8a2a2e-2d20-426e-a806-840b151d6963" class="bulleted-list"><li style="list-style-type:disc">It&#x27;s <strong>inclusive</strong> by default. If we use Slack to communicate in the open, people can choose the conversations they want to join or leave.</li></ul><ul id="5c96d305-bcd0-42e4-a795-8d11df2bd731" class="bulleted-list"><li style="list-style-type:disc">It&#x27;s <strong>asynchronous</strong> by default.</li></ul><ul id="8be04aae-ba02-45a3-aba0-5b0679d62d8b" class="bulleted-list"><li style="list-style-type:disc">It fosters a sense of <strong>global community</strong>.</li></ul><ul id="b59a88cb-800c-4ab1-bab5-79923454c8b6" class="bulleted-list"><li style="list-style-type:disc">It enables open and <strong>transparent knowledge sharing</strong>, and avoids duplicated work.</li></ul><p id="c3dae01d-91a8-4498-96c7-2a57354a97a4" class="">
+</p><h2 id="c3baeea3-0862-436f-be90-94e49c91f4b0" class="block-color-pink">The Basics</h2><hr id="2168c04f-27af-4413-84f1-e3bad0310bd3"/><p id="2b90776c-2074-43f5-9e3b-d3489479687a" class=""><strong>The best way to learn Slack is to use it</strong>. So make sure you keep it open whenever you can. There are <strong>four ways to send messages in Slack</strong>. It&#x27;s important that you understand when and how to use each of them. Lots of new Slack users default to Direct Messages (DM), but as we&#x27;ll see below that&#x27;s not always the best idea.</p><h3 id="2733a9a7-d58e-40bb-8c77-40c4eca72ef7" class="">Public Channels</h3><hr id="bd77ce88-113c-456e-a058-f09d7268b6f5"/><p id="ff7ec1d4-093d-4df7-8f14-7592440b451b" class="">The majority of channels in most Slacks are public. This means that anyone can see what&#x27;s posted in them and join/leave them as they please. Since we value <strong>transparency</strong>, we should <strong>generally default</strong> to communicating in the open... in public channels.</p><p id="e438fe13-dbff-4875-ab2f-636850d9f320" class="">When you join a new Slack you&#x27;ll automatically be added to a few public channels, but you should feel free to join others  👉</p><p id="e7af34c0-2c05-45b3-8425-0d051d69240e" class="">
+</p><figure id="db5c4d6b-377e-4209-ba62-0c6e5b0b0583"><div class="source"><a href="https://www.loom.com/share/d22ae495ea1a46a2b6e2e712aea6b2d2">https://www.loom.com/share/d22ae495ea1a46a2b6e2e712aea6b2d2</a></div></figure><p id="f6359714-2692-4d48-aa14-c4f66c1ca440" class="">
+</p><h3 id="f3db05a8-4f7a-499a-8986-b44b1122e3fc" class="">Private Channels</h3><hr id="1ecbce40-3610-4290-a758-259c8ee99139"/><p id="ecfdb4c7-ef31-4912-9a3d-8c4effa65f5d" class="">Private channels work just like public channels, except that they can only be joined if someone already in the channel invites you. Their purpose is to keep conversation private from the rest of the company. Most distributed companies strongly discourage the use of private channels because they keep  information hidden. Having said that, certain topics need to be kept private, so you&#x27;ll often find channels like <code>#salaries</code>, <code>#complaints</code> and <code>#hr-internal</code> are kept private. </p><p id="ef61ae67-c6ca-422a-89bd-2dcdf0dd6783" class="">You can&#x27;t see or search for private channels to join – you have to wait until you&#x27;re invited.</p><p id="a7526557-c61b-4a27-b7a6-c25bba5a5ec1" class="">
+</p><h3 id="85a7be21-20a8-47e4-8f67-3d0a235286c1" class="">Direct Messages - Single Person</h3><hr id="1d75074e-5655-4cfb-898b-9109abacf8ea"/><p id="8a99d917-4567-4bdf-82df-f5cc69d7bd66" class="">These work exactly how you&#x27;d expect: a direct message between you and one other person. While these can be useful for quick conversations, they have two big downsides:</p><ul id="015b9819-e88e-4819-8a1d-6d4e1424dba6" class="bulleted-list"><li style="list-style-type:disc">Like private channels, they hide information from the rest of the company.</li></ul><ul id="65ad6004-b7ea-49f2-a3ed-a25680c73dae" class="bulleted-list"><li style="list-style-type:disc">Anything discussed in a DM is private to you and the person you&#x27;re talking to. There is no way to bring a third person into the conversation.</li></ul><p id="30e22429-f702-4947-bec8-9e1044caf0e6" class="">It&#x27;s extremely common to have a long conversation via DM and then realize that you need someone else&#x27;s opinion. The only way to bring them in is to copy/paste all the messages into a public channel. This is why it&#x27;s usually best to start conversations in a public channel in the first place.</p><p id="914c5dc1-cbcb-452a-b564-df6e2ad4ae7a" class="">Even if you&#x27;re inviting a coworker for lunch, it&#x27;s usually better to do it in a public channel – it allows others to join in.</p><div id="0b09b2f2-077b-42fc-b8e8-4fdf9f8dbfe6" class="column-list"><div id="b4774fc7-f5e3-4737-808e-494bf38e4db0" style="width:50%" class="column"><figure id="ab50cbbb-a9d9-4400-8a62-6332866794b1" class="image"><a href="Slack%20Basics%20dd06d475949a4613b246746cfe8a1031/Screenshot_2019-04-16_at_16.00.57.png"><img style="width:578px" src="Slack%20Basics%20dd06d475949a4613b246746cfe8a1031/Screenshot_2019-04-16_at_16.00.57.png"/></a><figcaption>via Direct Message - nobody else knows what we&#x27;re planning</figcaption></figure></div><div id="d0e26de1-844c-4bf0-82d2-585bdbcd9103" style="width:50%" class="column"><figure id="bee8190b-5f18-450a-8ef2-d2f0a1b078b5" class="image"><a href="Slack%20Basics%20dd06d475949a4613b246746cfe8a1031/Screenshot_2019-04-16_at_16.02.13.png"><img style="width:610px" src="Slack%20Basics%20dd06d475949a4613b246746cfe8a1031/Screenshot_2019-04-16_at_16.02.13.png"/></a><figcaption>In a public channel - Emma can get in on the action, and <strong>everyone</strong> knows we&#x27;re all going for lunch without having to ask us..</figcaption></figure></div></div><p id="de75769b-9e87-4756-be86-440681450655" class="">
+</p><h3 id="ea356f6a-ad9c-44d9-8bff-9f490fde1295" class="">Direct Messages - Multiple People</h3><hr id="d2071b86-de14-4fdb-9b41-f3bb308d5613"/><p id="bef1723b-2498-4c53-823c-ac33f9ef0436" class="">These work exactly like single person DMs, only there are more than two of you in the conversation. they have exactly the same downsides as one-to-one DMs:</p><ul id="faeeddfb-523e-4688-b50e-0841e6c5111b" class="bulleted-list"><li style="list-style-type:disc">Like private channels, they hide information from the rest of the company.</li></ul><ul id="51014d60-5c89-4bff-9afe-150e8100aa4d" class="bulleted-list"><li style="list-style-type:disc">Anything discussed in a DM is private to you and the people you&#x27;re talking to.</li></ul><p id="66c3265b-e2d1-4eae-bef4-2b086681cd01" class="">Unlike public and private channels, they also send a notification to every participant whenever you send a message.</p><p id="2cd3465f-2386-4f33-a7f6-d439e71aa4ff" class="block-color-red"><strong>You should usually avoid multi-person DMs.</strong></p><p id="d239caef-112b-4472-b17f-f770ff3d4014" class="">If you need to have a private conversation with multiple people, use a <strong>private channel</strong>. If the conversation doesn&#x27;t need to be private, use a <strong>public channel</strong>.</p><p id="ff78fe92-dff6-4808-b715-07554a2ed69c" class="">
+</p><h2 id="faa8589f-0748-4666-b66a-3fcfe150d475" class="block-color-pink">Threads</h2><hr id="18570662-6613-4bed-882d-7e3c707d323b"/><p id="1372e991-9f11-4ed3-b1ce-6447066e8100" class="">If you&#x27;ve ever been in a WhatsApp group where different people are having multiple conversations at the same time, you&#x27;ll understand how confusing it can get. Slack&#x27;s answer to this is threads. They allow you to reply to a message without overwhelming the main channel.</p><figure id="f628cda2-6ced-4f7a-8ca7-28abc827fd00" class="image"><a href="Slack%20Basics%20dd06d475949a4613b246746cfe8a1031/Screenshot_2020-11-10_at_03.03.02.png"><img style="width:711px" src="Slack%20Basics%20dd06d475949a4613b246746cfe8a1031/Screenshot_2020-11-10_at_03.03.02.png"/></a><figcaption>This message from Danny has 15 messages threaded underneath it.</figcaption></figure><p id="4c226272-b83c-4e33-a9c1-839963929114" class="">This has some big advantages:</p><ul id="e68dd85c-3327-44d9-9f34-dadb02d97f07" class="bulleted-list"><li style="list-style-type:disc">It keeps the main channel clean, which makes it easier to scan.</li></ul><ul id="bc380fbb-68c6-4b0c-aa8a-4bce891cfb46" class="bulleted-list"><li style="list-style-type:disc">It keeps replies connected to the original message, which makes it easier to find replies later.</li></ul><ul id="b6b359d3-a7d5-44fe-bf44-b5fbcceeb8f7" class="bulleted-list"><li style="list-style-type:disc">It allows you to go back and comment on past messages.</li></ul><p id="ba8aa50e-edd9-4cc5-8421-da3e91bc77cb" class="">
+</p><p id="3dc4176c-a869-4c06-925f-403ef8cbc277" class="block-color-red"><strong>Wherever possible, use threads when replying to messages.</strong></p><p id="5991df61-b741-4f61-a043-97dd4b4e8d8b" class="">
+</p><h2 id="4180a223-9fcb-4deb-9cb8-4f7f21263f7e" class="block-color-pink">Mentions</h2><hr id="5c07f92c-9020-4ac4-82db-5d250237670e"/><p id="410d0117-8063-4986-9fff-7b9a94e237e8" class="">When you post a message in a DM, the other participant(s) will be automatically notified. However, posting in a public or private channel won&#x27;t usually send a notification. This is a good thing, since we don&#x27;t want to be notified of every message.</p><p id="b0a5ba14-52e0-4b94-80c7-d0e173224e63" class="">If you want to notify someone in a public or private channel, you need to @mention them. You can do this using their display name: Eg <code>@Danny</code>. </p><p id="d3dbda91-204e-48cc-bb60-3c79a51ff871" class="">It&#x27;s usually a good idea to tag someone in this way whenever you use their name in a message, but you can also use it to send notifications to people in threads.</p><p id="196ced63-420a-4bbc-9f83-dd1c549b42fb" class="">
+</p><figure id="3a289dee-e3b0-4b2a-b259-740b4ac200cf" class="image"><a href="Slack%20Basics%20dd06d475949a4613b246746cfe8a1031/Screenshot_2020-11-10_at_03.40.36.png"><img style="width:497px" src="Slack%20Basics%20dd06d475949a4613b246746cfe8a1031/Screenshot_2020-11-10_at_03.40.36.png"/></a><figcaption>Danny notifying Karita about Jack&#x27;s post by @mentioning her in a thread.</figcaption></figure><p id="d65d23df-196c-4835-809b-6543f3f7cd1f" class="">
+</p><p id="c5e38371-939d-4fc7-bd66-be1a79a6b84b" class="">There are also two special types of mention available in Slack:</p><ul id="d49721dd-84ea-4ddc-8cf4-e31c45b46107" class="bulleted-list"><li style="list-style-type:disc"><code>@channel</code> - Notifies everyone in the channel whether they are active or not.</li></ul><ul id="37679560-31ca-4a99-86fd-12f8bf2968e4" class="bulleted-list"><li style="list-style-type:disc"><code>@here</code> - Notifies all active users in the channel.</li></ul><p id="1cb96758-0273-484a-bfce-f0e09a906f05" class="">
+</p><p id="46b19490-2205-4446-afc7-e9f236f25dd5" class="">You should be particularly careful when using <code>@channel</code>, since it will send a notification to <strong>everyone</strong> in the channel. In  a large slack this might notify thousands of people if you use it in <code>#general</code>. </p><p id="f8ca263f-5aed-4498-9491-681d574b0eb3" class="">
+</p><h2 id="6a9784aa-b861-4abf-994d-8a39509e4d5e" class="block-color-pink">Your Slack Profile</h2><hr id="389e5a1d-7359-4ea6-94f9-e92223c2f0b6"/><div id="bba51418-ba8e-459b-985f-583373dd98e9" class="column-list"><div id="9341d576-b86c-4dd3-935f-a5e3c75506f6" style="width:50%" class="column"><p id="1e6ef1f9-43d0-4fcb-822d-941d10b7a26d" class="">In larger companies, your Slack profile is often the first place people will look to find out about you. It&#x27;s a good idea to make sure:</p><ul id="6a9d6cd4-3caa-4c9d-902b-0b7e7a7909c0" class="bulleted-list"><li style="list-style-type:disc">Your name and display name are set correctly.</li></ul><ul id="e90f225b-c11d-4ad5-abc3-90cc38e7d683" class="bulleted-list"><li style="list-style-type:disc">You&#x27;re using your work email.</li></ul><ul id="4f6ec54c-b687-431b-b71e-3b97f89e85b6" class="bulleted-list"><li style="list-style-type:disc">Your profile picture is a headshot (so others can recognise you on calls).</li></ul><ul id="de1814f1-3d11-4997-ac69-b31151177d8e" class="bulleted-list"><li style="list-style-type:disc">Your timezone is set correctly.</li></ul><ul id="c63d0e95-9ed6-494b-a45d-08e21dde920e" class="bulleted-list"><li style="list-style-type:disc">You have included your preferred pronouns and a recording of how to pronounce your name.</li></ul><p id="473f4e76-014a-4e40-8901-6a31d831a8f0" class="">
+</p></div><div id="e6fecffa-6779-4c74-9670-990b7f88d9cf" style="width:50%" class="column"><figure id="80212625-5985-4dce-b349-6caff4baa23b"><div class="source"><a href="https://youtu.be/BqKDP3sdSU0">https://youtu.be/BqKDP3sdSU0</a></div></figure></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

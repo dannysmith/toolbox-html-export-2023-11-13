@@ -1,0 +1,692 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Feedback</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="cf6d3817-5fcb-4da8-aeb8-6968eca5ff2e" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🔬</span></div><h1 class="page-title">Feedback</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="9aad8f14-1eec-4dd3-9f9f-7c3fcfd3b944" class="">
+</p><p id="69baf5fd-ecfa-4f8c-8995-90660d670c1e" class="">Giving and receiving feedback is a crucial part of building healthy, high-performing teams. Receiving feedback from others is also one of the best ways to learn about yourself and develop. A culture of giving and receiving constructive feedback helps build a culture of <strong>openness and trust</strong>, which is particularly important in distributed teams.</p><p id="9767a85a-aed5-4775-89b2-98c5a4b138f4" class="">When we think about feedback in the workplace, we often focus on &quot;negative&quot;, or &quot;critical&quot; feedback. However, giving and receiving &quot;positive&quot; feedback is just as important.</p><p id="f0cdcfe8-be5e-4611-891a-6d716835c17e" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="383b56e2-61d4-483d-857a-aec9b239a92d"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise: </strong>Think about the last time you received some positive feedback at work? How did it make you feel? When was the last time you gave someone similar feedback?</div></figure><p id="c8afa0d8-19de-4833-b4f2-b949a166f870" class="">
+</p><p id="048ca128-4dcc-4d60-a3f0-f896d619453b" class="">In an office, we often provide <em>micro-feedback</em> to people by smiling, nodding or just listening attentively. In a remote environment we need to be a little more intentional with this – especially when we&#x27;re working asynchronously. Here are some ways you can do this:</p><ul id="91cb2006-f03d-40ac-9a10-7147f8cf188b" class="bulleted-list"><li style="list-style-type:disc">If someone posts an update on slack, respond to it – either with a comment or an Emoji response. Micro-feedback like this adds up over time.</li></ul><ul id="c4e0785d-5800-4df9-9173-74987b4e079c" class="bulleted-list"><li style="list-style-type:disc">Many slacks have a <code>#shoutouts</code> channel where you can call out other people for doing good work or helping you. Use it.</li></ul><ul id="4b01ceb1-9720-4576-90db-9b2fb48cd96a" class="bulleted-list"><li style="list-style-type:disc">Is someone does a great job or helps you out, always message them to say thanks.</li></ul><p id="b5d6292a-5958-408f-9940-f332a2bb6e83" class="">
+</p><p id="be5b8319-5a5f-449f-9556-d95bda4e2146" class="">Of course, not all feedback is as easy as a quick Slack message...</p><p id="be558993-b312-4bbc-97e5-68eb9ba44a66" class="">
+</p><h2 id="54f5769e-ab15-438d-9764-0af35e9db559" class="block-color-pink">Giving feedback</h2><hr id="37ed61b3-9eca-4605-8efe-e98cf7f1785c"/><div id="b92f05c2-9eb9-4eca-ae8b-f43384b22110" class="column-list"><div id="6bcbcdee-9091-4cf6-9c50-421954ef23b0" style="width:68.75%" class="column"><p id="d938a297-ba5c-4764-afb2-e18f4f3d2584" class="">The first rule of giving feedback is to <strong>be nice about it</strong>.</p><p id="f203f9f5-2891-44fd-b3fe-0d69bbd4e45d" class="">Nonviolent Communication (NVC) provides a useful model for giving feedback to others and is applicable to all aspects of your life, not just remote work.</p><p id="36a94b11-915a-4b4b-8f06-b54569cd576b" class="">It&#x27;s based on the idea that people resort to &#x27;violent&#x27; modes of communication when they don’t know how to use effective strategies for meeting the needs of all parties. Violence in this case refers to <strong>communication that induces fear, guilt and shame in the other person</strong>, instead of working with them to find a beneficial solution that satisfies everyone.</p><p id="30c9b276-7c9c-4d7c-8a6f-2afa90f77314" class="">This is the communication pattern at its core:</p><blockquote id="fd48b242-cbc4-43d3-b988-c536e0bdeb06" class="block-color-teal"><mark class="highlight-teal">When ____</mark> <mark class="highlight-orange">[observation]</mark><mark class="highlight-teal">, I feel ____</mark> <mark class="highlight-orange">[emotion]</mark> <mark class="highlight-teal">because I’m needing some ____</mark> <mark class="highlight-orange">[universal needs]</mark><mark class="highlight-teal">. Would you be able to ____</mark> <mark class="highlight-orange">[request]</mark><mark class="highlight-teal">?”</mark></blockquote></div><div id="da303d97-a954-42ae-ad7b-0ed233ea31df" style="width:31.25%" class="column"><figure id="e51816d1-763c-4089-9ab5-bf8f0f606381" class="image"><a href="Feedback%20cf6d38175fcb4da8aeb86968eca5ff2e/9781892005281.jpg"><img style="width:400px" src="Feedback%20cf6d38175fcb4da8aeb86968eca5ff2e/9781892005281.jpg"/></a></figure><p id="c6138051-a6f0-4e8d-a9f2-fcbb1a7c3486" class="">
+</p></div></div><ol type="1" id="06d8ef67-c433-4607-8263-a870d8d0b8d8" class="numbered-list" start="1"><li>State <strong>factual observations</strong> about the situation that is affecting you.</li></ol><ol type="1" id="b604e0a0-fbec-4d6d-8a5f-1e805e248ada" class="numbered-list" start="2"><li>State the <strong>feeling</strong> that the observation is triggering in you.</li></ol><ol type="1" id="9c36ac8e-76d4-4d60-b2f0-16e07a6a515e" class="numbered-list" start="3"><li>State the <strong>need</strong> that is the cause of that feeling.</li></ol><ol type="1" id="dea7daa0-5aa8-494a-b134-9ec2db84b7e4" class="numbered-list" start="4"><li>Make a concrete <strong>request</strong> for action to meet the need you just identified.</li></ol><p id="35643c3b-c97a-40b2-9c36-e328d4453075" class="">
+</p><p id="38cf03ac-02f0-4358-8710-b9df7a507435" class="">Here&#x27;s an example...</p><blockquote id="7d9b3e04-aeb9-4c73-9406-cd7c224f5f62" class="">Felix, when I see socks under the coffee table <mark class="highlight-orange">[observation]</mark> I feel irritated <mark class="highlight-orange">[emotion]</mark> because I am needing more order in the room that we share in common <mark class="highlight-orange">[need]</mark>. Would you be willing to put your socks in your room or in the washing machine? <mark class="highlight-orange">[request]</mark></blockquote><p id="013ffbc9-78cb-499b-977b-c9397c99b8a3" class="">
+</p><p id="47d0c07b-0f38-45dd-ab4e-6abc919fc3e2" class="">Here&#x27;s a detailed article on using this model and why it works so well...</p><figure id="129d4cba-00b8-417c-84fb-8c85fa6aa589"><a href="https://medium.com/s/please-advise/the-essential-guide-to-difficult-conversations-41f736e63ccf" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How to Deliver Constructive Feedback in Difficult Situations</div><div class="bookmark-description">How to Deliver Constructive Feedback in Difficult Situations Thoughtful, empathetic language can make or break your business relationships &quot;We are dangerous when we are not conscious of our responsibility for how we behave, think, and feel.&quot;―Marshall Rosenberg, Nonviolent Communication You&#x27;ll also discover more fresh thinking personalized to your interests and can follow your favorite authors, publications, and topics.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/1*m-R_BkNf1Qjr1YbyOIJY2w.png" class="icon bookmark-icon"/>https://medium.com/s/please-advise/the-essential-guide-to-difficult-conversations-41f736e63ccf</div></div><img src="https://miro.medium.com/focal/1200/632/58/49/1*VMR5Snwd1FPQmak2AFWeTw.jpeg" class="bookmark-image"/></a></figure><p id="d5637e4b-6c71-4fe2-9251-f3a0466f4721" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="b81cf38f-4ba5-437d-ac70-e954f9ae2c96"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise:</strong> Try this model out the next time you have to provide feedback to someone.</div></figure><p id="e7f4185e-97ee-41a7-9864-82357feb5758" class="">
+</p><h2 id="bccb38bc-c78f-4281-a2f5-bd3cd4c13b8d" class="block-color-pink">Receiving feedback</h2><hr id="6003f131-8201-454b-bd6d-9883e0fdb552"/><p id="354dd44e-fcd1-4094-87d8-b967544cb14c" class="">No matter how it&#x27;s given, most people&#x27;s natural reaction to &quot;critical&quot; feedback follows the pattern below. We often begin with denial, before moving on to defense. When that doesn&#x27;t work we try to explain or excuse, before eventually understanding what&#x27;s being said to us and (maybe) changing our behavior in response.</p><figure id="fe61c07f-e813-4f45-90b6-07a34b3e108b" class="image"><a href="Feedback%20cf6d38175fcb4da8aeb86968eca5ff2e/1_ZKFaZtdFrkTYimtJeOI2tA.png"><img style="width:700px" src="Feedback%20cf6d38175fcb4da8aeb86968eca5ff2e/1_ZKFaZtdFrkTYimtJeOI2tA.png"/></a><figcaption><a href="https://medium.com/the-ascent/how-to-master-yourself-and-win-at-receiving-feedback-b1dc757d02fe">Source</a></figcaption></figure><p id="8b0efb55-6b52-4548-8746-6ce921b2e1ef" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="91b33043-e679-4b7e-8a26-61e1be8001e3"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise:</strong> Reflect on a time where you received &quot;negative&quot; feedback. Can you recognise the steps in this staircase in your response to it? How would you respond differently now?</div></figure><p id="887b2cd8-72c9-4c49-8471-570d39ecef69" class="">
+</p><p id="b5dcf7cd-b1ca-4fa5-ab0e-ceb748c8d26c" class="">If you want to be good at receiving feedback, the first step is to recognise that these stages are natural and that the lower steps are usually driven by emotion. The more you&#x27;re able to recognise your emotional response to feedback, the easier it is to separate them from the more useful steps in the staircase: <strong>understanding</strong> and (potentially) <strong>change</strong>.</p><p id="c2b4040b-d217-4a94-a4b9-d109b7170fcc" class="">Here are some tips to use when someone gives you feedback:</p><ul id="89bbf9f9-9025-4fce-9884-6e80936f3a10" class="bulleted-list"><li style="list-style-type:disc"><strong>Treat it as a gift</strong> 🎁. Someone is taking time out their day to tell you something about yourself – the opportunity to learn from it is a gift. And just like a gift, we get to choose what we do with it after it’s been given.</li></ul><ul id="8f76af4c-f546-4160-bae2-0cbf26552049" class="bulleted-list"><li style="list-style-type:disc"><strong>Keep an open mind.</strong> The feedback you are being given could be right and might help you. Being open to the possibility that even if it seems 98% “off the mark,” it’s worthwhile to look for the 2% truth.</li></ul><ul id="d95e4afe-fd05-4a83-bf9a-1e1050f8ef57" class="bulleted-list"><li style="list-style-type:disc"><strong>Don’t Shoot The Messenger</strong>. We often have a reaction to the person who is giving us the feedback, rather than hearing what they are trying to say. We need to be able to separate the “who” from the “what”.</li></ul><ul id="0f4a3d10-829a-4103-892c-d98730404328" class="bulleted-list"><li style="list-style-type:disc"><strong>This is not about your Identity</strong>. The feedback you are receiving is not a judgement on your personality. The story you tell yourself about the feedback you receive has everything to do with how you feel about it. It’s the feedback we have for ourselves that is often the most detrimental to our identity. See feedback for what it is, which is suggestions on how to get better at something.</li></ul><ul id="61df6ae0-e6ee-424f-b5f7-4dfd9abd60b1" class="bulleted-list"><li style="list-style-type:disc"><strong>Listen to Connect.</strong> Listen to connect, not correct. Learn to listen with curiosity. Listen to understand the giver’s perspective. Even with perfect intentions, our actions sometimes can have an unintended impact. Feedback can reveal your blind spots, so be open to looking for the 2% Truth.</li></ul><ul id="4ddea9e3-bd2a-4387-949a-dee205e04a2e" class="bulleted-list"><li style="list-style-type:disc"><strong>Check For Understanding.</strong> The giver of feedback may think they have been very clear on what they have said. You may be pretty sure you have understood. But in the words of Pentagon Spokesman Robert McCloskey: “I know that you believe you understand what <strong>you think I said</strong>, but I’m not sure you realize that <strong>what you heard is not what I meant</strong>.” Summarise and repeat back the feedback so you’re both clear.</li></ul><ul id="f6ac1f81-1f78-4b08-ae84-449dcd499b31" class="bulleted-list"><li style="list-style-type:disc"><strong>Pause – Count to 10</strong>. This will give you time to be mindful of your immediate reactions, and reign in your amygdala, leaving your “thinking brain” operational so you are open to receive and process the feedback.</li></ul><ul id="2ba2d79e-f36c-4cf3-bb3c-7b6c6be9b4fd" class="bulleted-list"><li style="list-style-type:disc"><strong>Focus on What You Have Learned.</strong> It is your choice to implement the changes suggested in the feedback. Asking yourself ‘What would I do differently next time?’ is a great way to ensure you have learned something.</li></ul><ul id="867912a9-4c94-4797-ba73-6bba8c6e0ee2" class="bulleted-list"><li style="list-style-type:disc"><strong>Say Thank You </strong>🙏. Even if you don’t agree with the feedback on this occasion, let the giver know you value their feedback. It’s just good manners and helps encourage future feedback.</li></ul><p id="3784a9b0-2b01-4760-a8e7-04b44069b229" class="">
+</p><h2 id="523ba939-a20f-47e0-abc0-ad0e83051369" class="block-color-pink">Choosing the right medium for feedback</h2><hr id="84674937-ab74-4194-af13-52ed08bb4e7d"/><p id="07ae748a-32c9-4e1f-ac9f-33140cd93c4c" class="">Different people will have different preferences when it comes to giving and receiving feedback. Some prefer it asynchronously so they have time to digest it on their own. Some prefer it in person over zoom so they have a chance to ask questions.</p><p id="52a0f347-f55b-448d-be63-69b2f564a80c" class="">When giving feedback, think about (or ask about) the best medium for delivering it. And if you know your own preference, communicate this to your team so they know.</p><p id="666e7dbe-e570-4daf-a8c9-bc830fea0d05" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="147c0929-7554-4fa0-bf38-784e7317b980"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise:</strong> think about how you prefer to receive feedback. Add this to your <strong>Working with me page</strong>, if you’ve made one (see <a href="A%20Working%20With%20Me%20Page%2097b3df9b195341d9a67badd455cf9754.html"><span class="icon">🤝</span>A Working With Me Page</a>)</div></figure><p id="65b34145-9074-4bce-9753-b6bf81ff2ca7" class="">
+</p><h2 id="337125de-d8ca-4fed-b908-03d88ea16ce5" class="block-color-pink">Summary</h2><hr id="fc6b25c7-f3d3-4e28-b5ab-f461cfda80e6"/><p id="eb8767a9-0006-4e2e-86b9-66c4b78cfb7f" class="">Giving and Receiving feedback well is a crucial skill in any environment. But it&#x27;s especially important in a remote environment because it will inevitably be given asynchronously or over video.</p><p id="1d69f753-b21b-468a-8c0a-1ab8d48356be" class="">
+</p><h2 id="7e6c7d16-6638-4fa6-b1e7-2d8f887b9a68" class="block-color-pink">Further Reading</h2><hr id="3ac06bb5-3539-425e-9d9a-df70f3c80e5e"/><figure id="32bd6a84-a4cc-4bc8-be59-794542532e7e"><a href="https://www.snapsurveys.com/blog/5-reasons-feedback-important/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">5 Reasons Why Feedback is Important</div><div class="bookmark-description">What exactly is feedback? We hear the term all the time, but do we truly know what it is and why it is so important? The term &#x27;feedback&#x27; is used to describe the helpful information or criticism about prior action or behavior from an individual, communicated to another individual (or a group) who can use that information to adjust and improve current and future actions and behaviors.</div></div><div class="bookmark-href"><img src="https://www.snapsurveys.com/blog/wp-content/uploads/2020/10/cropped-square-192x192.png" class="icon bookmark-icon"/>https://www.snapsurveys.com/blog/5-reasons-feedback-important/</div></div><img src="https://www.snapsurveys.com/blog/wp-content/uploads/2014/06/dont-listen_7-mistakes-series.jpg" class="bookmark-image"/></a></figure><figure id="ad1e59cd-599c-46b9-bb56-3ba7331aad26"><a href="https://www.icslearn.co.uk/blog/posts/2020/september/5-tips-for-delivering-feedback-to-remote-employees/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">5 Tips for Delivering Feedback to Remote Employees | ICS Learn</div><div class="bookmark-description">Enrol today &gt; Enhance your future with an online qualification. With COVID-19, most companies have shifted to a virtual working arrangement. Organisations like Google and Twitter have asked their team to work from home, globally. Employees and organisations are facing the new challenge to adapting to remote ways of operating.</div></div><div class="bookmark-href"><img src="https://www.icslearn.co.uk/favicon.ico" class="icon bookmark-icon"/>https://www.icslearn.co.uk/blog/posts/2020/september/5-tips-for-delivering-feedback-to-remote-employees/</div></div><img src="https://www.icslearn.co.uk/media/904286/5-tips-for-delivering-feedback-to-remote-employees.jpg" class="bookmark-image"/></a></figure><figure id="aa57669e-4134-429f-8964-950ed4d0351e"><a href="https://www.impraise.com/blog/how-to-give-feedback-the-right-way" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How to give feedback the right way | Impraise</div><div class="bookmark-description">Beyond the content of the feedback, how you say it is just as important. The way you bring your message across has a significant effect on how it will be perceived, so be sure to choose your language appropriately. There are three styles you can adopt when giving your opinion: In a strong statement: I think that the implementation was flawed.</div></div><div class="bookmark-href"><img src="https://www.impraise.com/static/favicons/favicon.ico" class="icon bookmark-icon"/>https://www.impraise.com/blog/how-to-give-feedback-the-right-way</div></div><img src="https://www-impraise-com-resources.s3.amazonaws.com/uploads/social/_1200x630_crop_center-center_82_none/SEO-Image-impraise_190624_155446.jpg?mtime=1561391686" class="bookmark-image"/></a></figure><figure id="9fcf89ac-254d-434c-99b5-02a861bae2df"><a href="https://medium.com/@Harri_Kaloudis/giving-and-receiving-feedback-in-organisations-fit-for-humans-7e16c98962ef" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Giving feedback in organisations fit for humans</div><div class="bookmark-description">Bringing humanity back to work - [or why you may want to read this / whom this text speaks to / setting the context] The authors of &quot;Reinventing start-ups: a practical toolkit for founders and l eaders &quot; and &quot;Reinventing scale-ups: radical ideas for growing companies &quot;, Travis Marsh, Susan</div></div><div class="bookmark-href"><img src="https://medium.com/favicon.ico" class="icon bookmark-icon"/>https://medium.com/@Harri_Kaloudis/giving-and-receiving-feedback-in-organisations-fit-for-humans-7e16c98962ef</div></div><img src="https://miro.medium.com/fit/c/140/140/1*ontca7lBwejFFThujEgQrA.jpeg" class="bookmark-image"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

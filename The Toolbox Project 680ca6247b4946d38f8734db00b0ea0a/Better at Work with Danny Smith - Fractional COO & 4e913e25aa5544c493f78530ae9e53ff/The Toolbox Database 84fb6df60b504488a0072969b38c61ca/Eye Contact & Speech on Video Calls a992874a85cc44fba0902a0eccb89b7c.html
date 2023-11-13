@@ -1,0 +1,683 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Eye Contact &amp; Speech on Video Calls</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a992874a-85cc-44fb-a090-2a0eccb89b7c" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/></div><h1 class="page-title">Eye Contact &amp; Speech on Video Calls</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><div id="fc85d958-284d-4ef6-98c0-40d20f5cb60c" class="column-list"><div id="114c3deb-2cff-40df-b065-dfdf84d1fed4" style="width:62.5%" class="column"><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="bf01c00a-0c42-4dfd-9c95-f133f6ea3420"><div style="font-size:1.5em"><span class="icon">🔗</span></div><div style="width:100%">If you haven’t read the pages below, do that before reading this one.<p id="f36f7a00-0430-413d-a63d-e215dc369f09" class=""><a href="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506.html"><img class="icon" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/>Good Video Calls</a> </p><p id="4dc929fd-d282-420b-9856-85d0b6892a25" class=""><a href="Audio%20on%20Video%20Calls%202665978803b748b184dbb2cf6fe94bc7.html"><img class="icon" src="Good%20Video%20Calls%20c10b97de771d4086bd18e79750976506/zoom.png"/>Audio on Video Calls</a> </p></div></figure><p id="f60a0335-2a25-43c8-ae19-4e98e07fc7fc" class="">
+</p><p id="7db0198f-584b-4f36-adb2-0c516f925328" class="">Once you’ve mastered the basics and got your audio up to quality, it’s a good idea to give a little thought to how else you can improve how you appear on video calls. </p></div><div id="7613b681-2d9b-431b-a30e-50f8a5c461c0" style="width:37.5%" class="column"><nav id="8d7cdc34-e5df-401d-b3ba-117e5836b7f2" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#eccb48b4-b11c-4a7e-baf8-9d754af4f9d0">Eye Contact</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#dd56628e-8487-4d0c-ad5c-800cc457c059">Rate of Speech</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#75b5d842-e1e5-47b9-aaa1-2ed6b846c18c">Pauses</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2c64b55a-8cf8-42ba-bb71-df1ffe775512">Tone</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e9b26b07-d4f9-44b0-bb29-44b26305d80b">Hand Gestures &amp; Facial Expressions</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#509dc2a2-904b-492b-b590-301ee6fe3866">Summary &amp; Key Points</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#0fbbf9cf-ac60-460d-851b-99adaa737a32">Further Reading</a></div></nav></div></div><p id="c6e1acd4-5ab7-46a8-a02a-4cd7714db56e" class="">
+</p><h2 id="eccb48b4-b11c-4a7e-baf8-9d754af4f9d0" class="block-color-pink">Eye Contact</h2><hr id="4bd2189d-58b2-417c-a038-7c25d57932c4"/><p id="43ecdf5a-8920-4a5b-be19-03ea984b8ff0" class="">Eye contact is extremely important for building genuine connections with people - imagine meeting someone in real life and never actually making eye contact with them!</p><p id="e31241dc-3cf2-4b6f-8fb9-da0e6566cca7" class="">On video calls, it&#x27;s really easy to forget this. Especially because (unlike in real life) looking into the other person&#x27;s eyes on your screen does not necessarily mean you are looking at your camera. Look at the images below and you&#x27;ll see what we mean...</p><p id="80492ef6-0680-4c47-9b25-5e4a637514c8" class=""> </p><div id="96bce07d-9fa2-412b-9b46-6e8f6886f0d9" class="column-list"><div id="a84331e6-9f32-4ecb-83cc-398f8c6d03f9" style="width:50%" class="column"><figure id="b0afffe9-040c-4160-af8c-9a1e60b3a98e" class="image"><a href="Eye%20Contact%20&amp;%20Speech%20on%20Video%20Calls%20a992874a85cc44fba0902a0eccb89b7c/Screenshot_2020-11-12_at_21.07.43.png"><img style="width:935px" src="Eye%20Contact%20&amp;%20Speech%20on%20Video%20Calls%20a992874a85cc44fba0902a0eccb89b7c/Screenshot_2020-11-12_at_21.07.43.png"/></a><figcaption>Looking at the bottom right</figcaption></figure></div><div id="35750369-ce88-46fc-845d-71aa2fd31fae" style="width:50%" class="column"><figure id="042cc879-a2a9-4796-abe1-95b794c0c86b" class="image"><a href="Eye%20Contact%20&amp;%20Speech%20on%20Video%20Calls%20a992874a85cc44fba0902a0eccb89b7c/Screenshot_2020-11-12_at_21.07.26.png"><img style="width:935px" src="Eye%20Contact%20&amp;%20Speech%20on%20Video%20Calls%20a992874a85cc44fba0902a0eccb89b7c/Screenshot_2020-11-12_at_21.07.26.png"/></a><figcaption>Looking at the top center</figcaption></figure></div></div><div id="0e6cbb13-c226-4241-b3b1-d6a543d83463" class="column-list"><div id="1ae5a33d-eed7-4ad4-b201-9ffc506172fd" style="width:50%" class="column"><figure id="27a385d2-428a-4c91-b0a5-e36f7e0e3e2c" class="image"><a href="Eye%20Contact%20&amp;%20Speech%20on%20Video%20Calls%20a992874a85cc44fba0902a0eccb89b7c/Screenshot_2020-11-12_at_21.07.53.png"><img style="width:936px" src="Eye%20Contact%20&amp;%20Speech%20on%20Video%20Calls%20a992874a85cc44fba0902a0eccb89b7c/Screenshot_2020-11-12_at_21.07.53.png"/></a><figcaption>Looking at the bottom left</figcaption></figure></div><div id="6ce8885c-c4d9-486c-a23a-7182226e10ee" style="width:50%" class="column"><figure id="15d83901-a2a7-4408-bf4e-739ebe6f6f6a" class="image"><a href="Eye%20Contact%20&amp;%20Speech%20on%20Video%20Calls%20a992874a85cc44fba0902a0eccb89b7c/Screenshot_2020-11-12_at_21.07.32.png"><img style="width:937px" src="Eye%20Contact%20&amp;%20Speech%20on%20Video%20Calls%20a992874a85cc44fba0902a0eccb89b7c/Screenshot_2020-11-12_at_21.07.32.png"/></a><figcaption>Looking directly at the camera</figcaption></figure></div></div><p id="0a906bb4-1fcd-4af9-9f8b-bc2b0cbc9053" class="">The easiest way to resolve this is to put your video window on a screen that&#x27;s as close to your camera as possible (see <em>Looking at the top centre </em>👆). It&#x27;s also a good idea to occasionally glance directly at the camera when you&#x27;re speaking.</p><p id="d91a7e46-a1de-4fe9-b4eb-71a7afc370b5" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="50a13963-a835-4a7f-85c3-086dde6b8da8"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Exercise:</strong> Next time you&#x27;re on a video call, open gallery mode and take note of who is making eye contact and who isn&#x27;t. Are you making eye contact well? Can you move your camera or window to make it better?</div></figure><h2 id="dd56628e-8487-4d0c-ad5c-800cc457c059" class="block-color-pink">Rate of Speech</h2><hr id="0a249abf-8f05-4e85-9b3b-3ce03cee66b2"/><p id="15445e02-75ce-4599-a2b7-c29f7053d4ba" class="">Just like in real life, your rate of speech will affect how you&#x27;re perceived by others. This is more important than ever on video calls because you don&#x27;t have body language to help make your point.</p><ul id="01f90953-1a59-4ea8-a30f-1724148a15f3" class="bulleted-list"><li style="list-style-type:disc">If you want to drive home a message, consider slowing your speech so it sounds more deliberate.</li></ul><ul id="84a9bda2-d689-4ef6-90b3-58cc786c238c" class="bulleted-list"><li style="list-style-type:disc">If you want to create energy, consider speeding up your speech.</li></ul><h2 id="75b5d842-e1e5-47b9-aaa1-2ed6b846c18c" class="block-color-pink">Pauses</h2><hr id="e8059d78-46c7-43b6-adf6-d7af8fbcbe76"/><p id="1b0bd696-bc29-4d67-8d99-d75dc954bb89" class="">Natural speech inevitably contains many pauses. Yet on video calls we have a tendency to try to <strong>fill the silence</strong>. Remember…</p><ul id="1d45d7cb-1047-4344-904f-c2bd02d54f16" class="bulleted-list"><li style="list-style-type:disc">Silence is okay - pauses give people time to think.</li></ul><ul id="e8dfb463-5ecd-4749-ae9c-ec243df53148" class="bulleted-list"><li style="list-style-type:disc">When you&#x27;re speaking, pauses usually last for much less time than you think. Often, other&#x27;s won&#x27;t even notice.</li></ul><ul id="f0d66c59-be0a-48fc-a347-9fa4949300a2" class="bulleted-list"><li style="list-style-type:disc">If you ask a question, it&#x27;s okay to wait for a little while until someone answers. Again, people need time to think and compose their response.</li></ul><p id="baca487f-28b5-4bd7-8d5b-3d23fce4550f" class="">
+</p><figure id="4824aa83-3dd9-4580-b9a5-dd886e665dc5"><a href="https://lumen.instructure.com/courses/218897/pages/linkedtext54275" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Pauses: Public Speaking/Speech Communication</div></div><div class="bookmark-href"><img src="https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico" class="icon bookmark-icon"/>https://lumen.instructure.com/courses/218897/pages/linkedtext54275</div></div></a></figure><figure id="ed927679-603b-4d89-943e-b46e78c0ab61"><a href="http://sixminutes.dlugan.com/pause-speech/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Speech Pauses: 12 Techniques to Speak Volumes with Your Silence</div><div class="bookmark-description">Effective use of speech pauses is a master technique. If you do it right, nobody is conscious of your pauses, but your ideas are communicated more persuasively. If you do it wrong, your credibility is weakened, and your audience struggles to comprehend your message.</div></div><div class="bookmark-href"><img src="http://sixminutes.dlugan.com/favicon.ico" class="icon bookmark-icon"/>http://sixminutes.dlugan.com/pause-speech/</div></div><img src="http://sixminutes.dlugan.com/wp-content/uploads/2012/08/speech-pause-preview.png" class="bookmark-image"/></a></figure><figure id="59f85e39-931b-4166-a580-24b683209ccc"><a href="https://virtualspeech.com/blog/effective-ways-use-pauses-in-speech" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">10 Effective Ways to use Pauses in your Speech</div><div class="bookmark-description">A pause, if used correctly, can add a great deal to your speech. Here are 10 ways you can use a pause effectively, from adding emphasis to key points, to changing the presentation topic, to replacing filler words, to thinking of a response to a question.</div></div><div class="bookmark-href"><img src="https://virtualspeech.com/img/VS_favicon.png" class="icon bookmark-icon"/>https://virtualspeech.com/blog/effective-ways-use-pauses-in-speech</div></div><img src="https://virtualspeech.com/img/blog/header/effective-ways-pauses-in-speech.jpg" class="bookmark-image"/></a></figure><h2 id="2c64b55a-8cf8-42ba-bb71-df1ffe775512" class="block-color-pink">Tone</h2><hr id="1122d371-0e25-427a-a34f-cb16a479850f"/><p id="5bf72f28-a8da-4f15-94c2-687ad2e3491e" class="">Many people imagine that your emotional state is less obvious on zoom calls than in real life. Although body language is less obvious, that very fact means people notice tone of voice a little more. So if you are in a bad mood people can definitely still tell on a video call.</p><p id="51045b2a-89a4-4aa4-9b16-ab52a6f318a8" class="">The only tip here is to <strong>be aware of your emotional state</strong> and if you need to, spend a few minutes before an important call trying to get yourself into a positive state so your tone of voice is suitable.</p><h2 id="e9b26b07-d4f9-44b0-bb29-44b26305d80b" class="block-color-pink">Hand Gestures &amp; Facial Expressions</h2><hr id="f334de40-744d-4c0b-8f73-b2a64e83f3a7"/><p id="2e072204-346b-4ba7-a46b-d943adeeb04b" class="">Using hand gestures and facial expressions are great ways to make yourself more engaging when speaking to people in person. The same applies on video calls.</p><ul id="4942b2ea-3a2e-4a4d-b08f-8eee87618e85" class="bulleted-list"><li style="list-style-type:disc">Use hand gestures as you would normally, but make sure that they&#x27;re visible on your camera!</li></ul><ul id="6e9bad70-d840-41c6-8dd6-cfcaf1b45a03" class="bulleted-list"><li style="list-style-type:disc">Be aware that on large group calls, excessive gesturing can sometimes be distracting (this isn&#x27;t such an issue in one-to-one calls).</li></ul><ul id="8f64b412-c59b-4d6b-bb73-1694430f5453" class="bulleted-list"><li style="list-style-type:disc">You might need to <strong>slightly</strong> exaggerate your facial expressions so people can see them.</li></ul><ul id="ba394946-54a2-4e0d-aa5c-6a8f50b5f136" class="bulleted-list"><li style="list-style-type:disc">If you find it difficult to be enthusiastic and engaging when sitting down, try standing up when you&#x27;re on calls instead and see if it makes a difference.</li></ul><p id="bf58b2e1-08f4-416e-8db3-a22258a70c1c" class="">
+</p><h2 id="509dc2a2-904b-492b-b590-301ee6fe3866" class="block-color-pink">Summary &amp; Key Points</h2><hr id="9f344052-85e6-4438-9b5c-8e49de0edc3f"/><p id="cf86d7d6-412f-43c1-96b6-453f39c5aac9" class="">Just like in the real world, there are a lot of things you can do to make sure you come across well on zoom. But many of these require a little more intentional thought than they would in real life – especially if you&#x27;re new to remote working.</p><p id="69b61d86-85f9-4fca-9fd1-df47c9112ca3" class="">
+</p><h2 id="0fbbf9cf-ac60-460d-851b-99adaa737a32" class="block-color-pink">Further Reading</h2><hr id="6cb00e5e-594f-4f18-b16b-5e12a19c3468"/><figure id="5759de3b-23f6-4de3-8bbb-ca5484834630"><div class="source"><a href="https://youtu.be/9HrYLEY3WAo">https://youtu.be/9HrYLEY3WAo</a></div></figure><p id="f5406e19-53c3-4e98-896e-be4011f15a7d" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

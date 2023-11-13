@@ -1,0 +1,687 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Working with Danny at Acme Ltd</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6b834a68-9430-403e-a820-df207cccdd49" class="page sans"><header><img class="page-cover-image" src="Working%20with%20Danny%20at%20Acme%20Ltd%206b834a689430403ea820df207cccdd49/Blobs_-_Dark.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Working%20with%20Danny%20at%20Acme%20Ltd%206b834a689430403ea820df207cccdd49/avatar.jpg"/></div><h1 class="page-title">Working with Danny at Acme Ltd</h1><p class="page-description"></p></header><div class="page-body"><p id="1ba6cb2d-454b-44d2-aa41-e2d3b940466c" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="bf9c82b2-5b6f-4812-afd2-c95d4c6e2ebf"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">This is intended for people who work with me at <strong>Acme Ltd</strong>, though it might be useful for others.</div></figure><div id="baf5761b-98b8-4230-9bf2-6964cdbc8a51" class="column-list"><div id="5627ffa3-8aa7-469f-970d-9d344e6597d5" style="width:56.25%" class="column"><h2 id="461d4700-82af-4762-923e-6ab731b105c6" class="block-color-pink">The Basics</h2><hr id="2384c6bb-aff2-4269-bed4-87f5a6c6c99e"/><figure id="7bb10c30-f49f-45d7-aada-73f3eac2d8eb"><div class="source"><a href="https://www.loom.com/share/d834d433fab64be2b98eae6c1d6e3ae3">https://www.loom.com/share/d834d433fab64be2b98eae6c1d6e3ae3</a></div></figure><h2 id="0983c7d7-ffa0-4ad5-b271-12a96cd66043" class="block-color-pink">When I work...</h2><hr id="9f1bbb22-056b-4916-b995-01a38478863f"/><p id="9db58edd-ee0b-4ed4-a197-d5d57737d685" class="">I work <strong>four days a week</strong>, from about<strong> </strong><mark class="highlight-orange_background"><strong>10am to 6pm</strong></mark> UK time. That said, I&#x27;m pretty flexible and often work late some days to fit meetings with those in 🇨🇦. &amp; 🇺🇸. My non-work day is usually a <strong>Monday, </strong>but not always.</p><h2 id="adad95b7-6473-44a4-9219-c6261b037e74" class="block-color-pink">How to contact me...</h2><hr id="7b5ecfca-7502-4974-ac17-059e6197553d"/><p id="9ffdea94-3abe-486c-81eb-f9e89377ad04" class="">
+</p><p id="5680df85-f8c6-4b87-abc0-8aa474c888d2" class="">For general stuff, use <strong>Slack</strong>. I will always see DMs and mentions if I&#x27;m working. If you want to book a meeting or call, just pick a time in my calendar and <strong>book it in</strong>. You can also book via <a href="https://www.notion.so/Book-a-Meeting-with-Danny-e39fc8def5514b67b559b2e5a51934ae?pvs=21"><span class="icon">📅</span>Book a Meeting with Danny</a>.</p><p id="7d1ce122-f498-45ab-8559-3fd5cdceb2ef" class="">If it&#x27;s an actual <strong>emergency</strong>, you can send me a WhatsApp or SMS message or call - my number is on my slack profile.</p><h2 id="6cee68cc-bceb-4f4b-a7e3-c3b65790c6fc" class="block-color-pink">What I do...</h2><hr id="6db10e15-4a5f-495f-b116-6e6dc5e9405f"/><p id="06b24bde-9d74-412a-8936-9f0970dedbf4" class="">
+</p><p id="ca727ffc-9a9d-4b5d-ac05-685602573cd2" class="">My work is kinda split across these areas:</p><ul id="678b7026-bfae-49ac-97c5-0db8add724bc" class="toggle"><li><details open=""><summary>💻  <mark class="highlight-orange"><strong>Technology Director</strong></mark></summary><p id="f2064fc7-c2b4-4993-bc66-f0139a0ce792" class="">Working as part of the company leadership team.</p><p id="9aa0ec60-8ac5-445a-9d65-21a6953445ec" class="">Generally looking after our tech strategy. At the moment this means:</p><ul id="6847624e-ef99-451f-bcaf-187ac17f5bcb" class="bulleted-list"><li style="list-style-type:disc">&quot;Owning&quot; our technical infrastructure and much of our tooling.</li></ul><ul id="d37a1cc2-37c4-4997-91ed-b3f70e29fded" class="bulleted-list"><li style="list-style-type:disc">Rationalising our tooling and software and establishing processes and systems to manage it better.</li></ul><ul id="cdb0c0d7-c1bb-4fe6-8e59-21b719cd2b64" class="bulleted-list"><li style="list-style-type:disc">Covering some other CTO-type stuff.</li></ul><p id="0ae4ce43-8698-455c-9a0e-3d714cc5de0c" class="">This is all about optimising our tools so we can <strong>get work done better</strong> and <strong>be happier</strong>.</p></details></li></ul><ul id="781dd8dd-51d4-45e2-942b-aee805e38158" class="toggle"><li><details open=""><summary><strong>🎬   </strong><mark class="highlight-brown"><strong>Curriculum Director, Tech</strong></mark></summary><p id="c6c5baf0-5163-4a2f-8d18-7568b1a5fc27" class="">There&#x27;s a lot of stuff involved in this role. Among other things:</p><ul id="5a8b8bdd-2a2f-49cc-9ac3-daf064c3f035" class="bulleted-list"><li style="list-style-type:disc">Working with the <strong>other CDs</strong> on &quot;how we do learning&quot; and producing tools &amp; content to support instructors&#x27; delivery.</li></ul><ul id="84534c11-2f53-4eac-b5f7-6b6450c808ae" class="bulleted-list"><li style="list-style-type:disc"><strong>Managing</strong> and updating the tech curricula&#x27;s high level design.</li></ul><ul id="d55b1748-e5bf-48e7-a09a-cc91f868cda5" class="bulleted-list"><li style="list-style-type:disc"><strong>Facilitating</strong> collaboration on the development of resources like lesson plans and courseware.</li></ul><ul id="b608e819-e308-4aac-bff9-03537d82d4d0" class="bulleted-list"><li style="list-style-type:disc"><strong>Supporting</strong> Academic Directors and App &amp; Web Dev instructors.</li></ul><ul id="b5fd2a7f-b4ac-4838-a5b3-e1af9b16f695" class="bulleted-list"><li style="list-style-type:disc">Running the global <strong>Engineering Guild</strong>. </li></ul><ul id="ab452683-71f4-411f-8f94-c130c84d7abb" class="bulleted-list"><li style="list-style-type:disc">Being part of our <strong>Leadership Team</strong>.</li></ul></details></li></ul><ul id="322395f9-2fe0-4da9-958d-cebc7597c8e6" class="toggle"><li><details open=""><summary>🌍  <mark class="highlight-teal"><strong>Global</strong></mark></summary><p id="18c42ddb-d6b3-45d3-86f1-78572ea3d4f9" class="">I also have a bunch of projects relating to <strong>systems</strong>, <strong>organisational</strong> and <strong>process</strong> stuff and supporting <strong>tooling</strong>. This is generally about making things better. 🙂 These currently include:</p><ul id="abe07dfe-63ac-4324-a5e5-44193ff80af0" class="bulleted-list"><li style="list-style-type:disc">Working to improve the company leadership team.</li></ul><ul id="c3a9d365-9d6a-477a-bed5-70e5d904ff9f" class="bulleted-list"><li style="list-style-type:disc">Championing good slack use.</li></ul><ul id="e51767a6-aa6f-4fe4-ab0e-20cb7d358dc5" class="bulleted-list"><li style="list-style-type:disc">Evolving our internal knowledge base.</li></ul><ul id="6b568e4b-37fd-4a42-ac07-a83668d85c94" class="bulleted-list"><li style="list-style-type:disc">Helping anyone who wants to get better at working with remote, distributed teams.</li></ul></details></li></ul><ul id="3264f70b-da24-4db8-aa61-ff6d7e07482d" class="toggle"><li><details open=""><summary>🇬🇧  <strong><mark class="highlight-red">London</mark></strong></summary><p id="915e3854-f27f-4bc5-9cf6-d7405152696a" class="">I have a few London-centric projects and I occasionally work with <strong>Jess</strong> and <strong>Bruce</strong> to help with our offering in <a href="https://en.wikipedia.org/wiki/Europe,_the_Middle_East_and_Africa">EMEA</a>.</p><p id="4e2acc1f-b525-4bd4-82b0-3b0d2b932956" class="">
+</p></details></li></ul><p id="f4c5ee71-424d-4c9e-8b82-8932481df9e6" class="">
+</p></div><div id="cd3f444d-bdf9-4863-9a4f-0eeae94f890d" style="width:43.75000000000001%" class="column"><h2 id="aa30672a-9989-450e-be48-a94c29d14f84" class="block-color-pink">Upcoming Trips</h2><hr id="a7f5d374-4d90-46d9-9c36-8e6fabc91e2c"/><p id="d97820e8-496b-4e1a-a325-91c6d41a6d44" class=""><em>None</em></p><h2 id="88fcefa9-372a-46b5-957a-200e8dd24f89" class="block-color-pink">Quick Links</h2><hr id="6a7ab388-5d25-4f69-92d8-ca3585d1b839"/><ul id="8a7b3037-c453-4a28-8b40-41ae53dbc0f7" class="bulleted-list"><li style="list-style-type:disc">⏰  <a href="https://time.is/London">Current Time in London</a></li></ul><ul id="138a736e-87fa-4640-81c4-4b24b7de8369" class="bulleted-list"><li style="list-style-type:disc">💬  <a href="https://www.notion.so/Book-a-Meeting-with-Danny-e39fc8def5514b67b559b2e5a51934ae?pvs=21">Book a Meeting</a></li></ul><ul id="f73808a6-71f3-4029-9c30-140e135f4e6c" class="bulleted-list"><li style="list-style-type:disc">🌐  <a href="http://danny.is">Website</a></li></ul><ul id="c3ec5d55-75e3-4d95-93f1-2d7a945852a6" class="bulleted-list"><li style="list-style-type:disc">🗣️  <a href="https://dannysmith.typeform.com/to/c36wTU">Give Anonymous Personal Feedback</a></li></ul><ul id="6046dff4-531f-493d-9578-72f03465495f" class="bulleted-list"><li style="list-style-type:disc">🤔  <a href="https://www.16personalities.com/entj-personality">Personality Type: ENTJ</a></li></ul><h2 id="be1331b2-ca2f-4d9c-a61f-5f2d5d1b1d61" class="block-color-pink">Usernames</h2><hr id="3d62788b-e071-486b-9860-3f9260dd903c"/><ul id="de55b550-fa2e-4fd5-9ba1-442777fd468c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Slack</strong></mark><mark class="highlight-gray">:</mark> @danny</li></ul><ul id="0758c04b-7f41-494a-9667-d7523eae6ac1" class="bulleted-list"><li style="list-style-type:disc"><a href="http://twitter.com/dannysmith"><mark class="highlight-gray"><strong>Twitter</strong></mark></a><mark class="highlight-gray"><strong>/</strong></mark><a href="http://medium.com/@dannysmith"><mark class="highlight-gray"><strong>Medium</strong></mark></a><mark class="highlight-gray"><strong>/</strong></mark><a href="https://github.com/dannysmith"><mark class="highlight-gray"><strong>GitHub</strong></mark></a><mark class="highlight-gray">: </mark>@dannysmith</li></ul><ul id="ce95dae6-2670-4aed-ae08-e677c4434e08" class="bulleted-list"><li style="list-style-type:disc"><a href="https://trello.com/dannyasmith"><mark class="highlight-gray"><strong>Trello</strong></mark></a><mark class="highlight-gray">:</mark> dannyasmith</li></ul><ul id="8c0b8fdf-d5f2-4a78-bc8b-74bc3e6e2ac1" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.linkedin.com/in/dannyasmith/"><mark class="highlight-gray"><strong>LinkedIn</strong></mark></a><mark class="highlight-gray">: </mark>dannyasmith</li></ul><ul id="6700a66b-00ba-4401-813e-b0955b7daf03" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Skype</strong></mark><mark class="highlight-gray">: </mark>dannyasmith</li></ul><ul id="913bd6f7-7712-4806-a9c6-a773ae552847" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Email</strong></mark><mark class="highlight-gray">: </mark>hi@danny.is</li></ul><p id="f0054c59-0af6-4bef-bf51-f4d282662574" class="">
+</p><figure id="6eda36ee-7468-43b8-9a1f-259992d5fc49" class="image"><a href="Working%20with%20Danny%20at%20Acme%20Ltd%206b834a689430403ea820df207cccdd49/avatar%201.jpg"><img style="width:192px" src="Working%20with%20Danny%20at%20Acme%20Ltd%206b834a689430403ea820df207cccdd49/avatar%201.jpg"/></a></figure><figure id="70d86d6d-adbc-4128-b43d-ca8dcc0106b6" class="image"><a href="Working%20with%20Danny%20at%20Acme%20Ltd%206b834a689430403ea820df207cccdd49/image-asset.png"><img style="width:328px" src="Working%20with%20Danny%20at%20Acme%20Ltd%206b834a689430403ea820df207cccdd49/image-asset.png"/></a><figcaption>Haidee and Danny</figcaption></figure><p id="d1274e1d-f8c3-405c-befb-1908aab82564" class="">
+</p></div></div><h1 id="132f2186-2414-480c-be3f-af3635b86101" class="block-color-pink">Can I ask a few favours, please?</h1><hr id="ec3679eb-9d72-43bd-bccd-3ae27d1e1393"/><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="7c91722f-3f59-44a0-8efb-ea3557288497"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">I&#x27;m not a big fan of really long <a href="https://managerreadme.com/">Manager or Colleague READMEs</a>, but in the interests of speeding things up... here are some favours I ask of everyone I work with. These aren&#x27;t <strong>immutable</strong> <strong>rules</strong>, they&#x27;re <strong>favours I&#x27;m asking</strong>.</div></figure><p id="857dc2bf-b574-4ffa-9233-ba7af56b3f1c" class="">
+</p><ul id="8b2200d5-b273-4ff7-8f29-89da07ebac29" class="bulleted-list"><li style="list-style-type:disc"><strong><mark class="highlight-gray_background">Requests and Questions</mark></strong><ul id="821c2e26-b69e-445d-ad5c-40203e83b72c" class="bulleted-list"><li style="list-style-type:circle">Don&#x27;t be scared to hit me up about <em>anything</em>. <mark class="highlight-teal_background"><strong>I&#x27;m here to help.</strong></mark></li></ul><ul id="4a458820-a9b1-47d4-8e0f-736934b677ff" class="bulleted-list"><li style="list-style-type:circle">If you ask me to <strong>do something</strong> it will get added to my <a href="https://culturedcode.com/things/">list</a>. If it&#x27;s urgent, has a deadline or is blocking your work then <mark class="highlight-yellow_background"><strong>please make that really clear</strong></mark> when you ask so I can prioritise accordingly.</li></ul></li></ul><ul id="146a42ee-5713-40fa-8ca4-3b9cb3d16137" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background"><strong>Slack</strong></mark><ul id="84dce761-3035-4a5a-8b4f-47341f034ebc" class="bulleted-list"><li style="list-style-type:circle">Prefer slack to email for most things. Especially short things. Default to posting in the open and <code>@tagging</code> me, rather than DM.</li></ul></li></ul><ul id="b62033a2-4241-424a-a8bf-7bdb5db636b8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background"><strong>Email</strong></mark><ul id="719a4938-c0ba-44f1-9b90-96b0c2ee6a37" class="bulleted-list"><li style="list-style-type:circle">Although I check emails regularly, I only deal with them in batches. I&#x27;ll try to reply to important/urgent email within <strong><mark class="highlight-orange">24 hours</mark></strong>, but will often &quot;batch process&quot; the rest once a week. I will <em>eventually</em> respond to all emails that seem to need one. If you need a quick response, say so in the email.</li></ul></li></ul><ul id="b3f151da-7eeb-4c94-a00b-bfeb192ed085" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background"><strong>Meetings</strong></mark> <ul id="7b5243a0-e883-4505-ab13-affaf887f800" class="bulleted-list"><li style="list-style-type:circle">If you fancy a chat, just organise a <strong>no-agenda zoom </strong>call - not every conversation needs a purpose.</li></ul><ul id="ed459de5-9d4b-4126-a198-1273e6f9aeea" class="bulleted-list"><li style="list-style-type:circle">If you invite me to a<strong> meeting </strong>with a specific purpose, I&#x27;d ❤️ it if could try to answer these questions in the invite:<ul id="4b25a9cd-2c46-459b-a8e1-113f19943de1" class="bulleted-list"><li style="list-style-type:square">Is there an agenda?</li></ul><ul id="1a7b0d0a-8ab4-4bad-9f6c-8535a3fc6a88" class="bulleted-list"><li style="list-style-type:square">What&#x27;s the desired outcome?</li></ul><ul id="e69b7bda-290e-4d9d-88fe-288bbbe27697" class="bulleted-list"><li style="list-style-type:square">For group meetings where it&#x27;s non-obvious... why am I being invited?</li></ul></li></ul></li></ul><p id="8e6471d5-56b6-4806-aa29-3cba288f059d" class="">
+</p><h2 id="fb6f589e-4d22-4e82-b834-6d9c8450a3a8" class="block-color-pink">👨🏻 Other stuff</h2><hr id="c5d6a5ae-c909-484a-9dfa-bc44bef758a5"/><p id="345354de-5655-4226-8224-54b4be86a67e" class="">I live in a lovely house in <strong>Islington</strong> with some friends. I buy a lot of books on business and self-improvement but read at a slower rate than I buy so if you want to borrow a book, I have quite a few.</p><p id="7c9257d2-ac35-4ddb-b602-2cf63dfe9166" class="">I also sing a lot of<strong> blues music</strong>. You can see some <a href="https://danny.is/singing">here</a> and <a href="https://www.facebook.com/dannysmithmusic/videos/">here</a>. If you&#x27;re into blues and fancy a jam, I&#x27;m game 🎶</p><p id="7cbacb2d-1685-40a6-9d1a-92fed8915a7d" class="">
+</p><div id="1604f91d-c539-480d-bed6-4f5d3849a053" class="column-list"><div id="e46de252-a9ac-428a-8975-2ccb3a8d5ae3" style="width:50.000000000000014%" class="column"><figure id="524122f8-7cc0-4d9d-9e14-289bd3d5568b"><div class="source"><a href="https://soundcloud.com/dannysmithmusic">https://soundcloud.com/dannysmithmusic</a></div></figure></div><div id="1619d303-20d0-4f4e-aec4-300350777cce" style="width:50%" class="column"><figure id="30e6a6ed-fa63-4f7a-8ac6-55e60e0787c0"><a href="https://www.youtube.com/channel/UCZWFmFYsTjwm3afRude8zyw" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">dannysmithblues</div><div class="bookmark-description">Danny Smith plays guitar, harp &amp; sings blues, mainly in the south of England.</div></div><div class="bookmark-href"><img src="https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico" class="icon bookmark-icon"/>https://www.youtube.com/channel/UCZWFmFYsTjwm3afRude8zyw</div></div><img src="https://yt3.ggpht.com/a/AGF-l79IMUvS9zifjMG-d4Kn33oKIrpoXAm0ZIf2sA=s900-mo-c-c0xffffffff-rj-k-no" class="bookmark-image"/></a></figure><p id="b2748d17-f53d-4824-b926-34550e112e6e" class="">
+</p></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,702 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Recurring Team Meetings</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3da16d5e-7b13-4c0c-9e9f-e9e9ea2378ef" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🔄</span></div><h1 class="page-title">Recurring Team Meetings</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="38e14a51-193b-4975-a1d2-0b1384d7f0ac" class="">
+</p><p id="3f389436-e286-4780-b49d-ea3e223ee024" class="">Teams often choose to have recurring weekly or bi-weekly meetings which everyone on the team attends. In many companies, these are used to give status updates and generally &quot;catch up&quot;. Since we want to make the most of our limited synchronous time, it’s best to use these meetings for <strong>checking in</strong>, <strong>discussion</strong> and <strong>problem solving</strong>.</p><p id="1d46d415-efc5-4c96-85cd-54b52945257e" class="">The exact way these meetings are run will depend largely on their purpose and the team that’s running them, but here are a few general principles and best practices to help…</p><h2 id="1c714120-b597-4e84-894f-07ead5530702" class="block-color-pink">Key Principles</h2><hr id="eca33c2d-57cf-4dfc-bedf-3d5214f71675"/><p id="591324c4-9065-460b-ba58-b0304f6c04bb" class="">Synchronous team meetings provide an opportunity to be transparent, ask questions, give context to others and teach people. They&#x27;re generally about <strong>discussion</strong> and <strong>alignment</strong>.</p><p id="c27a5cbe-520a-43b5-8c44-80ae70f58519" class="">The atmosphere should generally be fairly relaxed and informal, though a facilitator should always be assigned to keep things on track.</p><p id="ca7252cd-d5b1-4b6c-8f44-f0e765dc847f" class="">
+</p><h3 id="8064e5fd-2c02-4f21-863c-439668edbdc9" class="block-color-purple">1️⃣ Avoid status updates</h3><hr id="2b77bbbb-8f8f-4786-8d42-2103df1fdd68"/><p id="4080e9c8-e293-47bf-84e6-fd65abcf47f1" class="">In distributed teams, synchronous face time is scarce. So we need to make the most of it. Don&#x27;t waste time with status updates that could be made asynchronously instead (see <a href="Asynchronous%20Status%20Meetings%20ff23d0ce547541e4accddd92d641f275.html"><span class="icon">🕝</span>Asynchronous Status Meetings</a>). If you must give an update, keep it short and sweet.</p><p id="5aefe185-e1bc-47af-ab2d-818b1e752fa8" class="">
+</p><h3 id="223f9379-98ef-40b5-af5f-e004081e33e4" class="block-color-purple">2️⃣ Always have a facilitator</h3><hr id="78b50485-46c9-46a4-81e8-10622bc1dfc9"/><p id="eb66469c-4a2e-4c5d-abca-b6679fd5ef67" class="">Always assign a facilitator. Their job is to guide the meeting in the right direction and keep it on track. They might:</p><ul id="70f20434-1b39-4eb3-842d-473ec2009168" class="bulleted-list"><li style="list-style-type:disc">Keep the agenda updated as the meeting progresses.</li></ul><ul id="9152e211-61ec-4772-851c-81473ae6d4c2" class="bulleted-list"><li style="list-style-type:disc">Ensure everyone is participating equally. This might mean explicitly asking for input from quiet people or gently interrupting very talkative people.</li></ul><ul id="dc13982a-5a05-4378-b18e-33ce233ddab9" class="bulleted-list"><li style="list-style-type:disc">Ensure any tasks identified are added to a task/action list (ideally by asking a participant to add it).</li></ul><ul id="41fdd399-9bc1-41a0-9e7b-07b122857800" class="bulleted-list"><li style="list-style-type:disc">Interrupt when someone is getting off track.</li></ul><ul id="a7ebf4d0-c080-41dd-a0be-3ff11301debe" class="bulleted-list"><li style="list-style-type:disc">Pose clarifying questions.</li></ul><p id="86eb1d41-8bf5-46b8-9f0b-cdf9fc462f52" class="">While it&#x27;s okay for the facilitator to take some notes, their attention should generally be on the meeting itself rather than the notes and we highly encourage participants take the notes. Participants should be encouraged to take notes collaboratively, and if you absolutely need someone to take detailed notes consider bringing someone into the meeting specifically to do that (or record it and take the notes afterwards).</p><p id="fe843953-ef80-43cb-ab54-9b17945a480a" class="block-color-gray">Note: Facilitating meetings well is a hard skill to <em>master</em>, but a little intentional practice is usually enough to make a big difference.</p><p id="34452e34-2f06-49d8-b73e-f3e773d9542c" class="">
+</p><h3 id="f21f4836-7a3b-435a-8a96-325d552ae703" class="block-color-purple">3️⃣ Stick to the same general outline for each meeting</h3><hr id="9c85071a-ad9d-4b0f-bda7-ffcb86203a6e"/><p id="c0230803-1ee0-402d-b30c-28f74734e6f9" class="">Humans are creatures of habit. If you stick to the same general format for every team meeting, participants will quickly get comfortable with the structure and rituals. This makes for smoother, more comfortable meetings.</p><p id="416c2c7e-eea9-49e2-b552-4abf5272468e" class="">
+</p><h3 id="96e089fb-d745-4785-b379-bd481d0d4b46" class="block-color-purple">4️⃣ Build an agenda <strong>before</strong> the meeting</h3><hr id="2a8b9314-f90f-4d31-92a4-736e848c477f"/><p id="786602ec-0730-4a8c-9731-264ad1506a35" class="">Just like updates should generally happen before the meeting, participants should have a chance to add to the agenda <strong>before the meeting</strong>. Share the meeting document with everyone in advance so they have a chance to do this.</p><p id="f8853215-be39-43d8-acd2-a9523152fa03" class="">
+</p><h3 id="86fab291-a3b0-4043-a050-1c75bd9d0330" class="block-color-purple">5️⃣ Join early for a chat</h3><hr id="2e0b5f48-a579-4bc3-8b6a-3276be57342a"/><p id="71e94e7d-a19e-43af-b8dc-4d761f21c4f9" class="">Unless you have &quot;social time&quot; specifically built into the agenda, encourage everyone to join a little early so you can say hello to each other and generally have a chat and <strong>still start on time</strong>. This often happens in real-life meetings where folks arrive early in the meeting room.</p><p id="219ab01d-a6bc-426a-9d0b-d3cbb9e3ec1b" class="">Alternatively, leave the zoom call open after the meeting has finished to achieve the same result.</p><p id="ac38f60b-47af-406f-bce7-e3669f4792b4" class="">
+</p><h3 id="887f7abf-5a9f-4663-8293-b38b29a549a0" class="block-color-purple">6️⃣ Record the call</h3><hr id="e4f5e47e-b301-4f91-bcee-12327a448dd7"/><p id="e8faa93f-38eb-43e1-95ff-052ecac9f9e9" class="">By recording the call and adding the video to the meeting notes, we can achieve two things:</p><ul id="af7608f7-7c5d-471a-89f5-be15d6402c29" class="bulleted-list"><li style="list-style-type:disc">There is a permanent record of what was said and decided, just in case someone needs more context than the notes can provide.</li></ul><ul id="f6c69fd3-50af-4518-a5db-4ffe3a5e4615" class="bulleted-list"><li style="list-style-type:disc"><strong>People who cannot attend</strong> can watch the whole meeting back (super important if you&#x27;re spread across distant timezones)</li></ul><p id="b9da240c-8836-4177-9961-3a7cd28ac754" class=""><mark class="highlight-gray">These recordings can also be a useful resource when reflecting on how to improve team meetings. We love documenting.</mark></p><p id="6cffc213-572c-4e62-836f-fbd176a7d484" class="">
+</p><h2 id="59a20bda-61a7-4dcd-9b62-267935d106e9" class="block-color-pink">What should team meetings include?</h2><hr id="8ad1dae9-d81c-406f-bf6e-13569376d4b3"/><p id="4dee3505-2bb0-4e85-8598-5b05c2cfb738" class="">One option is to use these recurring meetings as a fun group social event. Another is to use them for <strong>discussion and group problem solving</strong>. A good format for this looks might look something like...</p><p id="84f1a434-ec19-4736-ae14-ad86072866e1" class="">
+</p><ul id="d2436127-c421-403e-b167-8eefa43679f6" class="bulleted-list"><li style="list-style-type:disc"><strong>Start with a quick check-in</strong> - See <a href="Meeting%20Checkins%20b53c2408d1ff474488783732fec1aaf1.html"><span class="icon">💙</span>Meeting Checkins</a> </li></ul><ul id="a21c555d-464e-447e-a245-e5cceb67775b" class="bulleted-list"><li style="list-style-type:disc"><strong>Crowdsource an agenda</strong> - Take five minutes to crowdsource a <em>Main Issues List</em>. This is a list of things team members need help with or are worried about. Things for which the best next action is <span style="border-bottom:0.05em solid"><strong>discussion</strong></span><strong> with their team</strong>. <mark class="highlight-gray">(Ideally, do this before the meeting.)</mark></li></ul><ul id="bc32af47-5db3-41de-b85a-98c45858d2d6" class="bulleted-list"><li style="list-style-type:disc"><strong>Prioritise</strong> - Have a short discussion on priority and agree on one or two items that feel most valuable to discuss. </li></ul><ul id="8bc93574-3be8-41aa-a634-1930cb3c47fd" class="bulleted-list"><li style="list-style-type:disc"><strong>Discuss</strong> - Take the first item and dive into a discussion. Keep going until the person who proposed it is satisfied that they&#x27;ve got what they need. Repeat until you run out of items or time. </li></ul><p id="9f64b049-75c8-4300-a6e2-dc930143b306" class="">
+</p><p id="27dd2ba7-d6d9-4762-91ab-1bad89c2e497" class="">The beauty here is that we can harness the collective brainpower of our whole team, including folks who aren&#x27;t involved in the project being discussed. This can create some incredibly useful conversation, and as a side-effect will help create alignment, share knowledge and forge strong sense that <strong>the whole team is accountable for solving issues </strong><mark class="highlight-teal"><strong>together</strong></mark>.</p><p id="409e9826-2738-470c-9144-0046d69d8eef" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="7b88803f-ea9a-440d-acb0-03b2ed8c587c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">This model is loosely based on ideas from Gino Wickman&#x27;s book <strong>Traction</strong>.</div></figure><p id="2e73a46e-132f-4f21-82c4-8caa3e2c0221" class="">
+</p><h2 id="4fb01d2c-c0c2-498e-abed-3217bd787e51" class="block-color-pink">An Example</h2><hr id="c54baeeb-7dfe-4c5f-a9f2-980b99304299"/><p id="35bbab0e-ebe5-4ce5-b948-80d90bd6e700" class="">The video below gives an example of what a good team meeting template might look like and how it might be used. The example is built in Notion, but you could use Google Docs (or another tool) just as easily.</p><p id="b1b979d9-c138-4aba-b7cb-bd3cf766e27b" class="">
+</p><figure id="9818b5d6-5a1e-4614-bbbd-c312a2a6b63a"><div class="source"><a href="https://www.youtube.com/watch?v=UHnyDZgq_jg">https://www.youtube.com/watch?v=UHnyDZgq_jg</a></div></figure><p id="84401638-8fe4-4da3-a029-268af4f4453a" class="">
+</p><p id="297d0847-4484-412b-9c92-4310b1540ebe" class="">Here are the examples documents shown in the video:</p><p id="c7b340de-07aa-439c-868d-5d1abf63b4ae" class="">
+</p><figure id="6a44a731-f90a-4c92-a027-72f13fdbd075" class="link-to-page"><a href="Recurring%20Team%20Meetings%203da16d5e7b134c0c9e9fe9e9ea2378ef/Example%20Team%20Meeting%20Template%206a44a731f90a4c92a02772f13fdbd075.html"><span class="icon">📅</span>Example Team Meeting Template</a></figure><figure id="5e545242-c7a8-420e-8d18-fc84405a4c6e" class="link-to-page"><a href="Recurring%20Team%20Meetings%203da16d5e7b134c0c9e9fe9e9ea2378ef/Example%20Team%20Meeting%20Document%205e545242c7a8420e8d18fc84405a4c6e.html"><span class="icon">📅</span>Example Team Meeting Document</a></figure><p id="f6454377-de32-4c38-85a0-9fe3240cfb69" class="">
+</p><h2 id="3811ce6b-05dd-41d3-b69e-79de19c0f32b" class="block-color-pink">Scheduling Team Meetings</h2><hr id="12563eab-61d3-495f-b585-a257353ca7c1"/><p id="947f74a5-74a4-4400-8345-c53b499176d1" class="">Team meetings should generally be scheduled for the same day and time every week (or fortnight or month). This makes it easier for people to plan around them and helps establish a &quot;rhythm&quot;.</p><p id="65a4e2c6-0623-4c8c-9c6a-c76c0f960407" class="">However, if you have team members spread across timezones with very little overlap you may need to schedule them during unsociable hours for some people. If you have to schedule a meeting that is very early or late for some team members, consider alternating time-slots so that it&#x27;s not always the same people who are inconvenienced by this.</p><p id="3d2fb6e6-d76a-4046-8ab9-44e844aab4b7" class="">Read more on this in <a href="Choosing%20a%20Time%20for%20Meetings%20b65231f40ce249dbbc491417dc4c1779.html"><span class="icon">🧮</span>Choosing a Time for Meetings</a>.</p><p id="894749e2-2736-49a3-af01-eae05e1f6909" class="">
+</p><h2 id="3f20293f-cd73-4c50-bb07-6d2b2c46130a" class="block-color-pink">Summary &amp; Key Points</h2><hr id="f4f3ff05-5206-493b-aba5-cc79cad206d6"/><p id="70d725ab-5381-4269-9da0-45f576173641" class="">Regular, synchronous team meetings are important for keeping the team aligned and on the same page. They&#x27;re also important tools for discussing problems. The actual format will depend on the team&#x27;s needs but the principles you&#x27;ve learned in this article will help you to make them more effective for remote teams.</p><p id="24dbd626-7178-40a2-9db5-5b3679f78d05" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="cce9d00d-7406-42ba-b385-d1e92ad890e4"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Reflection</strong> <strong>Exercise:</strong> Think back to any great in-person team meetings you&#x27;ve attended. Write a list of the things that made them great.
+
+Now think about any great remote team meetings you&#x27;ve attended. Write a list of the things that made them great.
+
+Reflect on your two lists. Which things are common to both remote and real-life meetings? What things aren&#x27;t?
+
+<mark class="highlight-gray">If you&#x27;ve never attended any meetings that felt great, do the same but for really bad meetings - what could have improved them?</mark></div></figure><p id="eaac4b5a-ded4-4f9d-93b4-66a1a019e901" class="">
+</p><h2 id="1dd25b4c-209d-4897-89a4-1e88bca4e21d" class="block-color-pink">Further Reading</h2><hr id="bde270ee-dd45-44cb-ba12-8d4f7fbfb64d"/><div id="56eda067-506b-4d4b-8170-c64737e47c72" class="column-list"><div id="2bc15151-083d-49c1-8947-6cb379f569ba" style="width:50%" class="column"><figure id="1d7a1c9e-ce36-4e4c-b4cd-95b332ac880b"><div class="source"><a href="https://youtu.be/8Z0CDSuTk0A">https://youtu.be/8Z0CDSuTk0A</a></div></figure><figure id="74d9a167-182f-4d4f-848f-2836f216a841"><a href="https://slack.com/intl/en-gb/blog/collaboration/ultimate-guide-remote-meetings" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The ultimate guide to remote meetings in 2020</div><div class="bookmark-description">Choosing the right tools for the job How to identify which tools you need to succeed-and why audio and video are non-negotiable. Laying the foundation for successful virtual meetings with a virtual watercooler How encouraging casual team conversations between meetings can make your actual meetings more productive.</div></div><div class="bookmark-href"><img src="https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png" class="icon bookmark-icon"/>https://slack.com/intl/en-gb/blog/collaboration/ultimate-guide-remote-meetings</div></div><img src="https://d34u8crftukxnk.cloudfront.net/slackpress/prod/sites/6/2018-11_DeBara_RemoteWork_Unfurl.jpg" class="bookmark-image"/></a></figure><figure id="258d822d-9377-45b7-bd7e-87fd966b1d91"><a href="https://miro.com/blog/engaging-remote-meetings/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">16 secrets of engaging remote meetings</div><div class="bookmark-description">Explore the list of 16 golden rules complemented with real business advice &amp; tips to facilitate remote meetings and make them engaging.</div></div><div class="bookmark-href"><img src="https://miro.com/static/favicons/favicon.ico?v=PYeyd9e4yE" class="icon bookmark-icon"/>https://miro.com/blog/engaging-remote-meetings/</div></div><img src="https://miro.com/blog/wp-content/uploads/2017/06/8.-16-secrets-of-engaging-remote-meetings-1.png" class="bookmark-image"/></a></figure></div><div id="53d5ec4a-c2c9-421a-93c3-c569ceddfdb4" style="width:50%" class="column"><figure id="86db7d6e-beb1-4291-9d33-aadabd8f875e"><div class="source"><a href="https://youtu.be/FQpnxpr4VEY">https://youtu.be/FQpnxpr4VEY</a></div></figure><figure id="4f519f31-4d53-4690-814d-d74f724983e7"><div class="source"><a href="https://youtu.be/-XlPTgxptoA">https://youtu.be/-XlPTgxptoA</a></div></figure></div></div><figure id="61972238-6816-4101-beb2-582fc51a288f"><a href="https://blog.sli.do/remote-meetings-tips/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">27 Tips For Effective Remote Meetings - Slido Blog</div><div class="bookmark-description">Nothing beats the personal touch but sometimes, meeting remotely is the only way. In the face of the coronavirus pandemic, many companies have switched to remote meetings to keep their employees safe. Meeting in the virtual space, however, comes with certain challenges.</div></div><div class="bookmark-href"><img src="https://blog.sli.do/wp-content/themes/slido-blog-parent/images/favicons/favicon-32x32.png" class="icon bookmark-icon"/>https://blog.sli.do/remote-meetings-tips/</div></div><img src="https://blog.sli.do/wp-content/uploads/2020/03/25-tips-social.jpg" class="bookmark-image"/></a></figure><p id="4ff9a325-3711-4a17-b649-a1bb68d775be" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Daily Standups</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9b659c77-4fd7-407e-b905-04054528be53" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">💁</span></div><h1 class="page-title">Daily Standups</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="3a0d3433-8061-41c5-8690-cf5213076376" class="">
+</p><p id="ed5d375f-0284-449c-853d-97046518b2fc" class="">The sole goal of a daily stand-up is <strong>alignment</strong> between team members. We&#x27;re aiming to make sure that everyone in the team is aware of what everyone else is working on, as well as identifying any problems or <em>blockers</em> that need resolving.</p><p id="13929ce1-1ed2-479a-ae96-6990c3c77399" class="">In a traditional co-located team, the daily standup will usually happen by the physical task board. The whole team will gather by the board and each team member will answer the following questions in turn:</p><p id="356ed186-2118-4e8b-aca8-5e32f7ae7e9e" class="">
+</p><ol type="1" id="9be0eb80-bcd9-46cc-ba84-eac1d61e01b3" class="numbered-list" start="1"><li>What have I done since last stand-up?</li></ol><ol type="1" id="0fa058e8-6d9a-45ed-8ac1-9f7bf87edc06" class="numbered-list" start="2"><li>What am I planning to do before next stand-up?</li></ol><ol type="1" id="832d866f-68e3-49a5-a11d-b5f1a9d6aa27" class="numbered-list" start="3"><li>Anything that&#x27;s blocking my work right now.</li></ol><p id="454b4c0f-f5f7-4e96-9c9d-44d9bfcf4db6" class="">
+</p><p id="d19bd08c-a3e4-46cc-a1cd-c2daafe45897" class="">These three questions provide a brief update on what everyone is working on and current progress on tasks. The third question provides an opportunity to raise blockers with the whole team, so they can be dealt with quickly.</p><p id="30721bc9-bf07-437c-84d9-9bb6a01ea89a" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="4736f8f0-4145-4ae4-946f-2f31881e5d11"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">They&#x27;re called  &quot;stand-ups&quot; because (in a co-located environment) everyone stands up around the task board. This helps keep the meetings <strong>short and sharp</strong>. </div></figure><p id="15841b86-e272-4141-88e2-14612eac6a44" class="">
+</p><p id="dcb47eb7-d689-4fd1-9e68-51e998f92c7d" class="">In a distributed team it&#x27;s not possible to all gather around the task board for a daily stand-up, so we need to think about what standups are trying to achieve... how to we keep the team <strong>aligned</strong> and <strong>informed</strong>?</p><p id="2176781c-3ef2-430f-9065-7d967db0aa78" class="">
+</p><figure id="5af38ae0-d24e-41bb-9e25-2ccfbcb90000"><div class="source"><a href="https://youtu.be/er9gntPjTJU">https://youtu.be/er9gntPjTJU</a></div></figure><p id="e2880bb8-9ab0-4642-90e1-3a10028bf4c4" class="">
+</p><h2 id="d8ac08b1-1ee9-4e4e-9c7e-fa0554f69797" class="block-color-pink">Synchronous standups</h2><hr id="4e485913-5310-4774-a481-34ea7d068561"/><p id="0370a21f-7aa9-457d-8612-d31113721993" class="">If you work with people in a similar timezone you can run synchronous standups via zoom. Just like physical standups, these should be very short (&lt; 10 mins) meetings that happen at the same time every day. The format is simple... each person answers the three questions above.</p><p id="e13d9f91-9401-45e3-89f9-3977dca8ddde" class="">The key here is to keep theses calls as <strong>short as possible</strong>.</p><p id="aedaaba1-2d51-40e4-ba3c-dbf55b79d895" class="">
+</p><h2 id="a81652d8-f924-40bd-9f16-a522100797a0" class="block-color-pink">Asynchronous standups</h2><hr id="43791233-42d6-4447-8e91-64eb56dd445c"/><p id="4a5728b2-4f64-42d5-91b7-25e5c817815a" class="">In fully distributed teams it&#x27;s impossible to hold daily synchronous standups. Instead, we should aim to rely on the effective use of <a href="Task%20Boards%2016cccbe606b94f00a3d5581b8b08c976.html"><span class="icon">📋</span>Task Boards</a>  and async chat to communicate what we&#x27;re working on and where we&#x27;re blocked.</p><p id="49f01158-9a72-4313-9e28-80649a23b3b1" class="">Some distributed teams use tools like <a href="https://www.troopr.ai/slack-standup-bot">Troopr</a> to run standups via Slack, where everyone answers the three questions asynchronously.</p><p id="9814b059-2690-4643-a2dc-5ce52db04324" class="">Other asynchronous companies assume that the answers to the three questions are clearly communicated via task boards, and dedicate their standups to forming social bonds by saying &quot;Hello and good morning&quot;.</p><p id="b8e030fd-20b8-42c8-bec4-77728d67ea1c" class="">Every company will have a different approach to running daily standups, but the one thing they will al have in common is the goal of keeping team members <strong>aligned</strong> and <strong>informed</strong> about what&#x27;s happening in the team.</p><p id="b4b284cf-6566-41e4-8c21-cde665ab1ea4" class="">
+</p><h2 id="eb8a3235-5c55-421e-8ea6-2a6bd35a0f81" class="block-color-pink">Further Reading</h2><hr id="06c92c2f-c8db-4b1d-b1dc-69cc9da9439c"/><figure id="37b9b38a-bc93-4411-a1ee-10d3c2c86fce"><div class="source"><a href="https://youtu.be/i7_RPceEIYE">https://youtu.be/i7_RPceEIYE</a></div></figure><figure id="fdbb6aab-63b4-415b-a950-629ae64fae82"><a href="http://agilify.co.uk/resources/the-daily-stand-up-challenge/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The Daily Stand-Up Challenge - Agilify</div><div class="bookmark-description">Each card describes a challenge designed to develop skills in listening, observation, and being present for the duration of the meeting. And of course... to HAVE SOME FUN!</div></div><div class="bookmark-href"><img src="https://www.agilify.co.uk/wp-content/themes/agilify/images/favicons/favicon-16x16.png" class="icon bookmark-icon"/>http://agilify.co.uk/resources/the-daily-stand-up-challenge/</div></div><img src="https://www.agilify.co.uk/wp-content/uploads/2020/03/daily-standup-challenge.jpg" class="bookmark-image"/></a></figure><figure id="d4988648-6690-4e1f-88c0-17732f4ca34d"><a href="https://geekbot.com/blog/daily-standup-meeting/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Daily Standup Meetings: Everything You Need to Know (Standup Agenda, Purpose, Common Pitfalls, and More!)</div><div class="bookmark-description">Our engineering team has been running standups everyday since 2009. From our own experience, and through our talks with some of Geekbot&#x27;s 60,000 users, we noticed a set of frequent/repeating questions that many teams have about daily standup meetings.</div></div><div class="bookmark-href"><img src="https://geekbot.com/favicon.ico" class="icon bookmark-icon"/>https://geekbot.com/blog/daily-standup-meeting/</div></div><img src="https://geekbot.com/blog/wp-content/uploads/2019/01/Daily-Standup-Meetings-Comprehensive-Guide.jpg" class="bookmark-image"/></a></figure><figure id="0d2fda37-e14f-4151-9cc5-b033dd4c9e9f"><a href="https://miro.com/blog/how-scrum-masters-use-miro-daily-standups/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Scrum Standups: Make Remote Daily Standups Easy with Miro</div><div class="bookmark-description">Run better daily standups, even if you have remote team members. Get a step-by-step walk-through of how to bring a team together for an effective standup.</div></div><div class="bookmark-href"><img src="https://miro.com/static/favicons/favicon.ico?v=PYeyd9e4yE" class="icon bookmark-icon"/>https://miro.com/blog/how-scrum-masters-use-miro-daily-standups/</div></div></a></figure><figure id="2e68bc9d-1509-4bf8-94ba-1c4c0a557cc9"><a href="https://blog.prototypr.io/working-from-home-how-to-run-a-short-focused-and-energetic-daily-team-stand-up-remotely-2040ac06a5e6" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Working from home - How to run a short, focused and energetic daily team stand-up remotely</div><div class="bookmark-description">As more and more and designers join distributed teams and begin to work remotely, the need for team members to stay connected, maintain transparency, and foster collaboration is both a necessity and a challenge.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/fit/c/256/256/1*qyQKDMMD6-X_8biF_U-N-g.png" class="icon bookmark-icon"/>https://blog.prototypr.io/working-from-home-how-to-run-a-short-focused-and-energetic-daily-team-stand-up-remotely-2040ac06a5e6</div></div><img src="https://miro.medium.com/max/1200/1*W74f33_8OmQKoLmQfcEdeQ.png" class="bookmark-image"/></a></figure><figure id="75c04a5f-00d4-48b5-b0ba-e06f87758f15"><a href="http://blog.idonethis.com/ultimate-guide-remote-standups/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The Ultimate Guide to Remote Standups</div><div class="bookmark-description">by Jimmy Daly Remote work is growing fast in the United States. According to a FlexJobs report, 3.9 million Americans work from home at least half the time, which represents a 115% increase from 2005.</div></div><div class="bookmark-href"><img src="http://blog.idonethis.com/wp-content/uploads/2016/02/cropped-logo-red@512-192x192.png" class="icon bookmark-icon"/>http://blog.idonethis.com/ultimate-guide-remote-standups/</div></div><img src="http://blog.idonethis.com/wp-content/uploads/2019/01/12312-01-683x1024.png" class="bookmark-image"/></a></figure><p id="873263a9-83b3-4d7b-8d59-0f1ea33d4432" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

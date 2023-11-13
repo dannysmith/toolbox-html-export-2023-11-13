@@ -1,0 +1,681 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Games for Remote Teams</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="510588f2-1cba-4bff-9038-24539d0cf5db" class="page sans"><header><img class="page-cover-image" src="Creating,%20Managing%20and%20Archiving%20Slack%20Channels%200065968aa76f497ba2d59d4e9ca522c1/Toolbox_Header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🕹️</span></div><h1 class="page-title">Games for Remote Teams</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="25c1e396-adcd-47c0-ade8-0861bce2b578"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/info-alternate_yellow.svg"/></div><div style="width:100%">This page is part of <a href="https://www.notion.so/The-Toolbox-d50a0bf1af6242ddab71dd1d84683f0b?pvs=21"><span class="icon">🧰</span>The Toolbox</a> by <mark class="highlight-red"><a href="https://www.linkedin.com/in/dannyasmith/"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Danny Smith</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a></mark>.</div></figure></div><p id="b5fa7cca-465d-438c-8f58-1d978862e11f" class="">
+</p><p id="63479470-ed29-43e0-94c3-b18a03583389" class="">Playing games together is a great way for teams to bond and have a bit of fun. It’s easy to include some short, remote-friendly games into the agenda for Team Meetings (<a href="Recurring%20Team%20Meetings%203da16d5e7b134c0c9e9fe9e9ea2378ef.html"><span class="icon">🔄</span>Recurring Team Meetings</a>), longer workshops (<a href="Workshops%20&amp;%20Brainstorming%20Sessions%20498acde23e074bf5897d52590a7b8b08.html"><span class="icon">🧠</span>Workshops &amp; Brainstorming Sessions</a>) and All Hands meetings (<a href="All%20Hands%20Meetings%20cc09365f58e249d5a38923c9a1610611.html"><span class="icon">🙌</span>All Hands Meetings</a>).</p><p id="aed023ff-7dba-40b3-bc79-1ad5db63e2be" class="">Working together on fun, non-work problems is a powerful way to improve team collaboration, critical thinking and fast, shared decision-making. And it obviously helps build camaraderie and a sense of team.</p><p id="84bcbcc9-30ca-4836-b02b-d79bc08459b2" class="">Depending on how they’re designed, games like these can be used for:</p><ol type="1" id="3bab1a2f-e5a3-4372-8fd2-c7933689b701" class="numbered-list" start="1"><li><mark class="highlight-purple"><strong>Pure fun</strong></mark> - Just play some games with the rest of your team.</li></ol><ol type="1" id="5ab33d00-1279-4977-b578-debd3493c24e" class="numbered-list" start="2"><li><mark class="highlight-purple"><strong>Learning through play</strong></mark> - Use team games to learn about each other or a specific topic.</li></ol><ol type="1" id="49c8dbbe-002b-4367-90a6-53a913f7b059" class="numbered-list" start="3"><li><mark class="highlight-purple"><strong>Solving through play</strong></mark> - Use games to explore a problem together.</li></ol><p id="911b569e-60e1-4e48-a974-86f832e52e90" class="">
+</p><h2 id="b94258a3-1261-476e-9891-4ed1edc11741" class="block-color-pink">Top Tips</h2><hr id="5eef020e-ec0f-431a-88a1-f2d4be99cea2"/><ul id="3e1e8038-d792-46d2-ad71-5d1a765747f5" class="bulleted-list"><li style="list-style-type:disc"><strong>Always</strong> have someone prepare and facilitate the gameshop.</li></ul><ul id="6dbc8716-cacf-47b0-8957-55ef8736a8f1" class="bulleted-list"><li style="list-style-type:disc"><strong>Don&#x27;t overcomplicate</strong> it or try to do too much.</li></ul><ul id="6d8f802e-48e3-4c54-8e3e-88660dc26f13" class="bulleted-list"><li style="list-style-type:disc">Use <strong>breakout rooms</strong> as needed.</li></ul><ul id="03ec3d33-d182-4d44-8679-c13f47b634ba" class="bulleted-list"><li style="list-style-type:disc">Encourage drinks, snacks, pets and laughing 😆</li></ul><p id="d7dfc872-5d25-48be-9781-e6b345b0a667" class="">
+</p><h2 id="9a20aa6f-b2d8-44c7-aa8a-7952bff96815" class=""><mark class="highlight-pink">Resources</mark></h2><hr id="c714fe8f-424b-420b-8ddf-99cbdc52dd15"/><p id="3cd3d5d6-ab5d-43e1-a848-688826cf38a4" class="">Here are a few games and resources that might help…</p><p id="aac6c59c-f9cc-477f-b39f-4c4fb726b253" class="">
+</p><div id="ac09f696-e295-4fea-b5a9-c55192c33475" class="collection-content"><h4 class="collection-title">Resources</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>Link</th></tr></thead><tbody><tr id="6a999bc6-4c25-45da-abb8-bfd197b561f7"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Skribbl%206a999bc64c2545daabb8bfd197b561f7.html"><span class="icon">✏️</span>Skribbl</a></td><td class="cell-m&lt;nB"><a href="https://skribbl.io/" class="url-value">https://skribbl.io/</a></td></tr><tr id="e46f486a-9701-4764-a3c4-4d8aff19fdfc"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Geoguessr%20e46f486a97014764a3c44d8aff19fdfc.html"><span class="icon">🌍</span>Geoguessr</a></td><td class="cell-m&lt;nB"><a href="https://geoguessr.com/" class="url-value">https://geoguessr.com/</a></td></tr><tr id="8c10f7e3-d6a4-4b26-9671-43d262504dda"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Codenames%208c10f7e3d6a44b26967143d262504dda.html"><span class="icon">👤</span>Codenames</a></td><td class="cell-m&lt;nB"><a href="https://codenames.game" class="url-value">https://codenames.game</a></td></tr><tr id="afd54f9a-e83d-417f-8489-eeb0485dddff"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Taboo%20afd54f9ae83d417f8489eeb0485dddff.html"><span class="icon">🗣️</span>Taboo</a></td><td class="cell-m&lt;nB"><a href="https://playtaboo.com/playpage" class="url-value">https://playtaboo.com/playpage</a></td></tr><tr id="2c1c9814-b6ec-4098-b9b2-5ec3894c6e9e"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Kahoot%20com%20Kahoot%20it%202c1c9814b6ec4098b9b25ec3894c6e9e.html"><span class="icon">🤔</span>Kahoot.com / Kahoot.it</a></td><td class="cell-m&lt;nB"><a href="https://kahoot.it/" class="url-value">https://kahoot.it/</a></td></tr><tr id="2a822916-b46d-417d-9936-d21120fee97b"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Gartic%20Phone%202a822916b46d417d9936d21120fee97b.html"><span class="icon">☎️</span>Gartic Phone</a></td><td class="cell-m&lt;nB"><a href="https://garticphone.com/" class="url-value">https://garticphone.com/</a></td></tr><tr id="ee0d6fa8-fa04-4b29-b5f0-c966235b6fed"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Decryptr%20ee0d6fa8fa044b29b5f0c966235b6fed.html"><span class="icon">👩🏽‍💻</span>Decryptr</a></td><td class="cell-m&lt;nB"><a href="https://www.decryptr.io/" class="url-value">https://www.decryptr.io/</a></td></tr><tr id="19a0a6fc-a793-42c7-ad42-a3acc19f8121"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Spyfall%2019a0a6fca79342c7ad42a3acc19f8121.html"><span class="icon">🕵🏻‍♀️</span>Spyfall</a></td><td class="cell-m&lt;nB"><a href="https://www.spyfall.app/" class="url-value">https://www.spyfall.app/</a></td></tr><tr id="a1e07103-08c2-4e1f-b3b1-57558665b03b"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Recounter%20a1e0710308c24e1fb3b157558665b03b.html"><span class="icon">📖</span>Recounter</a></td><td class="cell-m&lt;nB"><a href="https://www.outofcontext.party/" class="url-value">https://www.outofcontext.party/</a></td></tr><tr id="23feb96d-6c7f-4d8a-8046-bfa27fa59b85"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Dixit%2023feb96d6c7f4d8a8046bfa27fa59b85.html"><span class="icon">🖼️</span>Dixit</a></td><td class="cell-m&lt;nB"><a href="https://play-dixit.online/en/" class="url-value">https://play-dixit.online/en/</a></td></tr><tr id="e2c51bce-4302-4d2f-ad89-3fa425656edd"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Longwave%20e2c51bce43024d2fad893fa425656edd.html"><span class="icon">🗝️</span>Longwave</a></td><td class="cell-m&lt;nB"><a href="https://longwave.web.app" class="url-value">https://longwave.web.app</a></td></tr><tr id="65f2f780-e968-4424-8979-f7045abe3d5c"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Interrogation%2065f2f780e96844248979f7045abe3d5c.html"><span class="icon">🕵🏻‍♂️</span>Interrogation</a></td><td class="cell-m&lt;nB"><a href="http://interrogation.ftwinston.com" class="url-value">http://interrogation.ftwinston.com</a></td></tr><tr id="6e6bbec7-9753-4155-b162-1125c270d54d"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Coup%206e6bbec797534155b1621125c270d54d.html"><span class="icon">🐔</span>Coup</a></td><td class="cell-m&lt;nB"><a href="https://www.chickenkoup.com" class="url-value">https://www.chickenkoup.com</a></td></tr><tr id="2db26f6c-755b-4e3d-a682-34973fd15f5e"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Gamestorming%202db26f6c755b4e3da68234973fd15f5e.html"><span class="icon">🌩️</span>Gamestorming</a></td><td class="cell-m&lt;nB"><a href="https://gamestorming.com/" class="url-value">https://gamestorming.com/</a></td></tr><tr id="ba945c34-cf91-4df3-882b-7ff05abb52bc"><td class="cell-title"><a href="Games%20for%20Remote%20Teams%20510588f21cba4bff903824539d0cf5db/Resources%20ac09f696e2954feab5a9c55192c33475/Toolbox%20Toolbox%20ba945c34cf914df3882b7ff05abb52bc.html"><span class="icon">🧰</span>Toolbox Toolbox</a></td><td class="cell-m&lt;nB"><a href="https://toolboxtoolbox.com" class="url-value">https://toolboxtoolbox.com</a></td></tr></tbody></table><br/><br/></div><p id="abadbb4b-736a-4341-8b91-db34a9f5b153" class="">
+</p><h2 id="9bc2376f-752e-4cc1-92cf-e0454bc1e2c1" class="block-color-pink">Further Reading</h2><hr id="64be5a91-2b11-4f39-8a27-422145fe64a6"/><figure id="ddadecb2-fd4c-45f0-b549-732fb9830348"><a href="https://www.atlassian.com/blog/teamwork/video-games-can-help-your-team-work-smarter-no-seriously" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How video games can help your team work smarter - Work Life by Atlassian</div><div class="bookmark-description">5-second summary Research shows that playing video games with your coworkers can build community and strengthen team effectiveness. Newly formed teams that played video games together for just 45 minutes were 20 percent more productive than those that engaged in more traditional team-building exercises.</div></div><div class="bookmark-href"><img src="https://i0.wp.com/atlassianblog.wpengine.com/wp-content/uploads/2017/10/android-chrome-256x256.png?fit=192%2C192&amp;ssl=1" class="icon bookmark-icon"/>https://www.atlassian.com/blog/teamwork/video-games-can-help-your-team-work-smarter-no-seriously</div></div><img src="https://3kllhk1ibq34qk6sp3bhtox1-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/brand-5095-t1-blog-illustration-video-games-1120x545-@2x.png" class="bookmark-image"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
